@@ -1,0 +1,91 @@
+#Drace test results on 2006-08-05.
+
+cat drace_test_results.txt | grep FAIL | wc -l
+#     216
+
+cat drace_test_results.txt | grep FAIL | grep -v "Paraphrase not supported" | wc -l
+#      52
+
+cat drace_test_results.txt | grep FAIL | grep -v "Paraphrase not supported" | grep -v ":" | wc -l
+#      31
+
+
+
+#Some bugs discovered on 2007-11-14:
+
+#1) A man's man waits. The man is happy. (APE bug)
+
+#2) Not less than 5 men wait. (Maybe APE bug)
+
+#3) 001110 [FAIL] A man sees his own dog and his own cat. --> A man X1 sees a dog of the man X1 and a cat of the man X1. (Paraphraser bug)
+
+
+
+# Drace test results on 2007-12-15.
+
+cat drace_test_results.txt | grep FAIL | wc -l
+     227
+
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | wc -l
+      85
+
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | grep -v "each of" | wc -l
+      63
+
+
+# Drace test results on 2007-12-17.
+
+cat drace_test_results.txt | grep FAIL | wc -l
+     216
+
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | wc -l
+      88
+
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | grep -v "each of" | wc -l
+      66
+
+
+# Drace test results on 2008-02-27
+
+cat drace_test_results.txt | grep FAIL | wc -l
+     279
+
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | wc -l
+      53
+
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | grep -v "each of" | wc -l
+      53
+
+
+# Core ACE verbalizer test results on 2008-08-19
+# (Test case count, FAIL count, buggy paraphrase count.)
+
+cat drace_test_results.txt | grep "^00" | wc -l
+    3094
+
+cat drace_test_results.txt | grep FAIL | wc -l
+     284
+
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | wc -l
+      46
+
+
+# Core ACE verbalizer test results on 2008-10-07
+# (Test case count, FAIL count, buggy paraphrase count.)
+
+cat drace_test_results.txt | grep "^00" | wc -l
+    3135
+cat drace_test_results.txt | grep FAIL | wc -l
+     270
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | wc -l
+      46
+
+# Core ACE verbalizer test results on 2008-12-04
+# (Test case count, FAIL count, buggy paraphrase count.)
+
+cat drace_test_results.txt | grep "^00" | wc -l
+	3151 
+cat drace_test_results.txt | grep FAIL | wc -l
+	256
+cat drace_test_results.txt | grep FAIL | grep -v "NOT IMPLEMENTED" | wc -l
+	47

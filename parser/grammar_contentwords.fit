@@ -1,0 +1,1625 @@
+%% This file is part of the Attempto Parsing Engine (APE).
+%% Copyright 2008-2011, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
+%%
+%% The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
+%% under the terms of the GNU Lesser General Public License as published by the Free Software
+%% Foundation, either version 3 of the License, or (at your option) any later version.
+%%
+%% The Attempto Parsing Engine (APE) is distributed in the hope that it will be useful, but WITHOUT
+%% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+%% PURPOSE. See the GNU Lesser General Public License for more details.
+%%
+%% You should have received a copy of the GNU Lesser General Public License along with the Attempto
+%% Parsing Engine (APE). If not, see http://www.gnu.org/licenses/.
+
+
+%%==============================================================================
+%% APE Content Words
+%%
+%% This interface describes content words, i.e. adverbs, adjectives, nouns,
+%% proper names and verbs.
+%%
+%% Authors:
+%% Kaarel Kaljurand
+%% Tobias Kuhn
+%%==============================================================================
+
+:- module(grammar_contentwords, []).
+
+:- use_module(grammar_words).
+:- use_module('../lexicon/lexicon_interface').
+:- use_module('../lexicon/functionwords').
+:- use_module('../lexicon/chars').
+
+
+%==============================================================================
+% \section{Content Words}
+%==============================================================================
+
+% Content words are defined in the lexicon. The users can add their own words.
+
+%==============================================================================
+% \subsection{Adverbs}
+%==============================================================================
+
+%-200--------------------------------------------------------------------------
+% Adverb[+POS] -->
+%	_PositiveAdverb_
+%
+% Example: fast
+% Example: frequently
+%------------------------------------------------------------------------------
+
+adv_avm :=
+		lexem!Lexem &
+		sem!index!E &
+		syn!head!degree!<pos &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!mods!in!drs(Dom, Conds) &
+		drs!mods!out!drs(Dom, [modifier_adv(E, Lexem, pos)-SID/TID | Conds]).
+
+%% without prefix
+adverb(
+		@adv_avm &
+		display!tree![adv, WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word(WordForm, adv(WordForm, Word)).
+
+%% with prefix
+adverb(
+		@adv_avm &
+		display!tree![adv, Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-201--------------------------------------------------------------------------
+% Adverb[+COMP] -->
+%	_ComparativeAdverb_
+%
+% Adverb[+COMP] -->
+%	more _PositiveAdverb_
+%
+% Example: faster
+% Example: more frequently
+%------------------------------------------------------------------------------
+
+adv_comp_avm :=
+		lexem!Lexem &
+		sem!index!E &
+		syn!head!degree!<comp &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!mods!in!drs(Dom, Conds) &
+		drs!mods!out!drs(Dom, [modifier_adv(E, Lexem, comp)-SID/TID | Conds]).
+
+%% without "more"
+adverb(
+		@adv_comp_avm &
+		display!tree![adv, WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, adv_comp(WordForm, Word)).
+
+%% with "more"
+adverb(
+		@adv_comp_avm &
+		display!tree![adv, more, WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(more),
+	get_position(TID),
+	word_noninitial(WordForm, adv(WordForm, Word)).
+
+%% with "more" and prefix
+adverb(
+		@adv_comp_avm &
+		display!tree![adv, more, Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(more),
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-202--------------------------------------------------------------------------
+% Adverb[+SUP] -->
+%	_SuperlativeAdverb_
+%
+% Adverb[+SUP] -->
+%	most _PositiveAdverb_
+%
+% Example: fastest
+% Example: most frequently
+%------------------------------------------------------------------------------
+
+adv_sup_avm :=
+		lexem!Lexem &
+		sem!index!E &
+		syn!head!degree!<sup &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!mods!in!drs(Dom, Conds) &
+		drs!mods!out!drs(Dom, [modifier_adv(E, Lexem, sup)-SID/TID | Conds]).
+
+%% without "most"
+adverb(
+		@adv_sup_avm &
+		display!tree![adv, WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, adv_sup(WordForm, Word)).
+
+%% with "most"
+adverb(
+		@adv_sup_avm &
+		display!tree![adv, most, WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(most),
+	get_position(TID),
+	word_noninitial(WordForm, adv(WordForm, Word)).
+
+%% with "most" and prefix
+adverb(
+		@adv_sup_avm &
+		display!tree![adv, most, Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(most),
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%==============================================================================
+% \subsection{Intransitive Adjectives}
+%==============================================================================
+
+%-203--------------------------------------------------------------------------
+% IntransitiveAdjective[+POS] -->
+%	_PositiveIntransitiveAdjective_
+%
+% Example: rich
+% Example: expensive
+%------------------------------------------------------------------------------
+
+%% without "as"
+adj_itr_avm :=
+		lexem!Lexem &
+		syn!head!degree!<pos &
+		syn!nonlocal!comparison!<minus &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, pos)-SID/TID | Conds]).
+
+%% with "as"
+adj_itr_avm :=
+		lexem!Lexem &
+		syn!head!degree!<pos &
+		syn!nonlocal!comparison!<plus &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		sem!arg3!Z &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, pos_as, Z)-SID/TID | Conds]).
+
+%% without prefix
+itr_adjective(
+		@adj_itr_avm &
+		display!tree![adj, WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, adj_itr(WordForm, Word)).
+
+%% with prefix
+itr_adjective(
+		@adj_itr_avm &
+		display!tree![adj,Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-204--------------------------------------------------------------------------
+% IntransitiveAdjective[+COMP] -->
+%	_ComparativeIntransitiveAdjective_
+%
+% IntransitiveAdjective[+COMP] -->
+%	more _PositiveIntransitiveAdjective_
+%
+% Example: richer
+% Example: more expensive
+%------------------------------------------------------------------------------
+
+%% without "than"
+adj_itr_comp_avm :=
+		lexem!Lexem &
+		syn!head!degree!<comp &
+		syn!nonlocal!comparison!<minus &
+		sem!arg1!X &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, comp)-SID/TID | Conds]).
+
+%% with "than"
+adj_itr_comp_avm :=
+		lexem!Lexem &
+		syn!head!degree!<comp &
+		syn!nonlocal!comparison!<plus &
+		sem!arg1!X &
+		sem!arg3!Z &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, comp_than, Z)-SID/TID | Conds]).
+
+%% without "more"
+itr_adjective(
+		@adj_itr_comp_avm &
+		display!tree![adj,WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, adj_itr_comp(WordForm, Word)).
+
+%% without "more", with prefix
+itr_adjective(
+		@adj_itr_comp_avm &
+		display!tree![adj,Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+%% with "more"
+itr_adjective(
+		@adj_itr_comp_avm &
+		display!tree![adj,more,WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(more),
+	get_position(TID),
+	word_noninitial(WordForm, adj_itr(WordForm, Word)).
+
+%% with "more" and prefix
+itr_adjective(
+		@adj_itr_comp_avm &
+		display!tree![adj,more,Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(more),
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-205--------------------------------------------------------------------------
+% IntransitiveAdjective[+SUP] -->
+%	_SuperlativeIntransitiveAdjective_
+%
+% IntransitiveAdjective[+SUP] -->
+%	most _SuperlativeIntransitiveAdjective_
+%
+% Example: richest
+% Example: most expensive
+%------------------------------------------------------------------------------
+
+adj_itr_sup_avm :=
+		lexem!Lexem &
+		syn!head!degree!<sup &
+		syn!nonlocal!comparison!<minus &
+		sem!arg1!X &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, sup)-SID/TID | Conds]).
+
+%% without "most"
+itr_adjective(
+		@adj_itr_sup_avm &
+		display!tree![adj,WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, adj_itr_sup(WordForm, Word)).
+
+%% with "most"
+itr_adjective(
+		@adj_itr_sup_avm &
+		display!tree![adj, most, WordForm] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(most),
+	get_position(TID),
+	word_noninitial(WordForm, adj_itr(WordForm, Word)).
+
+%% with "most" and prefix
+itr_adjective(
+		@adj_itr_sup_avm &
+		display!tree![adj,most,Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(most),
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%==============================================================================
+% \subsection{Transitive Adjectives}
+%==============================================================================
+
+%-206--------------------------------------------------------------------------
+% TransitiveAdjective[+POS] -->
+%	_PositiveTransitiveAdjective_
+%
+% Example: fond-of
+% Example: pessimistic-about
+%------------------------------------------------------------------------------
+
+%% without "as"
+adj_tr_avm :=
+		lexem!Lexem &
+		syn!head!degree!<pos &
+		syn!nonlocal!comparison!<minus &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		sem!arg2!Y &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, pos, Y)-SID/TID | Conds]).
+
+%% with "as", subject comparison
+adj_tr_avm :=
+		lexem!Lexem &
+		syn!head!degree!<pos &
+		syn!nonlocal!comparison!<plus &
+		syn!nonlocal!comptarget!<subj &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		sem!arg2!Y &
+		sem!arg3!Z &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, Y, pos_as, subj, Z)-SID/TID | Conds]).
+
+%% with "as", object comparison
+adj_tr_avm :=
+		lexem!Lexem &
+		syn!head!degree!<pos &
+		syn!nonlocal!comparison!<plus &
+		syn!nonlocal!comptarget!<obj &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		sem!arg2!Y &
+		sem!arg3!Z &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, Y, pos_as, obj, Z)-SID/TID | Conds]).
+
+%% without prefix
+tr_adjective(
+		@adj_tr_avm &
+		display!tree![adj,WordForm] &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, adj_tr(WordForm, Word, Prep)).
+
+%% with prefix
+tr_adjective(
+		@adj_tr_avm &
+		display!tree![adj,Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-207--------------------------------------------------------------------------
+% TransitiveAdjective[+COMP] -->
+%	_ComparativeTransitiveAdjective_
+%
+% TransitiveAdjective[+COMP] -->
+%	more _PositiveTransitiveAdjective_
+%
+% Example: fonder-of
+% Example: more pessimistic-about
+%------------------------------------------------------------------------------
+
+%% without "than"
+adj_tr_comp_avm :=
+		lexem!Lexem &
+		syn!head!degree!<comp &
+		syn!nonlocal!comparison!<minus &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		sem!arg2!Y &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, comp, Y)-SID/TID | Conds]).
+
+%% with "than", subject comparison
+adj_tr_comp_avm :=
+		lexem!Lexem &
+		syn!head!degree!<comp &
+		syn!nonlocal!comparison!<plus &
+		syn!nonlocal!comptarget!<subj &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		sem!arg2!Y &
+		sem!arg3!Z &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, Y, comp_than, subj, Z)-SID/TID | Conds]).
+
+%% with "than", object comparison
+adj_tr_comp_avm :=
+		lexem!Lexem &
+		syn!head!degree!<comp &
+		syn!nonlocal!comparison!<plus &
+		syn!nonlocal!comptarget!<obj &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		sem!arg2!Y &
+		sem!arg3!Z &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, Y, comp_than, obj, Z)-SID/TID | Conds]).
+
+%% without "more"
+tr_adjective(
+		@adj_tr_comp_avm &
+		display!tree![adj,WordForm] &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, adj_tr_comp(WordForm, Word, Prep)).
+
+%% without "more", with prefix
+tr_adjective(
+		@adj_tr_comp_avm &
+		display!tree![adj,Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+%% with "more"
+tr_adjective(
+		@adj_tr_comp_avm &
+		display!tree![adj,more,WordForm] &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(more),
+	get_position(TID),
+	word_noninitial(WordForm, adj_tr(WordForm, Word, Prep)).
+
+%% with "more" and with prefix
+tr_adjective(
+		@adj_tr_comp_avm &
+		display!tree![adj,more,Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(more),
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-208--------------------------------------------------------------------------
+% TransitiveAdjective[+SUP] -->
+%	_SuperlativeTransitiveAdjective_
+%
+% TransitiveAdjective[+SUP] -->
+%	most _PositiveTransitiveAdjective_
+%
+% Example: fondest-of
+% Example: most pessimistic-about
+%------------------------------------------------------------------------------
+
+adj_tr_sup_avm :=
+		lexem!Lexem &
+		syn!head!degree!<sup &
+		syn!nonlocal!comparison!<minus &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!arg1!X &
+		sem!arg2!Y &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [property(X, Lexem, sup, Y)-SID/TID | Conds]).
+
+%% without "most"
+tr_adjective(
+		@adj_tr_sup_avm &
+		display!tree![adj,WordForm] &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, adj_tr_sup(WordForm, Word, Prep)).
+
+%% with "most"
+tr_adjective(
+		@adj_tr_sup_avm &
+		display!tree![adj, most, WordForm] &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(most),
+	get_position(TID),
+	word_noninitial(WordForm, adj_tr(WordForm, Word, Prep)).
+
+%% with "most" and with prefix
+tr_adjective(
+		@adj_tr_sup_avm &
+		display!tree![adj,most,Word] &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	word_noninitial(most),
+	words_noninitial([Prefix, ':'], modif_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%==============================================================================
+% \subsection{Trunk Nouns for Anonymous Pronouns}
+%==============================================================================
+
+% Anonymous pronouns like 'something', 'everyone', and 'nobody' are processed as 'a -thing',
+% 'every -one', and 'no -body', respectively. Rule [[209]] treats the trunks '-thing', '-body', and
+% '-one' as nouns.
+
+%-209--------------------------------------------------------------------------
+% N -->
+%	-thing | -body | -one
+%------------------------------------------------------------------------------
+
+n(
+		display!tree![n, '-thing'] &
+		syn!head!agr!gen!<neutr &
+		syn!head!agr!num!<sg_or_mass &
+		lexem!'-thing' &
+		sem!index!X &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs(Dom, [
+			object(X, something, dom, na, na, na)-SID/TID |
+			Conds
+			]) &
+		drs!scope!out!ScopeOut &
+		drs!id!SID &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial('-thing').
+
+n(
+		display!tree![n, '-body'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		lexem!'-body' &
+		sem!index!X &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs(Dom, [
+			object(X, somebody, countable, na, eq, 1)-SID/TID |
+			Conds
+			]) &
+		drs!scope!out!ScopeOut &
+		drs!id!SID &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial('-body').
+
+n(
+		display!tree![n, '-one'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		lexem!'-one' &
+		sem!index!X &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs(Dom, [
+			object(X, somebody, countable, na, eq, 1)-SID/TID |
+			Conds
+			]) &
+		drs!scope!out!ScopeOut &
+		drs!id!SID &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial('-one').
+
+
+%==============================================================================
+% \subsection{Countable Nouns}
+%==============================================================================
+
+%-210--------------------------------------------------------------------------
+% N[+SG] -->
+%	_SingularCountableNoun_
+%
+% Example: mouse
+% Example: credit-card
+%------------------------------------------------------------------------------
+
+n_sg_avm :=
+		lexem!Lexem &
+		sem!index!X &
+		sem!subindex!X &
+		sem!quantity!measure!Measure &
+		sem!quantity!comparison!Comparison &
+		sem!quantity!number!Number &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs(Dom, [
+			object(X, Lexem, countable, Measure, Comparison, Number)-SID/TID |
+			Conds
+			]) &
+		drs!scope!out!ScopeOut &
+		drs!id!SID &
+		drs!tid!TID.
+
+%% without prefix
+n(
+		@n_sg_avm &
+		display!tree![n,WordForm] &
+		syn!head!agr!num!<sg &
+		syn!head!agr!gen!Gen &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, noun_sg(WordForm, Word, Gender)),
+	{
+		gender_transform(Gender, Gen)
+	}.
+
+%% with prefix
+n(
+		@n_sg_avm &
+		display!tree![n,Word] &
+		syn!head!agr!num!<sg &
+		syn!head!agr!gen!Gen &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], noun_prefix(Prefix, Gender)),
+	get_position(TID),
+	word_noninitial(Word),
+	{
+		gender_transform(Gender, Gen),
+		!
+	}.
+
+
+%-211--------------------------------------------------------------------------
+% N[+PL] -->
+%	_PluralCountableNoun_
+%
+% Example: mice
+% Example: credit-cards
+%------------------------------------------------------------------------------
+
+n_pl_avm :=
+		lexem!Lexem &
+		sem!index!X &
+		sem!subindex!X &
+		sem!quantity!measure!Measure &
+		sem!quantity!comparison!Comparison &
+		sem!quantity!number!Number &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs(Dom, [
+			object(X, Lexem, countable, Measure, Comparison, Number)-SID/TID |
+			Conds
+			]) &
+		drs!scope!out!ScopeOut &
+		drs!id!SID &
+		drs!tid!TID.
+
+%% without prefix
+n(
+		@n_pl_avm &
+		display!tree![n,WordForm] &
+		syn!head!agr!num!<pl &
+		syn!head!agr!gen!Gen &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, noun_pl(WordForm, Word, Gender)),
+	{
+		gender_transform(Gender, Gen)
+	}.
+
+%% with prefix
+n(
+		@n_pl_avm &
+		display!tree![n,Word] &
+		syn!head!agr!num!<pl &
+		syn!head!agr!gen!Gen &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], noun_prefix(Prefix, Gender)),
+	get_position(TID),
+	word_noninitial(Word),
+	{
+		gender_transform(Gender, Gen),
+		!
+	}.
+
+
+%==============================================================================
+% \subsection{Mass Nouns}
+%==============================================================================
+
+%-212--------------------------------------------------------------------------
+% N[+MASS] -->
+%	_MassNoun_
+%
+% Example: water
+% Example: freedom
+%------------------------------------------------------------------------------
+
+%% without prefix
+n(
+		display!tree![n,WordForm] &
+		syn!head!agr!num!<mass &
+		syn!head!agr!gen!Gen &
+		lexem!Word &
+		sem!index!X &
+		sem!subindex!X & 
+		sem!quantity!measure!Measure &
+		sem!quantity!number!Number &
+		sem!quantity!comparison!Comparison &
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs(Dom, [object(X, Word, mass, MeasureM, EqM, NumberM)-SID/TID|Conds]) &
+		drs!scope!out!ScopeOut &
+		drs!id!SID &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, noun_mass(WordForm, Word, Gender)),
+	{
+		gender_transform(Gender, Gen),
+		quantity_to_mass_quantity([Measure, Number, Comparison], [MeasureM, EqM, NumberM])
+	}.
+
+%% with prefix
+n(
+		display!tree![n,Word] &
+		syn!head!agr!num!<mass &
+		syn!head!agr!gen!Gen &
+		lexem!Word &
+		sem!index!X &
+		sem!subindex!X &
+		sem!quantity!measure!Measure &
+		sem!quantity!number!Number &
+		sem!quantity!comparison!Comparison &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs(Dom, [object(X, Word, mass, MeasureM, EqM, NumberM)-SID/TID|Conds]) &
+		drs!scope!out!ScopeOut &
+		drs!id!SID &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], noun_prefix(Prefix, Gender)),
+	get_position(TID),
+	word_noninitial(Word),
+	{
+		gender_transform(Gender, Gen),
+		quantity_to_mass_quantity([Measure, Number, Comparison], [MeasureM, EqM, NumberM]),
+		!
+	}.
+
+
+%% quantity_to_mass_quantity([+Measure, +Number, +Comparison], [-MeasureForMass, -ComparisonForMass, -NumberForMass])
+%%
+%% BUG: buggy
+
+quantity_to_mass_quantity([na, _, _], [na, na, na]) :- !.
+quantity_to_mass_quantity([Measure, Number, Comparison], [Measure, Comparison, Number]).
+
+
+%==============================================================================
+% \subsection{Measurement Nouns}
+%==============================================================================
+
+%-213--------------------------------------------------------------------------
+% MeasurementNoun[+SG] -->
+%	_SingularMeasurementNoun_
+%
+% Example: kg
+% Example: man-hour
+%------------------------------------------------------------------------------
+
+measurement_noun(
+		display!tree![meas_n,WordForm] &
+		syn!head!agr!num!<sg &
+		sem!quantity!measure!Word
+	) -->
+	word_noninitial(WordForm, mn_sg(WordForm, Word)).
+
+
+%-214--------------------------------------------------------------------------
+% MeasurementNoun[+PL] -->
+%	_PluralMeasurementNoun_
+%
+% Example: kg
+% Example: man-hours
+%------------------------------------------------------------------------------
+
+measurement_noun(
+		display!tree![meas_n,WordForm] &
+		syn!head!agr!num!<pl &
+		sem!quantity!measure!Word
+	) -->
+	word_noninitial(WordForm, mn_pl(WordForm, Word)).
+
+
+%==============================================================================
+% \subsection{Proper Names}
+%==============================================================================
+
+%-216--------------------------------------------------------------------------
+% Propername[+SG] -->
+%	_SingularPropername_
+%
+% Example: John
+% Example: Switzerland
+%------------------------------------------------------------------------------
+
+%% without definite article, without prefix
+propername(
+		display!tree![pname,WordForm] &
+		lexem!Word &
+		syn!head!agr!num!<sg &
+		syn!head!agr!gen!Gen &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word(WordForm, pn_sg(WordForm, Word, Gender)),
+	{
+		gender_transform(Gender, Gen)
+	}.
+
+%% without definite article, with prefix
+propername(
+		display!tree![pname,Word] &
+		lexem!Word &
+		syn!head!agr!num!<sg &
+		syn!head!agr!gen!Gen &
+		drs!tid!TID
+	) -->
+	words([Prefix, ':'], propername_prefix(Prefix, Gender)),
+	get_position(TID),
+	word_noninitial(Word),
+	{
+		gender_transform(Gender, Gen),
+		!
+	}.
+
+%% with definite article, without prefix
+propername(
+		display!tree![pname,the,WordForm] &
+		lexem!Word &
+		syn!head!agr!num!<sg &
+		syn!head!agr!gen!Gen &
+		drs!tid!TID
+	) -->
+	word_capitalize(the, 'The'),
+	get_position(TID),
+	word_noninitial(WordForm, pndef_sg(WordForm, Word, Gender)),
+	{
+		gender_transform(Gender, Gen)
+	}.
+
+%% with definite article, with prefix
+propername(
+		display!tree![pname,the,Word] &
+		lexem!Word &
+		syn!head!agr!num!<sg &
+		syn!head!agr!gen!Gen &
+		drs!tid!TID
+	) -->
+	word_capitalize(the, 'The'),
+	words_noninitial([Prefix, ':'], propername_prefix(Prefix, Gender)),
+	get_position(TID),
+	word_noninitial(Word),
+	{
+		gender_transform(Gender, Gen),
+		!
+	}.
+
+
+%-217--------------------------------------------------------------------------
+% Propername[+PL] -->
+%	_PluralPropername_
+%
+% Example: USA
+%------------------------------------------------------------------------------
+
+%% without definite article, without prefix
+propername(
+		display!tree![pname,WordForm] &
+		lexem!Word &
+		syn!head!agr!num!<pl &
+		syn!head!agr!gen!Gen &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word(WordForm, pn_pl(WordForm, Word, Gender)),
+	{
+		gender_transform(Gender, Gen)
+	}.
+
+%% without definite article, with prefix
+propername(
+		display!tree![pname,Word] &
+		lexem!Word &
+		syn!head!agr!num!<pl &
+		syn!head!agr!gen!Gen &
+		drs!tid!TID
+	) -->
+	words([Prefix, ':'], propername_prefix(Prefix, Gender)),
+	get_position(TID),
+	word_noninitial(Word),
+	{
+		gender_transform(Gender, Gen),
+		!
+	}.
+
+%% with definite article, without prefix
+propername(
+		display!tree![pname,theWordForm] &
+		lexem!Word &
+		syn!head!agr!num!<pl &
+		syn!head!agr!gen!Gen &
+		drs!tid!TID
+	) -->
+	word_capitalize(the, 'The'),
+	get_position(TID),
+	word_noninitial(WordForm, pndef_pl(WordForm, Word, Gender)),
+	{
+		gender_transform(Gender, Gen)
+	}.
+
+%% with definite article, with prefix
+propername(
+		display!tree![pname,the,Word] &
+		lexem!Word &
+		syn!head!agr!num!<pl &
+		syn!head!agr!gen!Gen &
+		drs!tid!TID
+	) -->
+	word_capitalize(the, 'The'),
+	words_noninitial([Prefix, ':'], propername_prefix(Prefix, Gender)),
+	get_position(TID),
+	word_noninitial(Word),
+	{
+		gender_transform(Gender, Gen),
+		!
+	}.
+
+
+%==============================================================================
+% \subsection{Ditransitive Verbs}
+%==============================================================================
+
+ditr_avm :=
+		lexem!Lexem &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs([E | Dom], [predicate(E, Lexem, Subject, DirectObject, IndirectObject)-SID/TID | Conds]) &
+		syn!head!vsubcat!<ditr &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		sem!index!E &
+		sem!arg1!Subject &
+		sem!arg2!DirectObject &
+		sem!arg3!IndirectObject.
+
+
+%-218--------------------------------------------------------------------------
+% V[+DITR,-BE,-INF,-PL] -->
+%	_FiniteSingularDitransitiveVerb_
+%
+% Example: gives
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@ditr_avm &
+		display!tree![v,WordForm] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!be!<minus &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, dv_finsg(WordForm, Word, Prep)).
+
+%% with prefix
+v(
+		@ditr_avm &
+		display!tree![v, Word] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-219--------------------------------------------------------------------------
+% V[+DITR,-BE,-INF,+PL] -->
+%	_InfinitePluralDitransitiveVerb_
+%
+% Example: give
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@ditr_avm &
+		display!tree![v,WordForm] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<pl &
+		syn!head!be!<minus &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, dv_infpl(WordForm, Word, Prep)).
+
+%% with prefix
+v(
+		@ditr_avm &
+		display!tree![v,Word] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<pl &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-220--------------------------------------------------------------------------
+% V[+DITR,-BE,+INF] -->
+%	_InfinitePluralDitransitiveVerb_
+%
+% Example: give
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@ditr_avm &
+		display!tree![v,WordForm] &
+		syn!head!vform!<inf &
+		syn!head!be!<minus &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, dv_infpl(WordForm, Word, Prep)).
+
+%% with prefix
+v(
+		@ditr_avm &
+		display!tree![v,Word] &
+		syn!head!vform!<inf &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-221--------------------------------------------------------------------------
+% V[+DITR,+BE] -->
+%	_PastParticipleOfDitransitiveVerb_
+%
+% Example: given
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@ditr_avm &
+		display!tree![v, WordForm] &
+		syn!head!be!<plus &
+		syn!nonlocal!prep!Prep &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, dv_pp(WordForm, Word, Prep)).
+
+%% with prefix
+v(
+		@ditr_avm &
+		display!tree![v, Word] &
+		syn!head!be!<plus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%==============================================================================
+% \subsection{Transitive Verbs}
+%==============================================================================
+
+tv_avm :=
+		lexem!Lexem &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs([E | Dom], [predicate(E, Lexem, Subject, DirectObject)-SID/TID | Conds]) &
+		syn!head!vsubcat!<tr &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		sem!index!E &
+		sem!arg1!Subject &
+		sem!arg2!DirectObject.
+
+
+%-222--------------------------------------------------------------------------
+% V[+TR,-BE,-INF,-PL] -->
+%	_FiniteSingularTransitiveVerb_
+%
+% Example: sees
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@tv_avm &
+		display!tree![v,WordForm] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, tv_finsg(WordForm, Word)).
+
+%% with prefix
+v(
+		@tv_avm &
+		display!tree![v,Word] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-223--------------------------------------------------------------------------
+% V[+TR,-BE,-INF,+PL] -->
+%	_InfinitePluralTransitiveVerb_
+%
+% Example: see
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@tv_avm &
+		display!tree![v,WordForm] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<pl &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, tv_infpl(WordForm, Word)).
+
+%% with prefix
+v(
+		@tv_avm &
+		display!tree![v,Word] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<pl &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-224--------------------------------------------------------------------------
+% V[+TR,-BE,+INF] -->
+%	_InfinitePluralTransitiveVerb_
+%
+% Example: see
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@tv_avm &
+		display!tree![v,WordForm] &
+		syn!head!vform!<inf &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, tv_infpl(WordForm, Word)).
+
+%% with prefix
+v(
+		@tv_avm &
+		display!tree![v,Word] &
+		syn!head!vform!<inf &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-225--------------------------------------------------------------------------
+% V[+TR,+BE] -->
+%	_PastParticipleOfTransitiveVerb_
+%
+% Example: seen
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@tv_avm &
+		display!tree![v, WordForm] &
+		syn!head!be!<plus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, tv_pp(WordForm, Word)).
+
+%% with prefix
+v(
+		@tv_avm &
+		display!tree![v, Word] &
+		syn!head!be!<plus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%==============================================================================
+% \subsection{Intransitive Verbs}
+%==============================================================================
+
+iv_avm :=
+		lexem!Lexem &
+		drs!id!SID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs([E|Dom],[predicate(E, Lexem, Subject)-SID/TID | Conds]) &
+		syn!head!vsubcat!<itr &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		sem!index!E &
+		sem!arg1!Subject.
+
+
+%-226--------------------------------------------------------------------------
+% V[+ITR,-BE,-INF,-PL] -->
+%	_FiniteSingularIntransitiveVerb_
+%
+% Example: waits
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@iv_avm &
+		display!tree![vbar,[v,WordForm]] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, iv_finsg(WordForm, Word)).
+
+%% with prefix
+v(
+		@iv_avm &
+		display!tree![vbar,[v,Word]] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-227--------------------------------------------------------------------------
+% V[+ITR,-BE,-INF,+PL] -->
+%	_InfinitePluralIntransitiveVerb_
+%
+% Example: wait
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@iv_avm &
+		display!tree![vbar,[v,WordForm]] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<pl &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, iv_infpl(WordForm, Word)).
+
+%% with prefix
+v(
+		@iv_avm &
+		display!tree![vbar,[v,Word]] &
+		syn!head!vform!<fin &
+		syn!head!agr!num!<pl &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%-228--------------------------------------------------------------------------
+% V[+ITR,-BE,+INF] -->
+%	_InfinitePluralIntransitiveVerb_
+%
+% Example: wait
+%------------------------------------------------------------------------------
+
+%% without prefix
+v(
+		@iv_avm &
+		display!tree![vbar,[v,WordForm]] &
+		syn!head!vform!<inf &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(WordForm, iv_infpl(WordForm, Word)).
+
+%% with prefix
+v(
+		@iv_avm &
+		display!tree![vbar,[v,Word]] &
+		syn!head!vform!<inf &
+		syn!head!be!<minus &
+		lexem!Word &
+		drs!tid!TID
+	) -->
+	words_noninitial([Prefix, ':'], verb_prefix(Prefix)),
+	get_position(TID),
+	word_noninitial(Word),
+	!.
+
+
+%==============================================================================
+% \subsection{Prepositions}
+%==============================================================================
+
+%-229--------------------------------------------------------------------------
+% Preposition -->
+%	_Preposition_
+%
+% Example: in
+% Example: from
+% Example: thoughout
+%------------------------------------------------------------------------------
+
+%% independent prepositions
+
+prep(
+		display!tree![prep,Prep] &
+		lexem!Lexem &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word(Prep, prep(Prep, Lexem)),
+	!.
+
+prep(
+		display!tree![prep,Prep] &
+		lexem!Lexem &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_initial(Prep, ( chars:to_lowercase(Prep, PrepL), prep(PrepL, Lexem) )).
+
+
+%% dependent prepositions (for transitive adjectives and transitive verbs)
+
+dep_prep(
+		display!tree![prep,Prep] &
+		syn!nonlocal!prep!Prep
+	) -->
+	{ var(Prep) },
+	!,
+	word_noninitial(Prep, ( prep(Prep, _) ; \+ functionword(Prep) )),
+	!.
+
+dep_prep(
+		display!tree![prep,Prep] &
+		syn!nonlocal!prep!Prep
+	) -->
+	word_noninitial(Prep).
+
+
+gender_transform(undef, '$gen'(_, _)).
+gender_transform(neutr, '$gen'(_, '$neutr')).
+gender_transform(human, '$gen'(_, '$human'(_))).
+gender_transform(masc, '$gen'(_, '$human'('$masc'))).
+gender_transform(fem, '$gen'(_, '$human'('$fem'))).

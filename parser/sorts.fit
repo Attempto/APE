@@ -1,0 +1,179 @@
+% This file is part of the Attempto Parsing Engine (APE).
+% Copyright 2008-2011, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
+%
+% The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
+% under the terms of the GNU Lesser General Public License as published by the Free Software
+% Foundation, either version 3 of the License, or (at your option) any later version.
+%
+% The Attempto Parsing Engine (APE) is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+% PURPOSE. See the GNU Lesser General Public License for more details.
+%
+% You should have received a copy of the GNU Lesser General Public License along with the Attempto
+% Parsing Engine (APE). If not, see http://www.gnu.org/licenses/.
+
+
+%==============================================================================
+% APE Sort Definition
+%
+% Authors:
+% Stefan Hoefler
+% Kaarel Kaljurand
+% Tobias Kuhn
+%==============================================================================
+
+
+%------------------------------------------------------------------------------
+% Features
+%------------------------------------------------------------------------------
+
+% The main type sign introduces six basic features.
+sign intro [
+	display:display,  % contains the syntax tree.
+	sem:sem,  % contains any semantic information.
+	syn:syn,  % contains any syntactic information.
+	lexem,  % is used to store the logical form of a constituent (or its head respectively).
+	drs:drs,  % is used to thread the DRS through the syntax tree.
+	npid  % enumerates the NPs.
+].
+
+display intro [
+	tree,  % contains the syntax tree as a list.
+	treepart,  % contains a part of the syntax tree.
+	treenext  % stands for the syntax tree of the next item in a list or coordination.
+].
+
+syn intro [
+	head:head,  % contains the head-features, i.e. the features that percolate from head-daughter to mother node.
+	nonlocal:nonlocal  % contains the features that have effects beyond local trees.
+].
+
+head intro [
+	agr:agr,  % contains the number and gender agreement features.
+	aux:aux,  % contains the auxiliary verb.
+	case:case,  % contains the case, i.e. nominative or accusative.
+	degree:degree,  % the degree of adjectives: positive, comparative, superlative.
+	vform:vform,  % is used with verbs to denote the verb form: finite or infinitive.
+	be:bool,  % indicates whether the verb "be" is used or not (for passive and copula)
+	modality:modality,  % contains the modality mode: possibility, necessity, or none.
+	negation:bool,  % indicates whether negation is used.
+	naf:bool,  % indicates whether negation as failure is used.
+	vsubcat:vsubcat  % contains the subcategorization of verbs: copula, intransitive, transitive, or ditransitive.
+].
+
+agr intro [
+	num:num,  % contains the number: singular, plural, or mass.
+	gen:gen,  % contains the gender: neutral, feminine, or masculine.
+	pers:pers  % contains the person: second or third
+].
+
+nonlocal intro [
+	comparison:bool,  % indicates whether an adjective has a comparison target (e.g. "larger than", "as large as").
+	comptarget:subjobj,  % contains the comparison target for an adjective: subject or object.
+	gap:inout,  % is used for gap-threading. Its sub-features in and out take lists of empty syntactic categories.
+	neg:bool,  % indicates if a quantifier, determiner or NP is negative of not.
+	thatsubord:bool,  % indicates whether a sentence coordination is on top-level or within a that-subordination.
+	prep,  % contains the preposition of pps, verbs, and adjectives.
+	pro:bool,  % indicates if an NP is pronominal or not.
+	quant:quant,  % contains the quantification type: existential, universal, definite, or none.
+	rel:refagr,  % stores information about the relative pronouns.
+	wh:whinout,  % is used for wh-threading.
+	subj:refagr,  % information about the subject which is used for reflexive pronouns
+	embv:bool  % indicates whether there is an embedded verb phrase or not
+].
+
+refagr intro [
+	ref,  % a reference to a certain element.
+	agr:agr  % contains the number and gender information of the element.
+].
+
+sem intro [
+	arg1,  % contains the discourse referent of
+	       % - the subject of an adjective, adjective phrase, verb, verbal phrase or sentence,
+           % - the NP depending on the preposition of a PP,
+           % - the owner (NP) of a saxon genitive, or
+           % - the NP refered to in a relative clause. 
+	arg2,  % contains the discourse referent of the direct object of a transitive verb or adjective.
+	arg3,  % contains the discourse referent of
+	       % - the indirect object of a ditransitive verb, or
+	       % - the referent of a comparative adjective.
+	index,  % contains the discourse referent of an NP or of a predicate.
+	subindex,  % denotes the discourse referent of a constituent of an NP coordination.
+	datatype,  % contains the type of a data element.
+	parts,  % contains a list that collects the parts (discourse referents) of an NP-coordination.
+	quantity:quantity,  % provides in its subfeatures the information about the quantity of an NP.
+	expr,  % contains an arithmetical expression.
+	exprpart,  % contains a part of an arithmetical expression.
+	exprnext  % stands for the next item in a arithmetical structure.
+].
+
+drs intro [
+	id,  % contains the sentence ID.
+	tid,  % contains the token ID.
+	in, out,  % are used for the threading of the main DRS. They take a value of the form drs(DomainList,ConditionsList).
+	mods:inout,  % collects a list of modifier predicates of the current verb.
+	restr:inout,  % is used for the threading of the restrictor of an implication.
+	scope:inout  % is used for the threading of the scope of an implication.
+].
+
+quantity intro [
+	comparison,
+	measure,
+	number
+].
+
+inout intro [
+	in,
+	out
+].
+
+whinout intro [
+	in:wh,
+	out:wh
+].
+
+
+%------------------------------------------------------------------------------
+% Non-Atomic Types
+%------------------------------------------------------------------------------
+
+top > [agr, aux, bool, modality, case, degree, display, drs, gen, head, inout,
+	nonlocal, num, quant, quantity, refagr, sem, sign, subjobj, syn, vform,
+	vsubcat, wh, whinout, pers].
+
+
+%------------------------------------------------------------------------------
+% Atomic Types (Feature Value Restrictions)
+%------------------------------------------------------------------------------
+
+bool > [plus, minus].
+
+case > [nom, acc].
+
+degree > [pos, comp, sup].
+
+gen > [neutr, human].
+human > [masc, fem].
+
+num > [sg_or_mass, pl].
+sg_or_mass > [sg, mass].
+
+pers > [second, third].
+
+quant > [exists_or_def, forall].
+exists_or_def > [exists, def].
+
+vform > [fin, inf].
+
+vsubcat > [copula, noncopula].
+noncopula > [itr, tr, ditr].
+
+wh > [r, not_r].
+not_r > [q, no_wh].
+
+modality > [no_modality, poss, nec, rec, ad].
+
+subjobj > [subj, obj].
+
+aux > [nonempty_aux, empty_aux].
+nonempty_aux > [be, do, can, must, should, may].

@@ -1,0 +1,2261 @@
+%% This file is part of the Attempto Parsing Engine (APE).
+%% Copyright 2008-2011, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
+%%
+%% The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
+%% under the terms of the GNU Lesser General Public License as published by the Free Software
+%% Foundation, either version 3 of the License, or (at your option) any later version.
+%%
+%% The Attempto Parsing Engine (APE) is distributed in the hope that it will be useful, but WITHOUT
+%% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+%% PURPOSE. See the GNU Lesser General Public License for more details.
+%%
+%% You should have received a copy of the GNU Lesser General Public License along with the Attempto
+%% Parsing Engine (APE). If not, see http://www.gnu.org/licenses/.
+
+
+%%==============================================================================
+%% APE Function Words
+%%
+%% Authors:
+%% Stefan Hoefler
+%% Gerold Schneider
+%% Kaarel Kaljurand
+%% Tobias Kuhn
+%%==============================================================================
+
+:- module(grammar_functionwords, []).
+
+:- use_module(grammar_words).
+:- use_module('../lexicon/functionwords').
+
+:- op(400, fy, -).
+:- op(400, fy, ~).
+:- op(500, xfx, =>).
+:- op(500, xfx, v).
+
+
+%==============================================================================
+% \section{Function Words}
+%==============================================================================
+
+% Function words are predefined and cannot be changed by the user.
+
+
+%-151--------------------------------------------------------------------------
+% Aux -->
+%	( do | does | are | is | be | must | can | should | may )
+%------------------------------------------------------------------------------
+
+aux(
+		display!tree!do &
+		syn!head!agr!num!<pl &
+		syn!head!aux!<do &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(do, 'Do').
+
+aux(
+		display!tree!do &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!vform!<inf &
+		syn!head!aux!<do &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(do, 'Do').
+
+aux(
+		display!tree!does &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!vform!<fin &
+		syn!head!aux!<do &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(does, 'Does').
+
+aux(
+		display!tree!are &
+		syn!head!agr!num!<pl &
+		syn!head!vform!<fin &
+		syn!head!aux!<be &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(are, 'Are').
+
+aux(
+		display!tree!is &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!vform!<fin &
+		syn!head!aux!<be &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(is, 'Is').
+
+aux(
+		display!tree!be &
+		syn!head!vform!<inf &
+		syn!head!aux!<be &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(be).
+
+aux(
+		display!tree!must &
+		syn!head!aux!<must &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(must, 'Must').
+
+aux(
+		display!tree!can &
+		syn!head!aux!<can &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(can, 'Can').
+
+aux(
+		display!tree!should &
+		syn!head!aux!<should &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(should, 'Should').
+
+aux(
+		display!tree!may &
+		syn!head!aux!<may &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(may, 'May').
+
+aux(
+		display!tree![] &
+		syn!head!aux!<empty_aux &
+		drs!tid!''
+	) --> [].
+
+
+%-152--------------------------------------------------------------------------
+% AuxRest -->
+%	( not | not provably | not provably not | has to | have to | not have to |
+%	be | have to be | has to be | not have to be | not be )
+%------------------------------------------------------------------------------
+
+% Only the following combinations of "Aux (...) AuxRest" are possible (the content of Aux is marked by square brackets):
+% >>|
+
+% [does]
+% [do]
+aux_rest(
+		display!tree![] &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!modality!<no_modality &
+		syn!head!be!<minus &
+		syn!head!aux!<do &
+		drs!in!DrsIn &
+		drs!out!DrsOut &
+		drs!scope!in!DrsIn &
+		drs!scope!out!DrsOut
+	) --> [].
+
+% [is]
+% [are]
+% [be]
+aux_rest(
+		display!tree![] &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!modality!<no_modality &
+		syn!head!be!<plus &
+		syn!head!aux!<be &
+		drs!in!DrsIn &
+		drs!out!DrsOut &
+		drs!scope!in!DrsIn &
+		drs!scope!out!DrsOut
+	) --> [].
+
+% [does] not
+% [do] not
+aux_rest(
+		display!tree!not &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!modality!<no_modality &
+		syn!head!be!<minus &
+		syn!head!aux!<do &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-DrsScope | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not).
+
+% [is] not
+% [are] not
+aux_rest(
+		display!tree!not &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!modality!<no_modality &
+		syn!head!be!<plus &
+		syn!head!aux!<be &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-DrsScope | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not).
+
+% [does] not provably
+% [do] not provably
+aux_rest(
+		display!tree!'not provably' &
+		syn!head!negation!<minus &
+		syn!head!naf!<plus &
+		syn!head!modality!<no_modality &
+		syn!head!be!<minus &
+		syn!head!aux!<do &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [~DrsScope | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(provably).
+
+% [is] not provably
+% [are] not provably
+aux_rest(
+		display!tree!'not provably' &
+		syn!head!negation!<minus &
+		syn!head!naf!<plus &
+		syn!head!modality!<no_modality &
+		syn!head!be!<plus &
+		syn!head!aux!<be &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [~DrsScope | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(provably).
+
+% [does] not provably not
+% [do] not provably not
+aux_rest(
+		display!tree!'not provably not' &
+		syn!head!negation!<plus &
+		syn!head!naf!<plus &
+		syn!head!modality!<no_modality &
+		syn!head!be!<minus &
+		syn!head!aux!<do &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [~drs([], [-DrsScope]) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(provably),
+	word_noninitial(not).
+
+% [is] not provably not
+% [are] not provably not
+aux_rest(
+		display!tree!'not provably not' &
+		syn!head!negation!<plus &
+		syn!head!naf!<plus &
+		syn!head!modality!<no_modality &
+		syn!head!be!<plus &
+		syn!head!aux!<be &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [~drs([], [-DrsScope]) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(provably),
+	word_noninitial(not).
+
+% [must]
+aux_rest(
+		display!tree![] &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<nec &
+		syn!head!aux!<must &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) --> [].
+
+% [] has to
+aux_rest(
+		display!tree!'has to' &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<nec &
+		syn!head!aux!<empty_aux &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(has),
+	word_noninitial(to).
+
+% [] have to
+aux_rest(
+		display!tree!'have to' &
+		syn!head!agr!num!<pl &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<nec &
+		syn!head!aux!<empty_aux &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(have),
+	word_noninitial(to).
+
+% [does] have to
+% [do] have to
+aux_rest(
+		display!tree!'have to' &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<nec &
+		syn!head!aux!<do &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(have),
+	word_noninitial(to).
+
+% [does] not have to
+% [do] not have to
+aux_rest(
+		display!tree!'not have to' &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<nec &
+		syn!head!aux!<do &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [must(DrsScope)]) | Conds] ) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(have),
+	word_noninitial(to).
+
+% [must] be
+aux_rest(
+		display!tree!be &
+		syn!head!negation!<minus &
+		syn!head!be!<plus &
+		syn!head!naf!<minus &
+		syn!head!modality!<nec &
+		syn!head!aux!<must &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(be).
+
+% [] has to be
+aux_rest(
+		display!tree!'has to be' &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<nec &
+		syn!head!aux!<empty_aux &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(has),
+	word_noninitial(to),
+	word_noninitial(be).
+
+% [] have to be
+aux_rest(
+		display!tree!'have to be' &
+		syn!head!agr!num!<pl &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<nec &
+		syn!head!aux!<empty_aux &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(have),
+	word_noninitial(to),
+	word_noninitial(be).
+
+% [does] have to be
+% [do] have to be
+aux_rest(
+		display!tree!'have to be' &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<nec &
+		syn!head!aux!<do &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(have),
+	word_noninitial(to),
+	word_noninitial(be).
+
+% [does] not have to be
+% [do] not have to be
+aux_rest(
+		display!tree!'not have to be' &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<nec &
+		syn!head!aux!<do &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [must(DrsScope)]) | Conds] ) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(have),
+	word_noninitial(to),
+	word_noninitial(be).
+
+% [can]
+aux_rest(
+		display!tree![] &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<poss &
+		syn!head!aux!<can &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [can(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) --> [].
+
+% [can] be
+aux_rest(
+		display!tree!be &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<poss &
+		syn!head!aux!<can &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [can(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(be).
+
+% [can] not
+aux_rest(
+		display!tree!not &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<poss &
+		syn!head!aux!<can &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [can(DrsScope)]) | Conds] ) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not).
+
+% [can] not be
+aux_rest(
+		display!tree!'not be' &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<poss &
+		syn!head!aux!<can &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [can(DrsScope)]) | Conds] ) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(be).
+
+% [should]
+aux_rest(
+		display!tree![] &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<rec &
+		syn!head!aux!<should &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [should(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) --> [].
+
+% [should] be
+aux_rest(
+		display!tree!be &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<rec &
+		syn!head!aux!<should &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [should(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(be).
+
+% [should] not
+aux_rest(
+		display!tree!not &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<rec &
+		syn!head!aux!<should &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [should(DrsScope)]) | Conds] ) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not).
+
+% [should] not be
+aux_rest(
+		display!tree!'not be' &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<rec &
+		syn!head!aux!<should &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [should(DrsScope)]) | Conds] ) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(be).
+
+% [may]
+aux_rest(
+		display!tree![] &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<ad &
+		syn!head!aux!<may &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [may(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) --> [].
+
+% [may] be
+aux_rest(
+		display!tree!be &
+		syn!head!negation!<minus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<ad &
+		syn!head!aux!<may &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [may(DrsScope) | Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(be).
+
+% [may] not
+aux_rest(
+		display!tree!not &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!be!<minus &
+		syn!head!modality!<ad &
+		syn!head!aux!<may &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [may(DrsScope)]) | Conds] ) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not).
+
+% [may] not be  |<<
+aux_rest(
+		display!tree!'not be' &
+		syn!head!negation!<plus &
+		syn!head!naf!<minus &
+		syn!head!be!<plus &
+		syn!head!modality!<ad &
+		syn!head!aux!<may &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [may(DrsScope)]) | Conds] ) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!DrsScope
+	) -->
+	word_noninitial(not),
+	word_noninitial(be).
+
+
+%-154--------------------------------------------------------------------------
+% CommaAnd -->
+%	, and
+%
+% CommaOr -->
+%	, or
+%
+% And -->
+%	and
+%
+% Or -->
+%	or
+%------------------------------------------------------------------------------
+
+conjunction_avm :=
+		drs!in!DrsIn &
+		drs!out!ScopeOut &
+		drs!restr!in!DrsIn &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut.
+
+disjunction_avm :=
+		drs!in!drs(Dom,Conds) &
+		drs!out!drs(Dom,[RestrOut v ScopeOut|Conds]) &
+		drs!restr!in!drs([],[]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!drs([],[]) &
+		drs!scope!out!ScopeOut.
+
+comma_and(
+		@conjunction_avm &
+		display!tree![coord,', and']
+	) -->
+	word_noninitial(','),
+	word_noninitial(and).
+
+
+comma_or(
+		@disjunction_avm &
+		display!tree![coord,', or']
+	) -->
+	word_noninitial(','),
+	word_noninitial(or).
+
+
+coord_and(
+		@conjunction_avm &
+		display!tree![coord,and]
+	) -->
+	word_noninitial(and).
+
+
+coord_or(
+		@disjunction_avm &
+		display!tree![coord,or]
+	) -->
+	word_noninitial(or).
+
+
+%-155--------------------------------------------------------------------------
+% Determiner[+DEF] -->
+%	the
+%
+%%-----------------------------------------------------------------------------
+
+%% definite article
+def_avm :=
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X],[]) &
+		drs!scope!in!drs(Dom, Conds) &
+		drs!scope!out!ScopeOut &	  
+		syn!nonlocal!quant!<def &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &    
+		sem!index!X.
+
+determiner(
+		@def_avm &
+		display!tree![det,the] &
+		syn!head!agr!num!<sg &
+		sem!quantity!number!1 &
+		sem!quantity!comparison!eq
+	) -->
+	word_capitalize(the, 'The').
+
+determiner(
+		@def_avm &
+		display!tree![det,the] &
+		syn!head!agr!num!<pl &
+		sem!quantity!number!2 &
+		sem!quantity!comparison!geq
+	) -->
+	word_capitalize(the, 'The').
+
+determiner(
+		@def_avm &
+		display!tree![det,the] &
+		syn!head!agr!num!<mass &
+		sem!quantity!number!na &
+		sem!quantity!comparison!na
+	) -->
+	word_capitalize(the, 'The').
+
+
+%%-----------------------------------------------------------------------------
+% Determiner[+EXISTS,+SG] -->
+%	a | an
+%
+%%-----------------------------------------------------------------------------
+
+%% existential quantifier (singular)
+exists_sg_avm :=
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X | Dom], Conds) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!index!X &
+		sem!quantity!number!1 &
+		sem!quantity!comparison!eq.
+
+determiner(
+		@exists_sg_avm &
+		display!tree![det,a] &
+		syn!head!agr!num!<sg
+	) -->
+	word_capitalize(a, 'A').
+
+determiner(
+		@exists_sg_avm &
+		display!tree![det,an] &
+		syn!head!agr!num!<sg
+	) -->
+	word_capitalize(an, 'An').
+
+
+%%-----------------------------------------------------------------------------
+% Determiner[+EXISTS,-SG] -->
+%	some
+%
+%%-----------------------------------------------------------------------------
+
+%% existential quantifier (plural)
+exists_pl_avm :=
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X | Dom], Conds) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &	
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &      
+		sem!index!X &
+		sem!quantity!number!2 &
+		sem!quantity!comparison!geq.
+
+determiner(
+		@exists_pl_avm &
+		display!tree![det,some] &
+		syn!head!agr!num!<pl
+	) -->
+	word_capitalize(some, 'Some').
+
+determiner(
+		@exists_sg_avm &
+		display!tree![det,some] &
+		syn!head!agr!num!<mass
+	) -->
+	word_capitalize(some, 'Some').
+
+
+%%-----------------------------------------------------------------------------
+% Determiner[+FORALL,+NEG] -->
+%	no
+%
+%%-----------------------------------------------------------------------------
+
+%% Note that 'no' can be used only with singular and mass nouns.
+%% Plural nouns are not supported.
+%%
+%% Example: No man waits.
+%% Example: A man enters no card.
+
+%% 'no' is interpreted as 'If ... then it is false that ...'.
+%% But only if it is not preceded by 'there is'.
+no_avm :=
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [RestrOut => drs([], [-ScopeOut]) | Conds]) &
+		drs!restr!in!drs([X], []) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut &
+		syn!nonlocal!quant!<forall &
+		syn!nonlocal!neg!<plus &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!index!X &
+		sem!quantity!number!1 &
+		sem!quantity!comparison!eq. 
+
+%% 'no' + sg
+determiner(
+		@no_avm &
+		display!tree![det, no] &
+		syn!head!agr!num!<sg_or_mass
+	) -->
+	word_capitalize(no, 'No').
+
+
+%% 'no' + pl
+%% BUG: experimentally: no error
+determiner(
+		@no_avm &
+		display!tree![det, no] &
+		syn!head!agr!num!<pl &
+		drs!id!ID
+	) -->
+	word_capitalize(no, 'No').
+%%	{
+%%		add_error_message(syntax, ID-'', '', 'Use \'no\' + singular NP, instead of \'no\' + plural NP.')
+%%	}.	
+
+
+%% Flat negation is generated for the 'there is' case.
+%% Example: There is no man.
+flat_no_avm :=
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-ScopeOut | Conds]) &
+		drs!restr!in!drs([X], []) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!neg!<plus &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!index!X &
+		sem!quantity!number!1 &
+		sem!quantity!comparison!eq.
+
+%% 'there is no' + sg
+determiner(
+		@flat_no_avm &
+		display!tree![det, no] &
+		syn!head!agr!num!<sg_or_mass
+	) -->
+	word_noninitial(no).
+
+
+/*
+%% 'there is no' + pl
+determiner(
+		@flat_no_avm &
+		display!tree![det, no] &
+		syn!head!agr!num!<pl &
+		drs!id!ID
+	) -->
+	word_noninitial(no),
+	{
+		add_error_message(syntax, ID-'', '', 'Use \'no\' + singular NP, instead of \'no\' + plural NP.')
+	}.
+*/
+
+
+%% universal quantifier
+forall_avm := 
+		drs!in!drs(Dom,Conds) &
+		drs!out!drs(Dom,[RestrOut => ScopeOut|Conds]) &
+		drs!restr!in!drs([X],[]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!drs([],[]) &
+		drs!scope!out!ScopeOut &
+		drs!id!ID &
+		syn!nonlocal!quant!<forall &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		sem!index!X &
+		sem!quantity!number!1 &
+		sem!quantity!comparison!eq. 
+
+%% universal quantifier (negative)
+forall_neg_avm :=
+		drs!in!drs(Dom,Conds) &
+		drs!out!drs(Dom,[-drs([],[RestrOut => ScopeOut])|Conds]) &
+		drs!restr!in!drs([X],[]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!drs([],[]) &
+		drs!scope!out!ScopeOut &
+		sem!index!X &
+		syn!nonlocal!quant!<forall &
+		syn!nonlocal!neg!<plus &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		drs!id!ID &
+		sem!quantity!number!1 &
+		sem!quantity!comparison!eq.
+
+
+%%-----------------------------------------------------------------------------
+% Determiner[+FORALL,+SG] -->
+%	every | each
+%
+%%-----------------------------------------------------------------------------
+
+determiner(
+		@forall_avm &
+		display!tree![det,every] &
+		syn!head!agr!num!<sg
+	) -->
+	word_capitalize(every, 'Every').
+
+determiner(
+		@forall_avm &
+		display!tree![det,each] &
+		syn!head!agr!num!<sg
+	) -->
+	word_capitalize(each, 'Each').
+
+
+%%-----------------------------------------------------------------------------
+% Determiner[+FORALL,+SG,+NEG] -->
+%	not every | not each
+%
+%%-----------------------------------------------------------------------------
+
+determiner(
+		@forall_neg_avm &
+		display!tree![det,'not every'] &
+		syn!head!agr!num!<sg
+	) -->
+	word_capitalize(not, 'Not'),
+	word_noninitial(every).
+
+determiner(
+		@forall_neg_avm &
+		display!tree![det,'not each'] &
+		syn!head!agr!num!<sg
+	) -->
+	word_capitalize(not, 'Not'),
+	word_noninitial(each).
+
+
+%%-----------------------------------------------------------------------------
+% Determiner[+FORALL,-SG] -->
+%	all
+%
+%%-----------------------------------------------------------------------------
+
+determiner(
+		@forall_avm &
+		display!tree![det,all] &
+		syn!head!agr!num!<mass
+	) -->
+	word_capitalize(all, 'All').
+
+%% Error: 'all' + plural
+%% {add_error_message(syntax, ID-'', '', 'Use \'every\' + singular NP, instead of \'all\' + plural NP.') }.
+%% BUG: experimentally: no error
+determiner(
+		@forall_avm &
+		display!tree![det,all] &
+		syn!head!agr!num!<pl &
+		drs!id!ID
+	) -->
+	word_capitalize(all, 'All').
+
+
+%%-----------------------------------------------------------------------------
+% Determiner[+FORALL,-SG,+NEG] -->
+%	not all
+%
+%%-----------------------------------------------------------------------------
+
+determiner(
+		@forall_neg_avm &
+		display!tree![det,'not all'] &
+		syn!head!agr!num!<mass
+	) -->
+	word_capitalize(not, 'Not'),
+	word_noninitial(all).
+
+determiner(
+		@forall_neg_avm &
+		display!tree![det,'not all'] &
+		syn!head!agr!num!<pl &
+		drs!id!ID
+	) -->
+	word_capitalize(not, 'Not'),
+	word_noninitial(all).
+
+
+%%-----------------------------------------------------------------------------
+% Determiner[+EXISTS,-MASS,+Q] -->
+%	which | whose
+%------------------------------------------------------------------------------
+
+determiner(
+		display!tree![qdet,which] &
+		syn!head!agr!num!<sg &
+		syn!nonlocal!quant!<exists &  
+		syn!nonlocal!wh!in!<not_r &
+		syn!nonlocal!wh!out!<q &    
+		sem!index!X &
+		sem!quantity!number!1 &
+		sem!quantity!comparison!eq &
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X | Dom],[query(X,which)-ID/TID|Conds]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		drs!id!ID &
+		lexem!which
+	) -->
+	get_position(TID),
+	word_capitalize(which, 'Which').
+
+determiner(
+		display!tree![qdet,which] &
+		syn!head!agr!num!<pl &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!wh!in!<not_r &
+		syn!nonlocal!wh!out!<q &
+		sem!index!X &
+		sem!quantity!number!2 &
+		sem!quantity!comparison!geq &
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X | Dom],[query(X,which)-ID/TID|Conds]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		drs!id!ID &
+		lexem!which
+	) -->
+	get_position(TID),
+	word_capitalize(which, 'Which').
+
+
+determiner(
+		display!tree![qdet,whose] &
+		syn!head!agr!num!<sg &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!wh!out!<q &
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X,Y|Dom],[relation(X,of,Y)-ID/TID,query(Y,what)-ID/TID|Conds]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		drs!id!ID &
+		sem!index!X &
+		sem!quantity!number!1 &
+		sem!quantity!comparison!eq &
+		lexem!whose
+	) -->
+	get_position(TID),
+	word_capitalize(whose, 'Whose').
+
+determiner(
+		display!tree![qdet,whose] &
+		syn!head!agr!num!<pl &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!wh!out!<q &
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X,Y|Dom],[relation(X,of,Y)-ID/TID,query(Y,what)-ID/TID|Conds]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		drs!id!ID &
+		sem!index!X &
+		sem!quantity!number!2 &
+		sem!quantity!comparison!geq &
+		lexem!whose
+	) -->
+	get_position(TID),
+	word_capitalize(whose, 'Whose').
+
+
+%-156--------------------------------------------------------------------------
+% DistributiveMarker -->
+%	each of
+%------------------------------------------------------------------------------
+
+distributive_marker(
+		display!tree![quant,'each of'] &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(each, 'Each'),
+	word_noninitial(of).
+
+
+%-157--------------------------------------------------------------------------
+% DistributiveGlobalQuantor -->
+%	for each of
+%------------------------------------------------------------------------------
+
+distributive_global_quantor(
+		display!tree![quant,'for each of'] &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(for, 'For'),
+	word_noninitial(each),
+	word_noninitial(of).
+
+
+%-158--------------------------------------------------------------------------
+% UniversalGlobalQuantor -->
+%	for | not for
+%
+% Example: for [every]
+% Example: for [all]
+% Example: for [no]
+% Example: not for [every]
+%------------------------------------------------------------------------------
+
+universal_global_quantor_for(
+		display!tree![quant, 'for'] &
+		drs!in!DRS &
+		drs!out!DRS
+	) -->
+	word_capitalize(for, 'For').
+
+universal_global_quantor_for(
+		display!tree![quant, 'not for'] &
+		drs!in!DRS &
+		drs!out!drs([], [-DRS])
+	) -->
+	word_capitalize(not, 'Not'),
+	word_noninitial(for).
+
+
+%-159--------------------------------------------------------------------------
+% ExistentialGlobalQuantor -->
+%	there is | there are
+%
+% ExistentialGlobalQuestionQuantor -->
+%	is there | are there
+%------------------------------------------------------------------------------
+
+existential_global_quantor(
+		@exists_sg_avm &
+		display!tree![quant, 'there is'] &
+		syn!head!agr!num!<sg &
+		drs!scope!in!Scope &
+		drs!scope!out!Scope
+	) -->
+	word_capitalize(there, 'There'),
+	word_noninitial(is).
+
+existential_global_quantor(
+		display!tree![quant,'there is'] &
+		syn!head!agr!num!<mass &
+		drs!scope!in!Scope &
+		drs!scope!out!Scope
+	) -->
+	word_capitalize(there, 'There'),
+	word_noninitial(is).
+
+existential_global_quantor(
+		display!tree![quant,'there are'] &
+		drs!scope!in!Scope &
+		drs!scope!out!Scope &
+		syn!head!agr!num!<pl
+	) -->
+	word_capitalize(there, 'There'),
+	word_noninitial(are).
+
+existential_global_question_quantor(
+		display!tree![quant,'is there'] &
+		syn!head!agr!num!<sg
+	) -->
+	word_capitalize(is, 'Is'),
+	word_noninitial(there).
+
+existential_global_question_quantor(
+		display!tree![quant,'is there'] &
+		syn!head!agr!num!<mass
+	) -->
+	word_capitalize(is, 'Is'),
+	word_noninitial(there).
+
+existential_global_question_quantor(
+		display!tree![quant,'are there'] &
+		syn!head!agr!num!<pl
+	) -->
+	word_capitalize(are, 'Are'),
+	word_noninitial(there).
+
+
+%-160---------------------------------------------------------------------------
+% GeneralisedQuantor -->
+%	( at most | at least | more than | less than | exactly )
+%
+% Example: [John sees] at most [5 dogs.]
+%------------------------------------------------------------------------------
+
+gen_quant_avm :=
+		drs!id!ID &
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X|Dom],Conds) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		sem!quantity!comparison!Comp &
+		sem!index!X.
+
+gen_quant_max_avm :=
+		drs!id!ID &
+		drs!in!drs(Dom,Conds) &
+		drs!out!drs(DomOut,[ScopeConds|Conds]) &
+		drs!restr!in!drs([X|Dom],[]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!drs(DomOut, ScopeConds) &
+		sem!quantity!comparison!Comp &
+		sem!index!X.
+
+
+generalised_quantor(
+		@gen_quant_max_avm &
+		display!tree![genqu,'at most'] &
+		sem!quantity!comparison!leq
+	) -->
+	word_capitalize(at, 'At'),
+	word_noninitial(most).
+
+generalised_quantor(
+		@gen_quant_avm &
+		display!tree![genqu,'at least'] &
+		sem!quantity!comparison!geq
+	) -->
+	word_capitalize(at, 'At'),
+	word_noninitial(least).
+
+generalised_quantor(
+		@gen_quant_avm &
+		display!tree![genqu,'more than'] &
+		sem!quantity!comparison!greater
+	) -->
+	word_capitalize(more, 'More'),
+	word_noninitial(than).
+
+generalised_quantor(
+		@gen_quant_max_avm &
+		display!tree![genqu,'less than'] &
+		sem!quantity!comparison!less
+	) -->
+	word_capitalize(less, 'Less'),
+	word_noninitial(than).
+
+generalised_quantor(
+		@gen_quant_avm &
+		display!tree![genqu,[]] &
+		sem!quantity!comparison!eq
+	) --> [].
+
+generalised_quantor(
+		@gen_quant_max_avm &
+		display!tree![genqu, exactly] &
+		sem!quantity!comparison!exactly
+	) -->
+	word_capitalize(exactly, 'Exactly').
+
+
+%% Note: 'that' is treated as a complementizer (a marker that introduces a sentence)
+%% in all forms of sentence modification (negation, possibility, necessecity, and NAF)
+
+%-161--------------------------------------------------------------------------
+% SentenceInit -->
+%	it is false | it is not true | it is possible | it is not possible |
+%	it is necessary | it is not necessary | it is not provable | it is true |
+%	it is not false
+%
+% Example: it is false [that ...]
+% Example: it is not true [that ...]
+% Example: it is possible [that ...]
+%------------------------------------------------------------------------------
+
+sentence_init(
+		display!tree![truth, 'it is true'] &
+		drs!in!DrsIn &
+		drs!out!DrsOut &
+		drs!scope!in!DrsIn &
+		drs!scope!out!DrsOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(true).
+
+sentence_init(
+		display!tree![truth, 'it is not false'] &
+		drs!in!DrsIn &
+		drs!out!DrsOut &
+		drs!scope!in!DrsIn &
+		drs!scope!out!DrsOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(not),
+	word_noninitial(false).
+
+sentence_init(
+		display!tree![neg, 'it is false'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-ScopeOut|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(false).
+
+sentence_init(
+		display!tree![neg, 'it is not true'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-ScopeOut|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(not),
+	word_noninitial(true).
+
+sentence_init(
+		display!tree![poss, 'it is possible'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [can(ScopeOut)|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(possible).
+
+sentence_init(
+		display!tree![impossibility, 'it is not possible'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [can(ScopeOut)])|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(not),
+	word_noninitial(possible).
+
+sentence_init(
+		display!tree![necessity, 'it is necessary'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [must(ScopeOut)|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(necessary).
+
+sentence_init(
+		display!tree![unnecessity, 'it is not necessary'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [must(ScopeOut)])|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(not),
+	word_noninitial(necessary).
+
+sentence_init(
+		display!tree![recommendation, 'it is recommended'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [should(ScopeOut)|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(recommended).
+
+sentence_init(
+		display!tree![recommendation, 'it is not recommended'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [should(ScopeOut)])|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(not),
+	word_noninitial(recommended).
+
+sentence_init(
+		display!tree![admissibility, 'it is admissible'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [may(ScopeOut)|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(admissible).
+
+sentence_init(
+		display!tree![admissibility, 'it is not admissible'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [-drs([], [may(ScopeOut)])|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(not),
+	word_noninitial(admissible).
+
+sentence_init(
+		display!tree![naf, 'it is not provable'] &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, [~ScopeOut|Conds]) &
+		drs!scope!in!drs([], []) &
+		drs!scope!out!ScopeOut
+	) -->
+	word_capitalize(it, 'It'),
+	word_noninitial(is),
+	word_noninitial(not),
+	word_noninitial(provable).
+
+
+%-162--------------------------------------------------------------------------
+% SentenceQuestion -->
+%	is it true | is it not true | is it false | is it not false
+%
+% Example: Is it true [that ... ?]
+% Example: Is is not false [that ... ?]
+% Example: Is it false [that ... ?]
+% Example: Is it not true [that ... ?]
+%------------------------------------------------------------------------------
+
+sentence_question(
+		display!tree![truth, 'is it true'] &
+		drs!in!Drs &
+		drs!out!Drs
+	) -->
+	word_capitalize(is, 'Is'),
+	word_noninitial(it),
+	word_noninitial(true).
+
+sentence_question(
+		display!tree![truth, 'is it not false'] &
+		drs!in!Drs &
+		drs!out!Drs
+	) -->
+	word_capitalize(is, 'Is'),
+	word_noninitial(it),
+	word_noninitial(not),
+	word_noninitial(false).
+
+sentence_question(
+		display!tree![truth, 'is it false'] &
+		drs!in!Drs &
+		drs!out!drs([], [-Drs])
+	) -->
+	word_capitalize(is, 'Is'),
+	word_noninitial(it),
+	word_noninitial(false).
+
+sentence_question(
+		display!tree![truth, 'is it not true'] &
+		drs!in!Drs &
+		drs!out!drs([], [-Drs])
+	) -->
+	word_capitalize(is, 'Is'),
+	word_noninitial(it),
+	word_noninitial(not),
+	word_noninitial(true).
+
+
+%-163a-------------------------------------------------------------------------
+% PossessivePronoun -->
+%	IrreflexivePossessivePronoun
+%
+% Example: its
+% Example: their
+%------------------------------------------------------------------------------
+
+possessive_pronoun(
+		display!tree!Tree &
+		sem!index!X &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		syn!nonlocal!subj!ref!SubjRef &
+		drs!id!ID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs([X | Dom], [
+			anaphor(nonreflexive_pronoun, NPID, X, [], Gen, Num, Pers, ID, TID, Lexem, SubjRef)
+			| Conds]) &
+		lexem!Lexem &
+		npid!NPID
+	) -->
+	irreflexive_possessive_pronoun(
+		display!tree!Tree &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		syn!head!agr!pers!Pers &
+		lexem!Lexem &
+		drs!tid!TID
+	).
+
+
+%-163b-------------------------------------------------------------------------
+% PossessivePronoun -->
+%	ReflexivePossessivePronoun
+%
+% Example: his own
+% Example: their own
+%------------------------------------------------------------------------------
+
+possessive_pronoun(
+		display!tree!Tree &
+		sem!index!X &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		syn!nonlocal!subj!ref!SubjRef &
+		syn!nonlocal!subj!agr!SubjAgr &
+		drs!id!ID &
+		drs!tid!TID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!drs(Dom, Conds) &
+		lexem!Lexem &
+		npid!NPID
+	) -->
+	reflexive_possessive_pronoun(
+		display!tree!Tree &
+		syn!head!agr!Agr &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		lexem!Lexem &
+		drs!tid!TID
+	),
+	try( SubjRef = subj(X), error(pronoun, ID, Lexem, 'There is no subject for this reflexive possessive pronoun.') ),
+	try( SubjAgr = Agr, error(pronoun, ID, Lexem, 'This reflexive possessive pronoun does not match the subject.') ).
+
+
+%-163c-------------------------------------------------------------------------
+% IrreflexivePossessivePronoun -->
+%	its | his | her | his/her | her/his | their | your
+%------------------------------------------------------------------------------
+
+irreflexive_possessive_pronoun(
+		display!tree![posspn, its] &
+		syn!head!agr!gen!<neutr &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!agr!pers!<third &
+		lexem!its &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(its, 'Its').
+
+irreflexive_possessive_pronoun(
+		display!tree![posspn, his] &
+		syn!head!agr!gen!<masc &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!his &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(his, 'His').
+
+irreflexive_possessive_pronoun(
+		display!tree![posspn, her] &
+		syn!head!agr!gen!<fem &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!her &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(her, 'Her').
+
+irreflexive_possessive_pronoun(
+		display!tree![posspn, 'his/her'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!'his/her' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(his, 'His'),
+	word_noninitial('/'),
+	word_noninitial(her).
+
+irreflexive_possessive_pronoun(
+		display!tree![posspn, 'her/his'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!'his/her' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(her, 'Her'),
+	word_noninitial('/'),
+	word_noninitial(his).
+
+irreflexive_possessive_pronoun(
+		display!tree![posspn, their] &
+		syn!head!agr!num!<pl &
+		syn!head!agr!pers!<third &
+		lexem!their &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(their, 'Their').
+
+irreflexive_possessive_pronoun(
+		display!tree![posspn, your] &
+		syn!head!agr!pers!<second &
+		lexem!your &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(your, 'Your').
+
+
+%-163d-------------------------------------------------------------------------
+% ReflexivePossessivePronoun -->
+%	its own | his own | her own | his/her own | her/his own | their own |
+%	your own
+%------------------------------------------------------------------------------
+
+reflexive_possessive_pronoun(
+		display!tree![posspn, 'its own'] &
+		syn!head!agr!gen!<neutr &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!agr!pers!<third &
+		lexem!'its own' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(its),
+	word_noninitial(own).
+
+reflexive_possessive_pronoun(
+		display!tree![posspn, 'his own'] &
+		syn!head!agr!gen!<masc &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!'his own' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(his),
+	word_noninitial(own).
+
+reflexive_possessive_pronoun(
+		display!tree![posspn, 'her own'] &
+		syn!head!agr!gen!<fem &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!'her own' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(her),
+	word_noninitial(own).
+
+reflexive_possessive_pronoun(
+		display!tree![posspn, 'his/her own'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!'his/her own' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(his),
+	word_noninitial('/'),
+	word_noninitial(her),
+	word_noninitial(own).
+
+reflexive_possessive_pronoun(
+		display!tree![posspn, 'her/his own'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!'his/her own' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(her),
+	word_noninitial('/'),
+	word_noninitial(his),
+	word_noninitial(own).
+
+reflexive_possessive_pronoun(
+		display!tree![posspn, 'their own'] &
+		syn!head!agr!num!<pl &
+		syn!head!agr!pers!<third &
+		lexem!'their own' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(their),
+	word_noninitial(own).
+
+reflexive_possessive_pronoun(
+		display!tree![posspn, 'your own'] &
+		syn!head!agr!pers!<second &
+		lexem!'your own' &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_noninitial(your),
+	word_noninitial(own).
+
+
+%-164a-------------------------------------------------------------------------
+% Pronoun -->
+%	IrreflexivePronoun
+%
+% Example: it
+% Example: him/her
+%------------------------------------------------------------------------------
+
+pronoun(
+		display!tree!Tree &
+		sem!index!X &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		syn!head!case!Case &
+		syn!nonlocal!quant!<def &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		syn!nonlocal!subj!ref!SubjRef &
+		drs!id!ID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs([X | Dom], [
+			anaphor(nonreflexive_pronoun, NPID, X, [], Gen, Num, Pers, ID, TID, Lexem, SubjRef)
+			| Conds]) &
+		drs!scope!out!ScopeOut &
+		lexem!Lexem &
+		npid!NPID
+	) -->
+	get_position(TID),
+	irreflexive_pronoun(
+		display!tree!Tree &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		syn!head!agr!pers!Pers &
+		syn!head!case!Case &
+		lexem!Lexem
+	).
+
+
+%-164b-------------------------------------------------------------------------
+% Pronoun -->
+%	ReflexivePronoun
+%
+% Example: herself
+% Example: themselves
+%------------------------------------------------------------------------------
+
+pronoun(
+		display!tree!Tree &
+		sem!index!X &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		syn!head!case!<acc &
+		syn!nonlocal!quant!<def &
+		syn!nonlocal!wh!in!WH &
+		syn!nonlocal!wh!out!WH &
+		syn!nonlocal!subj!ref!SubjRef &
+		syn!nonlocal!subj!agr!SubjAgr &
+		drs!id!ID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		drs!scope!in!drs(Dom, Conds) &
+		drs!scope!out!ScopeOut &
+		lexem!Lexem &
+		npid!NPID
+	) -->
+	reflexive_pronoun(
+		display!tree!Tree &
+		syn!head!agr!Agr &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		lexem!Lexem
+	),
+	try( SubjRef = subj(X), error(pronoun, ID, Lexem, 'There is no subject for this reflexive pronoun.') ),
+	try( SubjAgr = Agr, error(pronoun, ID, Lexem, 'This reflexive pronoun does not match the subject.') ).
+
+
+%-164c-------------------------------------------------------------------------
+% Pronoun(+Q) -->
+%	WhPronoun
+%
+% Example: what
+% Example: who
+%------------------------------------------------------------------------------
+
+pronoun(
+		display!tree!Tree &
+		syn!head!agr!gen!Gen &
+		syn!head!agr!num!Num &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!neg!<minus &
+		syn!nonlocal!wh!out!<q &
+		sem!index!X &
+		drs!id!ID &
+		drs!in!drs(Dom, Conds) &
+		drs!out!ScopeOut &
+		lexem!L &
+		drs!scope!in!drs([X | Dom], [
+			query(X, L)-ID/TID,
+			antecedent(NPID, X, [], Gen, Num, <third, ID, TID, 'WH')
+			| Conds]) &
+		drs!scope!out!ScopeOut &
+		npid!NPID &
+		lexem!Lexem
+	) -->
+	wh_pronoun(
+		display!tree!Tree &
+		syn!head!agr!gen!Gen &
+		lexem!Lexem &
+		drs!tid!TID
+	).
+
+
+%-164d-------------------------------------------------------------------------
+% Pronoun(+R) -->
+%	RelativePronoun
+%
+% Example: which
+% Example: who
+%------------------------------------------------------------------------------
+
+pronoun(
+		display!tree!Tree &
+		syn!head!agr!gen!Gen &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!neg!<minus &
+		syn!nonlocal!wh!in!<no_wh &
+		syn!nonlocal!wh!out!<r &
+		drs!in!DrsIn &
+		drs!out!ScopeOut &
+		drs!scope!in!DrsIn &
+		drs!scope!out!ScopeOut &
+		drs!id!ID
+	) -->
+	relative_pronoun(
+		display!tree!Tree &
+		syn!head!agr!gen!RelGen &
+		lexem!Lexem
+	),
+	try( RelGen = Gen, error(pronoun, ID, Lexem, 'This relative pronoun does not match (human vs. non-human).') ).
+
+
+%-164e-------------------------------------------------------------------------
+% IrreflexivePronoun -->
+%	it | he | she | he/she | she/he | they | you | him | her | him/her |
+%	her/him | them
+%------------------------------------------------------------------------------
+
+irreflexive_pronoun(
+		display!tree![pn,it] &
+		syn!head!agr!gen!<neutr &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!agr!pers!<third &
+		lexem!it
+	) -->
+	word_capitalize(it, 'It').
+
+irreflexive_pronoun(
+		display!tree![pn,he] &
+		syn!head!agr!gen!<masc &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!agr!pers!<third &
+		syn!head!case!<nom &
+		lexem!he
+	) -->
+	word_capitalize(he, 'He').
+
+irreflexive_pronoun(
+		display!tree![pn,she] &
+		syn!head!agr!gen!<fem &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!agr!pers!<third &
+		syn!head!case!<nom &
+		lexem!she
+	) -->
+	word_capitalize(she, 'She').
+
+irreflexive_pronoun(
+		display!tree![pn,'he/she'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!agr!pers!<third &
+		syn!head!case!<nom &
+		lexem!'he/she'
+	) -->
+	word_capitalize(he, 'He'),
+	word_noninitial('/'),
+	word_noninitial(she).
+
+irreflexive_pronoun(
+		display!tree![pn,'she/he'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!agr!pers!<third &
+		syn!head!case!<nom &
+		lexem!'he/she'
+	) -->
+	word_capitalize(she, 'She'),
+	word_noninitial('/'),
+	word_noninitial(he).
+
+irreflexive_pronoun(
+		display!tree![pn,they] &
+		syn!head!agr!num!<pl &
+		syn!head!agr!pers!<third &
+		syn!head!case!<nom &
+		lexem!they
+	) -->
+	word_capitalize(they, 'They').
+
+irreflexive_pronoun(
+		display!tree![pn,you] &
+		syn!head!agr!pers!<second &
+		lexem!you
+	) -->
+	word_capitalize(you, 'You').
+
+irreflexive_pronoun(
+		display!tree![pn,him] &
+		syn!head!agr!gen!<masc &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		syn!head!case!<acc &
+		lexem!him
+	) -->
+	word_noninitial(him).
+
+irreflexive_pronoun(
+		display!tree![pn,her] &
+		syn!head!agr!gen!<fem &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		syn!head!case!<acc &
+		lexem!her
+	) -->
+	word_noninitial(her).
+
+irreflexive_pronoun(
+		display!tree![pn,'him/her'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		syn!head!case!<acc &
+		lexem!'him/her'
+	) -->
+	word_noninitial(him),
+	word_noninitial('/'),
+	word_noninitial(her).
+
+irreflexive_pronoun(
+		display!tree![pn,'her/him'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		syn!head!case!<acc &
+		lexem!'him/her'
+	) -->
+	word_noninitial(her),
+	word_noninitial('/'),
+	word_noninitial(him).
+
+irreflexive_pronoun(
+		display!tree![pn,them] &
+		syn!head!agr!num!<pl &
+		syn!head!agr!pers!<third &
+		syn!head!case!<acc &
+		lexem!them
+	) -->
+	word_noninitial(them).
+
+
+%-164f-------------------------------------------------------------------------
+% ReflexivePronoun -->
+%	itself | himself | herself | himself/herself | herself/himself |
+%	themselves | yourself | yourselves
+%------------------------------------------------------------------------------
+
+reflexive_pronoun(
+		display!tree![pn,itself] &
+		syn!head!agr!gen!<neutr &
+		syn!head!agr!num!<sg_or_mass &
+		syn!head!agr!pers!<third &
+		lexem!itself
+	) -->
+	word_noninitial(itself).
+
+reflexive_pronoun(
+		display!tree![pn,himself] &
+		syn!head!agr!gen!<masc &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!himself
+	) -->
+	word_noninitial(himself).
+
+reflexive_pronoun(
+		display!tree![pn,herself] &
+		syn!head!agr!gen!<fem &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!herself
+	) -->
+	word_noninitial(herself).
+
+reflexive_pronoun(
+		display!tree![pn,'himself/herself'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!'himself/herself'
+	) -->
+	word_noninitial(himself),
+	word_noninitial('/'),
+	word_noninitial(herself).
+
+reflexive_pronoun(
+		display!tree![pn,'herself/himself'] &
+		syn!head!agr!gen!<human &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<third &
+		lexem!'himself/herself'
+	) -->
+	word_noninitial(herself),
+	word_noninitial('/'),
+	word_noninitial(himself).
+
+reflexive_pronoun(
+		display!tree![pn,themselves] &
+		syn!head!agr!num!<pl &
+		syn!head!agr!pers!<third &
+		lexem!themselves
+	) -->
+	word_noninitial(themselves).
+
+reflexive_pronoun(
+		display!tree![pn,yourself] &
+		syn!head!agr!num!<sg &
+		syn!head!agr!pers!<second &
+		lexem!yourself
+	) -->
+	word_noninitial(yourself).
+
+reflexive_pronoun(
+		display!tree![pn,yourselves] &
+		syn!head!agr!num!<pl &
+		syn!head!agr!pers!<second &
+		lexem!yourselves
+	) -->
+	word_noninitial(yourselves).
+
+
+%-164g-------------------------------------------------------------------------
+% WhPronoun -->
+%	what | who
+%------------------------------------------------------------------------------
+
+wh_pronoun(
+		display!tree![qpn,what] &
+		lexem!what &
+		syn!head!agr!gen!<neutr &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(what, 'What').
+
+wh_pronoun(
+		display!tree![qpn,who] &
+		lexem!who &
+		syn!head!agr!gen!<human &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(who, 'Who').
+
+
+%-164h-------------------------------------------------------------------------
+% RelativePronoun -->
+%	which | who
+%------------------------------------------------------------------------------
+
+relative_pronoun(
+		display!tree![relpn,which] &
+		syn!head!agr!gen!<neutr &
+		lexem!which
+	) -->
+	word_noninitial(which).
+
+relative_pronoun(
+		display!tree![relpn,who] &
+		syn!head!agr!gen!<human &
+		lexem!who
+	) -->
+	word_noninitial(who).
+
+
+%-165--------------------------------------------------------------------------
+% SaxonGenitiveMarker -->
+%	's | '
+%
+% Example: [John]'s [car]
+% Example: [Thomas]' [dog]
+%------------------------------------------------------------------------------
+
+saxon_genitive_marker(
+		display!tree![gen_marker,'\'s'] &
+		drs!id!ID &
+		drs!in!drs(Dom,Conds) &
+		drs!out!drs([X | Dom],[relation(X, of, Y)-ID/TID|Conds]) &
+		sem!index!X &
+		sem!arg1!Y
+	) -->
+	get_position(TID),
+	word_noninitial('\''),
+	word_noninitial(s).
+
+saxon_genitive_marker(
+		display!tree![gen_marker,'\''] &
+		drs!id!ID &
+		drs!in!drs(Dom,Conds) &
+		drs!out!drs([X | Dom],[relation(X, of, Y)-ID/TID|Conds]) &
+		sem!index!X &
+		sem!arg1!Y
+	) -->
+	get_position(TID),
+	word_noninitial('\'').
+
+
+%-167--------------------------------------------------------------------------
+% WhAdverb -->
+%	how | where | when
+%------------------------------------------------------------------------------
+
+whadv_avm :=
+		syn!head!agr!num!<sg &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!neg!<minus &
+		syn!nonlocal!wh!out!<q &
+		syn!nonlocal!gap!in!Gap &
+		syn!nonlocal!gap!out!Gap &
+		sem!index!X &
+		drs!id!ID &
+		drs!tid!TID &
+		lexem!Lexem &
+		drs!mods!in!drs(Dom,Conds) &
+		drs!mods!out!drs(Dom, [query(X, Lexem)-ID/TID | Conds]).
+
+whadverb(
+		@whadv_avm &
+		display!tree![qpn,how] &
+		lexem!how &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(how, 'How').
+
+whadverb(
+		@whadv_avm &
+		display!tree![qpn,where] &
+		lexem!where &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(where, 'Where').
+
+whadverb(
+		@whadv_avm &
+		display!tree![qpn,when] &
+		lexem!when &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word_capitalize(when, 'When').
+
+
+%-170--------------------------------------------------------------------------
+% Variable -->
+%	'A' | 'B' | ... | 'Z' | 'A1' | 'B1' | ... | 'Z1' | 'A2' | 'B2' | ...
+%------------------------------------------------------------------------------
+
+variable(
+		lexem!VarName &
+		drs!tid!TID
+	) -->
+	get_position(TID),
+	word(VarName, variable(VarName)).

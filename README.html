@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>ape</title>
+
+</head>
+<body>
+
+<h1 class="wiki">APE - ACE Parsing Engine</h1>
+
+<p>
+<i>Authors: Kaarel Kaljurand, Norbert E. Fuchs, Tobias Kuhn</i>
+
+</p><p>
+<i>Last update: 2011-08-16</i>
+
+</p><h2 class="wiki">Introduction</h2>
+
+<p>
+This document explains how APE (ACE Parsing Engine) is compiled and used.
+
+</p><p>
+In order to compile and run APE, you first need to install a recent version of SWI Prolog.
+SWI Prolog is free software and can be downloaded from <a href="http://www.swi-prolog.org/">http://www.swi-prolog.org</a>.
+Note that you minimally need to install the following SWI Prolog packages:
+<code>clib</code>, <code>sgml</code>, and <code>http</code>.
+To view the documentation embedded in the source files you also need <code>pldoc</code>.
+
+</p><h2 class="wiki">Compilation</h2>
+
+<p>
+Before you can run APE, you have to compile the APE source code.
+Just execute the file <code>make_exe.bat</code> in the case of Windows
+or <code>make_exe.sh</code> in the case of Mac OS X, Linux, or any other Unix system. Both files are located in the root directory
+of the APE distribution.
+As a result (and given that there were no compilation errors),
+a new file <code>ape.exe</code> is created into the current directory.
+
+</p><h2 class="wiki">Execution</h2>
+
+<p>
+APE has to be executed from the command-line. In the command-line terminal, go to the
+root directory of APE (where <code>ape.exe</code> is located).
+Then type <code>ape.exe</code> in the case of Windows or <code>./ape.exe</code> otherwise.
+As a result, you should see the following output:
+
+</p><pre class="code">Attempto Parsing Engine for ACE 6.6, version 6.6-110816
+Copyright 2008-2011 Attempto Group, University of Zurich
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it under certain conditions.
+Please visit http://attempto.ifi.uzh.ch for details.
+
+Command-line arguments:
+-text "TEXT"        The input ACE text. If neither -text nor -file is present then the ACE text is read from stdin.
+-file FILENAME      The name or URL of the input file containing the ACE text.
+-ulextext "TEXT"    The user lexicon (taken from a string).
+-ulexfile FILENAME  The user lexicon (taken from a file or URL).
+-solo OUTPUT        Output just one output component. OUTPUT has to be one of {paraphrase,paraphrase1,paraphrase2,owlfss,owlfsspp,owlrdf,owlxml,fol,pnf,tptp,tokens,syntax,syntaxpp,syntaxd,syntaxdpp,drs,drsxml,drspp,drshtml}.
+-cdrs               Output the DRS as a Prolog term.
+-cdrsxml            Output the DRS in XML.
+-cdrspp             Output the DRS in pretty-printed form in plain text.
+-cdrshtml           Output the DRS in pretty-printed form in HTML.
+-cparaphrase        Output a paraphrase which is a "best-effort" combination of paraphrase1 and paraphrase2.
+-cparaphrase1       Output a paraphrase which uses full sentences instead of relative clauses.
+-cparaphrase2       Output a paraphrase which uses relative clauses instead of full sentences.
+-ctokens            Output tokens as a Prolog list of lists.
+-csentences         Output sentences as a Prolog list.
+-csyntax            Output simplified syntax trees as a Prolog list.
+-csyntaxpp          Output simplified syntax trees in pretty-printed form.
+-csyntaxd           Output plain syntax trees as a Prolog list (for debugging).
+-csyntaxdpp         Output plain syntax trees in pretty-printed form (for debugging).
+-cowlfss            Output OWL/SWRL in the Functional-Style Syntax representation (as Prolog term).
+-cowlfsspp          Output OWL/SWRL in the Functional-Style Syntax representation (pretty-printed).
+-cowlxml            Output OWL/SWRL in the XML representation.
+-cowlrdf            Output OWL/SWRL in the RDF/XML representation. DEPRECATED
+-cfol               Output standard first-order logic representations (default form) of the DRS as a Prolog term.
+-cpnf               Output standard first-order logic representations (prenex normal form) of the DRS as a Prolog term.
+-ctptp              Output TPTP representation of the DRS.
+-uri URI            URI for the OWL outputs.
+-noclex             Ignore the lexicon entries that are compiled into the executable.
+-guess              Guess the word-class of unknown words.
+-server             Launch a socket interface to APE at port 2766 (0xACE).
+-httpserver         Launch an HTTP interface to APE at port 8000.
+-port NUMBER        Override the default port of either the socket or the HTTP interface.
+-version            Shows version information.
+-help               Shows this help page.
+</pre>
+
+<p>
+APE can be used via four different interfaces:
+</p><ul>
+<li>command-line interface</li>
+<li>socket interface</li>
+<li>HTTP interface (webservice)</li>
+<li>directly from Prolog or Java</li>
+</ul>
+
+<p>
+All these possibilities are described in the following sections.
+
+</p><h3 class="wiki">Command-line interface to APE</h3>
+
+<p>
+The following command parses the text
+"John waits." and outputs the DRS in XML representation and the syntax tree:
+
+</p><pre class="code">  ./ape.exe -text 'John waits.' -cdrsxml -csyntax
+</pre>
+
+<p>
+In the case of Windows, you have to omit the first two characters "<code>./</code>". The next example parses the text that
+is inside of the file <code>ace.txt</code> and outputs the OWL FSS representation:
+
+</p><pre class="code">  ./ape.exe -file ace.txt -solo owlfss
+</pre>
+
+<p>
+If you omit both arguments, <code>text</code> and <code>file</code>, the ACE text is read from the standard input:
+
+</p><pre class="code">  echo 'Every mammal is an animal.' | ./ape.exe -solo drspp
+</pre>
+
+<p>
+Note that this does not work under Windows.
+
+</p><p>
+If you just execute the line
+
+</p><pre class="code">  ./ape.exe -solo drspp
+</pre>
+
+<p>
+then the terminal waits for an input. In this case, you can type your ACE text into the terminal window.
+Once you have done so, press <code>Enter</code> and <code>Ctrl-D</code> to tell the terminal that you are finished.
+The output (the pretty printed DRS in our case) is then shown below the ACE text you just entered.
+Again, this does not work under Windows.
+
+</p><h3 class="wiki">Socket interface to APE</h3>
+
+<p>
+A socket interface to APE is started by giving the argument <code>-server</code> to APE.
+The default port, 2766 (0xACE), can be overridden by specifying a different
+port number as a value to the argument <code>-port</code>.
+
+</p><p>
+A good way to start the server on a Unix command-line (e.g. <i>bash</i>) is:
+
+</p><pre class="code">nohup swipl -x ape.exe -- -server -port 3453 &gt; stdout.txt 2&gt; stderr.txt &amp;
+</pre>
+
+<p>
+On Mac OS X, one could use <i>launchctl</i> instead.
+
+</p><p>
+The socket interface knows only one command:
+
+</p><pre class="code">get(Parameters).
+</pre>
+
+<p>
+where <i>Parameters</i> is a list of parameters accepted by <code>get_ape_results/2</code>.
+Note the dot at the end of the command! (There should also be a newline after the dot.)
+Given the input, the server runs <code>get_ape_results/2</code> (with a 20 second timelimit)
+on it and sends back the results, followed by <code>APESERVERSTREAMEND</code> on a separate line.
+If the input command is syntactically incorrect then an error message is logged into STDERR.
+In any case, the connection to the client is closed.
+
+</p><p>
+Examples of input commands:
+</p><ul>
+<li><code>get([text='Every man is a human.', cparaphrase1=on]).</code></li>
+<li><code>get([text='Every man is a human.', solo=paraphrase1]).</code></li>
+<li><code>get([text='Every man is a a human.', cparaphrase1=on]).</code></li>
+<li><code>get([text='Every man is a human.', cinput=on, cdrs=on, cparaphrase=on, ctokens=on, csyntax=on]).</code></li>
+</ul>
+
+<p>
+Session example, assuming that the APE socket server listens at port 3453.
+
+</p><pre class="code">$ telnet 127.0.0.1 3453
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+get([text='Every man is a human.', solo=paraphrase1]).
+If there is a man X1 then the man X1 is a human.
+APESERVERSTREAMEND
+Connection closed by foreign host.
+</pre>
+
+<h3 class="wiki">HTTP interface to APE</h3>
+
+<p>
+An HTTP interface to APE is started by giving the argument <code>-httpserver</code> to APE.
+The default port, 8000, can be overridden by specifying a different
+port number as a value to the argument <code>-port</code>.
+
+</p><p>
+A good way to start the server on a Unix command-line (e.g. <i>bash</i>) is:
+
+</p><pre class="code">nohup swipl -x ape.exe -- -httpserver -port 8001 &gt; stdout.txt 2&gt; stderr.txt &amp;
+</pre>
+
+<p>
+On Mac OS X, one could use <i>launchctl</i> instead.
+
+</p><p>
+In case there is an error message in the error output, saying that
+
+</p><pre class="code">ERROR: socket_error(Address already in use)
+</pre>
+
+<p>
+then try another port number. For example, one would get this error when running
+the above command twice: during the first time a server is started which starts
+to listen requests at port 8001, during the second time a second server is started
+but since the port is already being used by the first server, there is a conflict
+and the second server crashes.
+
+</p><p>
+You can test the server by loading the following URL in your browser.
+
+</p><pre class="code">http://localhost:8001/?text=Every+man+is+a+human.&amp;solo=drshtml
+</pre>
+
+<p>
+The result should be an HTML-rendering of the DRS of the sentence "Every man is a human.".
+
+</p><p>
+The complete description of this webservice interface as well as some example clients
+are available at <a href="http://attempto.ifi.uzh.ch/site/docs/ape_webservice.html">http://attempto.ifi.uzh.ch/site/docs/ape_webservice.html</a>.
+(Note though that the parameter 'ulexreload' is not supported by this HTTP interface.)
+
+</p><p>
+Note that the parameter names and values, and their meaning is the same as for the
+command-line client. Also the results' format is the same. The only difference
+is that for security reasons the webservice cannot access local files, i.e. the input ACE text
+can be passed as a string or via a pointer an HTTP resource (i.e. URL) but not
+via pointing to a local file (such as <code>/var/acetexts/sometext.ace.txt</code>).
+
+</p><h3 class="wiki">Using APE from Java programs</h3>
+
+<p>
+The <code>ACEParser</code> implementation <code>APELocal</code> (in <code>attempto_ape.jar</code>,
+see <a href="http://attempto.ifi.uzh.ch/site/downloads/">http://attempto.ifi.uzh.ch/site/downloads/</a>)
+provides a high level Java interface to <code>ape.exe</code>.
+It is effectively a Java-style front-end to querying the predicate <code>get_ape_results/2</code>.
+
+</p><p>
+Even if you need to write your own Java interface to <code>ape.exe</code>, it might be useful
+to take a look at the source code of <code>APELocal.java</code> for instructions on how to
+access JPL, the bidirectional Prolog/Java interface, which is included in the SWI Prolog
+installation.
+
+</p><h3 class="wiki">Some examples</h3>
+
+<p>
+ACE text from URL
+
+</p><pre class="code">./ape.exe -file http://attempto.ifi.uzh.ch/site/acetexts/example1.ace.txt -solo owlxml
+</pre>
+
+<p>
+Lexicon from string
+
+</p><pre class="code">./ape.exe -text 'Every mman is a hhuman.' -ulextext 'noun_sg(mman, mman, masc). noun_sg(hhuman, hhuman, neutr).' -cparaphrase1
+</pre>
+
+<p>
+Reading from STDIN and writing to STDOUT can be used in order to chain several executions
+of APE together. The following example paraphrases the paraphrase of "Every man is a human.".
+
+</p><pre class="code">./ape.exe -text 'Every man is a human.' -solo paraphrase1 | ./ape.exe -solo paraphrase2
+</pre>
+
+<p>
+The following commands have the same meaning.
+
+</p><pre class="code">./ape.exe -httpserver
+swipl -x ape.exe -- -httpserver
+swipl -x ape.exe -g http_server
+</pre>
+
+<p>
+The only difference is in the the way SWI Prolog is called, either via the full path name
+embedded in <code>ape.exe</code> or via the name <code>swipl</code> which the command-line environment
+must resolve to the full path name.
+
+</p><p>
+By overriding the goal (with <code>-g</code>), it is also possible to execute SWI-Prolog commands
+in the context of <code>ape.exe</code>.
+For example, the following command displays the source code of <code>ape.exe</code>.
+
+</p><pre class="code">swipl -x ./ape.exe -g listing
+</pre>
+
+<h2 class="wiki">Code</h2>
+
+<p>
+The distribution includes the following packages:
+</p><ul>
+<li>logger/ contains the error logger module</li>
+<li>lexicon/ contains various lexicon files, notably a content words lexicon with ~2,000 entries</li>
+<li>utils/ contains various modules, mostly for translating the 
+Discourse Representation Structure (DRS) generated by APE into other 
+logical forms</li>
+<li>parser/ contains the Attempto Parsing Engine (APE) (tokenizer, grammar files, anaphoric reference resolver)</li>
+</ul>
+
+<p>
+This listing reflects the dependencies: <code>logger</code> depends on no other package. <code>lexicon</code> depends
+only on <code>logger</code>. The package <code>utils</code> depends only on <code>logger</code> and <code>utils</code>. The package <code>parser</code>,
+finally, depends on all three other packages.
+The files in the root directory depend on those packages, but not vice versa.
+
+</p><p>
+For more information consult the commented source files.
+Provided that you have PlDoc installed (SWI-Prolog package <code>pldoc</code>),
+you can view the documentation by:
+
+</p><pre class="code">?- doc_server(1234), [get_ape_results], doc_browser.
+</pre>
+
+</body></html>
