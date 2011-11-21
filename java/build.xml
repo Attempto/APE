@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Attempto Java Packages" default="buildeverything" basedir=".">
+
+    <property name="version" value="110615"/>
+    <property name="libs" value="lib/httpcore-4.1.1.jar;lib/httpclient-4.1.1.jar;lib/commons-lang-2.2.jar;lib/commons-logging-1.1.jar;lib/jdom.jar;lib/jpl.jar"/>
+    <property name="classes" location="classes/"/>
+    <property name="test_src" location="test/"/>
+    <property name="test_report" location="test_report/"/>
+
+    <target name="compile"
+            description="Compile the Java files">
+        <mkdir dir="${classes}"/>
+        <javac
+        	target="1.5"
+        	includeantruntime="false"
+            srcdir="src/"
+        	excludes="**/test/**"
+            classpath="${libs}"
+            destdir="${classes}"
+        />
+    </target>
+
+    <target name="createjars"
+            description="Create JAR files"
+            depends="compile">
+        <jar
+            destfile="attempto-ape.jar"
+            basedir="${classes}"
+            includes="ch/uzh/ifi/attempto/ape/**"
+        />
+    </target>
+
+    <target name="createjavadoc"
+            description="Create the Javadoc files">
+         <javadoc
+             sourcepath="src/"
+             packagenames="*"
+        	 excludepackagenames="**.test"
+             destdir="docs/"
+             extdirs="lib/"
+             windowtitle="Attempto Java Packages, version ${version}"
+             doctitle="Attempto Java Packages, version ${version}"
+             overview="src/overview.html"
+             linksource="on">
+            <bottom><![CDATA[<em>Copyright 2008-2011, Attempto Group, University of Zurich (see <a href="http://attempto.ifi.uzh.ch" target="_blank">http://attempto.ifi.uzh.ch</a>)</em>]]></bottom>
+        </javadoc>
+        <copy
+            file="README.txt"
+            tofile="docs/README.txt"
+        />
+    </target>
+
+    <target name="clean"
+            description="Clean up">
+        <delete file="attempto-ape.jar"/>
+        <delete dir="${classes}/ch/"/>
+        <delete dir="docs/"/>
+    </target>
+
+    <target name="buildeverything"
+            depends="clean, createjars, createjavadoc"
+            description="Clean up, create JAR files and create Javadoc"
+    />
+
+    <target name="test" depends="compile" description="Unit test">
+        <javac srcdir="${test_src}" destdir="${classes}">
+            <classpath>
+                <fileset dir="lib" >
+                    <include name="*.jar" />
+                </fileset>
+                <pathelement location="${classes}"/>
+            </classpath>
+        </javac>
+        <mkdir dir="${test_report}"/>
+        <junit printsummary="yes" haltonfailure="no" fork="on">
+            <classpath>
+                <fileset dir="lib" >
+                    <include name="*.jar" />
+                </fileset>
+                <pathelement location="${classes}"/>
+            </classpath>
+            <formatter type="plain"/>
+            <batchtest fork="yes" todir="${test_report}">
+                <fileset dir="${test_src}">
+                    <include name="**/*Test.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+</project>

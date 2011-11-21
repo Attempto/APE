@@ -1,34 +1,34 @@
 echo Compiling APE...
 cd ../parser
 bash compile.sh
-cd ../..
+cd ..
 
 echo Building the Attempto Java Packages...
 cd java
 ant
 cd ..
 
-mv ape/lexicon/clex_lexicon.pl ape/lexicon/clex_lexicon.pl.tmp
-mv ape/lexicon/clex_lexicon_small.pl ape/lexicon/clex_lexicon.pl
+mv lexicon/clex_lexicon.pl lexicon/clex_lexicon.pl.tmp
+mv lexicon/clex_lexicon_small.pl lexicon/clex_lexicon.pl
 
 echo "Generating public regression test set..."
-cd ape/tests/
+cd tests
 swipl -f make_acetext_drs.pl -g main -t halt -q > ../acetext_drs.pl
-cd ../../
+cd ..
 
 echo Creating ZIP file...
-rm ape/ape-*.zip
+rm ape-*.zip
 
 timestamp=`date '+%y%m%d'`
 
 zip \
-    ape/ape-6.6-$timestamp.zip \
-        ape/* \
-        ape/lexicon/* \
-        ape/logger/* \
-        ape/parser/* \
-        ape/utils/* \
-        ape/utils/owlswrl/* \
+    ape-6.6-$timestamp.zip \
+        * \
+        lexicon/* \
+        logger/* \
+        parser/* \
+        utils/* \
+        utils/owlswrl/* \
         java/* \
         java/src/* \
         java/src/ch/uzh/ifi/attempto/* \
@@ -43,8 +43,8 @@ zip \
         *.pl *.fit *.txt *.perl *.html *.xml *.java *.jar *.css \
         */package-list */inherit.gif ape/make_exe.*
 
-mv ape/lexicon/clex_lexicon.pl ape/lexicon/clex_lexicon_small.pl
-mv ape/lexicon/clex_lexicon.pl.tmp ape/lexicon/clex_lexicon.pl
-rm ape/acetext_drs.pl
+mv lexicon/clex_lexicon.pl lexicon/clex_lexicon_small.pl
+mv lexicon/clex_lexicon.pl.tmp lexicon/clex_lexicon.pl
+rm acetext_drs.pl
 
 echo Finished.
