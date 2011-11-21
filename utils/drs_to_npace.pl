@@ -23,7 +23,7 @@ In general we handle only those DRSs which contain only implications, but
 there is some support also for objects and predicates in the toplevel.
 
 @author Kaarel Kaljurand
-@version 2009-05-11
+@version 2011-11-09
 
 TODO:
 
@@ -739,7 +739,7 @@ get_noun_x(Ref, _, no, yes, countable, Noun, eq, 1, ['no', NounSg, Ref]) :- surf
 get_noun_x(Ref, _, no, yes, mass, Noun, na, na, ['no', NounSg, Ref]) :- surface_noun(cn, Noun, mass, NounSg). % BUG: ambiguity
 get_noun_x(Ref, new, yes, _, countable, Noun, eq, 1, [a, NounSg, Ref]) :- surface_noun(cn, Noun, sg, NounSg).
 get_noun_x(Ref, new, yes, _, mass, Noun, na, na, [some, NounSg, Ref]) :- surface_noun(cn, Noun, mass, NounSg).
-get_noun_x(Ref, old, yes, _, countable, Noun, eq, 1, [the, NounSg, Ref]) :- surface_noun(cn, Noun, sg, NounSg).
+get_noun_x(Ref, old, yes, _, countable, Noun, _, 1, [the, NounSg, Ref]) :- surface_noun(cn, Noun, sg, NounSg).
 % BUG: number was 1. why?
 get_noun_x(Ref, old, yes, _, mass, Noun, na, na, [the, NounSg, Ref]) :- surface_noun(cn, Noun, mass, NounSg).
 

@@ -29,7 +29,7 @@
 /** <module> ACE beautifier
 
 @author Kaarel Kaljurand
-@version 2009-05-16
+@version 2011-11-09
 
 This code does the following:
 
@@ -103,6 +103,7 @@ atom_capitalize(something, 'Something') :- !.
 atom_capitalize(at, 'At') :- !.
 atom_capitalize(less, 'Less') :- !.
 atom_capitalize(more, 'More') :- !.
+atom_capitalize(exactly, 'Exactly') :- !.
 atom_capitalize(some, 'Some') :- !.
 atom_capitalize(an, 'An') :- !.
 

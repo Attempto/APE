@@ -5767,7 +5767,7 @@ The woman X2 asks the man X1 for the man X1.
 003554 [FAIL] everybody who which women ask for her waits? --> # ...
 003555 [FAIL] a woman carries the woman from who to her? --> # ...
 003556 [FAIL] exactly 1 woman who sees a man who loves her waits. --> # ...
-003557 [----] exactly 1 woman asks a woman of her. --> exactly 1 woman asks a woman X1 of the woman X1.
+003557 [----] exactly 1 woman asks a woman of her. --> Exactly 1 woman asks a woman X1 of the woman X1.
 003558 [----] John sees a cat that likes the cat that smiles. --> There is a cat X1.
 There is a cat X2.
 John sees the cat X1.
@@ -6047,3 +6047,4 @@ If there is a code X2 of the card X1 then the code X2 is valid.
 If there is a code X2 of the card X1 then it is false that the code X2 is valid.
 003734 [FAIL] John has a card every code of every copy of which is valid. --> John has a card X1.
 If there is a code X2 and if there is a copy X3 of the card X1 then the copy X3 v:OF-RELATION the code X2 then the code X2 is valid.
+003737 [SAME] Exactly 1 woman waits.

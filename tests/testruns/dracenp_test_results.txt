@@ -1457,10 +1457,10 @@ The men wait.
 001187 [----] If there is a man then he is not a woman or is not a dog. --> Every man is not a woman or is not a dog.
 001188 [ZERO] If there is no man then he waits.
 001189 [FAIL] At least 1 man waits. --> There is at least 1 man.
-The men waits.
+The man X1 waits.
 001190 [FAIL] At most 1 man waits. --> NOT IMPLEMENTED
 001191 [FAIL] More than 1 man waits. --> There is more than 1 man.
-The men waits.
+The man X1 waits.
 001192 [FAIL] Less than 1 man waits. --> NOT IMPLEMENTED
 001193 [FAIL] There are 3 kg of apples. Each of the apples is red. --> NOT IMPLEMENTED
 001194 [FAIL] John likes Mary's sister who is not John. --> NOT IMPLEMENTED
@@ -2349,12 +2349,12 @@ No man that waits is seen by the dog X1.
 002001 [ZERO] Every man's car contains some instructions that code its own development.
 002002 [FAIL] At least one man waits. At least 2 women sleep. --> There are at least 2 women.
 There is at least 1 man.
-The men waits.
+The man X1 waits.
 The women sleep.
 002003 [FAIL] At most one man waits. At most 2 women sleep. --> NOT IMPLEMENTED
 002004 [FAIL] More than one man waits. More than 2 women sleep. --> There are more than 2 women.
 There is more than 1 man.
-The men waits.
+The man X1 waits.
 The women sleep.
 002005 [FAIL] Less than one man waits. Less than 2 women sleep. --> NOT IMPLEMENTED
 002006 [FAIL] Mary is not a woman who likes an apple. --> NOT IMPLEMENTED
@@ -4368,3 +4368,4 @@ ERROR
 ERROR
 003734 [FAIL] John has a card every code of every copy of which is valid. --> John has a card.
 ERROR
+003737 [FAIL] Exactly 1 woman waits. --> NOT IMPLEMENTED
