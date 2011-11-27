@@ -1,0 +1,125 @@
+/**
+@title The LOL policy
+@author Kaarel Kaljurand
+@version 2008-01-30
+
+This is based on the if-then sentences
+in Appendix A
+in "Further Notes. Draft of December 19, 2007"
+by Juri Luca De Coi.
+
+The idea has been to convert Juri's if-then sentences into every-sentences
+to see if they come out more readable than the if-then sentences,
+and also to test the Core ACE paraphraser which would translate the
+every-sentences back into if-then sentences. This way we will have 3 sets
+of sentences: Juri's original sentences, Kaarel's "everyfication",
+DRACE Core's paraphrases. We should make sure that APE really converts them
+into equivalent DRSs. We should also make sure that Protune users
+accept those 3 sets as equivalent.
+
+Note: the sentences below can be parsed with guessing on.
+On 2007-12-30, the roundtrip ACE1->DRS->ACE2->DRS worked, where
+ACE1 is this file,
+DRS is its DRS-translation,
+ACE2 is the Core ACE paraphrase of ACE1, and
+DRS (i.e. the same DRS as before) is its DRS-translation.
+*/
+
+/* r1 */
+Every user
+can browse "index".
+
+
+/* r2 */
+Every resource that is public
+can be downloaded by every user.
+
+
+/* r3 */
+Every user who is authenticated
+	and who has a subscription that is available-for a resource
+can download the resource.
+
+
+/* r4 */
+Every user who is authenticated
+	and who buys a resource
+can download the resource.
+
+
+/* r5 */
+Every user
+can log all information.
+
+
+/* r6 */
+Every user who sends a credential
+	that is an identifier
+	and whose name is the user's name
+	and whose public key is challenged by "System"
+is authenticated.
+
+
+/* r7 */
+Every user who provides a declaration
+	whose username is the user's name
+	and whose password is the user's password
+is authenticated.
+
+
+/* r8 */
+Every user who registers at "http://lol.com/register.php"
+is authenticated.
+
+
+/* r9 */
+Every credential whose type is an id
+	and whose issuer is trusted-for the type
+is an identifier.
+
+
+/* r10 */
+"id" is an id.
+
+
+/* r11 */
+"ssn" is an id.
+
+
+/* r12 */
+"passport" is an id.
+
+
+/* r13 */
+"driving_license" is an id.
+
+
+/* r14 */
+Every user who pays the price of a resource with "fastPay"
+buys the resource.
+
+
+/* r15 */
+Every user who pays the price of a resource with "creditCard"
+buys the resource.
+
+
+/* r16 */
+Every user who provides a declaration
+	and who sends a credential that is valid
+		and whose type is "fastPay"
+		and on which a price is charged with a pin of the declaration
+pays the price with "fastPay".
+
+
+/* r17 */
+Every user who sends a credential that is valid
+	and whose type is "creditCard"
+	and whose owner is authenticated
+	and on which a price is charged
+pays the price with "creditCard".
+
+
+/* r18 */
+Every credential that is verified by "System" with a public key of an issuer of the credential
+is valid.
