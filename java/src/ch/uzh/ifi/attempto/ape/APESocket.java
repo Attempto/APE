@@ -116,7 +116,8 @@ public class APESocket extends ACEParser {
 				if (responseLine.equals("APESERVERSTREAMEND")) {
 					break;
 				}
-				allLines = allLines + responseLine;
+				// TODO: not sure if we should replace "\n" with a platform independent method call
+				allLines = allLines + responseLine + "\n";
 			}
 		} catch (IOException e) {
 			throw new RuntimeException("Accessing APE socket failed: " + e.getMessage());

@@ -1,6 +1,7 @@
 package ch.uzh.ifi.attempto.ape;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class APEWebserviceTest {
@@ -11,11 +12,8 @@ public class APEWebserviceTest {
 	// It is expected that "ape.exe httpserver" runs on localhost:8000
 	private static final String APEWS_URL_LOCALHOST = "http://localhost:8000";
 	private static final String WRONG_URL = "http://attempto.ifiuzh.ch/ws/apews.perl";
-	private static final String ACETEXT = "John waits.";
 	private static final String ACETEXT_UTF8 = "John sees \"✈\".";
 	private static final String ACETEXT_WRONG = "There is there is.";
-	private static final String ACETEXT_DRS = "drs([A],[predicate(A,wait,named('John'))-1/2])";
-	private static final String ACETEXT_TPTP = "fof(f1, axiom, (\n? [A] : (predicate1(A,wait,'John')))).";
 	private static final String ACETEXT_UTF8_DRS = "drs([A],[predicate(A,see,named('John'),string('✈'))-1/2])";
 	private static final String ACETEXT_LONG_DRS = "drs([A],[object(A," + NOUN + ",countable,na,eq,1)-1/23,property(A,"+ ADJ +",pos)-1/22])";
 
@@ -37,9 +35,9 @@ public class APEWebserviceTest {
 		ACEParser ap = new APEWebservice(APEWS_URL);
 		String result = null;
 		try {
-			result = ap.getSoloOutput(ACETEXT, OutputType.DRS);
+			result = ap.getSoloOutput(Testcase.ACETEXT, OutputType.DRS);
 		} catch (ACEParserException e) {}
-		assertEquals(ACETEXT_DRS, result.trim());
+		assertEquals(Testcase.ACETEXT_DRS, result.trim());
 	}
 
 	@Test
@@ -56,7 +54,7 @@ public class APEWebserviceTest {
 	public final void testAPEWebservice1() {
 		ACEParser ap = new APEWebservice(WRONG_URL);
 		try {
-			ap.getSoloOutput(ACETEXT, OutputType.DRS);
+			ap.getSoloOutput(Testcase.ACETEXT, OutputType.DRS);
 			fail("Should throw an exception");
 		} catch (ACEParserException e) {
 			fail("Should NOT throw ACEParserException");
@@ -82,11 +80,11 @@ public class APEWebserviceTest {
 		ACEParser ap = new APEWebservice(APEWS_URL_LOCALHOST);
 		String result = null;
 		try {
-			result = ap.getSoloOutput(ACETEXT, OutputType.DRS);
+			result = ap.getSoloOutput(Testcase.ACETEXT, OutputType.DRS);
 		} catch (ACEParserException e) {
 			fail("Should NOT throw ACEParserException: " + e.getMessageContainer());
 		}
-		assertEquals(ACETEXT_DRS, result.trim());
+		assertEquals(Testcase.ACETEXT_DRS, result.trim());
 	}
 
 
@@ -121,9 +119,17 @@ public class APEWebserviceTest {
 	@Test
 	public final void testGetMultiOutput() {
 		ACEParser ap = new APEWebservice(APEWS_URL);
-		ACEParserResult result = ap.getMultiOutput(ACETEXT, OutputType.DRS, OutputType.TPTP);
-		assertEquals(ACETEXT_DRS, result.get(OutputType.DRS));
-		assertEquals(ACETEXT_TPTP, result.get(OutputType.TPTP));
+		ACEParserResult result = ap.getMultiOutput(Testcase.ACETEXT, OutputType.DRS, OutputType.TPTP);
+		assertEquals(Testcase.ACETEXT_DRS, result.get(OutputType.DRS));
+		assertEquals(Testcase.ACETEXT_TPTP, result.get(OutputType.TPTP));
+	}
+
+
+	@Test
+	public final void testGetMultiOutput3() {
+		ACEParser ap = new APEWebservice(APEWS_URL);
+		ACEParserResult response = ap.getMultiOutput(Testcase.ACETEXT, OutputType.DRSPP);
+		assertEquals(Testcase.ACETEXT_DRSPP, response.get(OutputType.DRSPP).trim());
 	}
 
 
