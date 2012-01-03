@@ -43,7 +43,7 @@
              doctitle="Attempto Java Packages, version ${version}"
              overview="src/overview.html"
              linksource="on">
-            <bottom><![CDATA[<em>Copyright 2008-2011, Attempto Group, University of Zurich (see <a href="http://attempto.ifi.uzh.ch" target="_blank">http://attempto.ifi.uzh.ch</a>)</em>]]></bottom>
+            <bottom><![CDATA[<em>Copyright 2008-2012, Attempto Group, University of Zurich (see <a href="http://attempto.ifi.uzh.ch" target="_blank">http://attempto.ifi.uzh.ch</a>)</em>]]></bottom>
         </javadoc>
         <copy
             file="README.txt"

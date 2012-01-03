@@ -1,7 +1,7 @@
 Attempto Java Packages
 ======================
 
-Copyright 2008-2011, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
+Copyright 2008-2012, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
 
 The Attempto Java Packages can be downloaded from http://attempto.ifi.uzh.ch/site/downloads/.
 

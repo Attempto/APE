@@ -1,4 +1,4 @@
-// This file is part of the Attempto Java Packages.
+// This file is part of the Attempto Parsing Engine (APE).
 // Copyright 2008-2010, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
 //
 // The Attempto Java Packages is free software: you can redistribute it and/or modify it under the

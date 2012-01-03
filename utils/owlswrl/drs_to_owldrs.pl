@@ -1,5 +1,5 @@
 % This file is part of the Attempto Parsing Engine (APE).
-% Copyright 2008-2011, Kaarel Kaljurand <kaljurand@gmail.com>.
+% Copyright 2008-2012, Kaarel Kaljurand <kaljurand@gmail.com>.
 %
 % The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
 % under the terms of the GNU Lesser General Public License as published by the Free Software
