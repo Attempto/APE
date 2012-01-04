@@ -201,8 +201,8 @@ pointer an HTTP resource (i.e. URL) but not via pointing to a local file (such a
 
 ### Using APE from Java programs
 
-The `ACEParser` implementation `APELocal` (in `attempto_ape.jar`, see
-http://attempto.ifi.uzh.ch/site/downloads/) provides a high level Java interface to `ape.exe`. It
+The `ACEParser` implementation `APELocal` (in `attempto_ape.jar`)
+provides a high level Java interface to `ape.exe`. It
 is effectively a Java-style front-end to querying the predicate `get_ape_results/2`.
 
 Even if you need to write your own Java interface to `ape.exe`, it might be useful to take a look
