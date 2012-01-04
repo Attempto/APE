@@ -17,6 +17,7 @@
 		tokens_to_sentences/2,
 		atom_capitalize/2,
 		pronoun_split/2,
+		pronoun_split/3,
 		ace_niceace/2,
 		word_article/2
 	]).
@@ -29,7 +30,7 @@
 /** <module> ACE beautifier
 
 @author Kaarel Kaljurand
-@version 2011-11-09
+@version 2012-01-04
 
 This code does the following:
 
@@ -69,32 +70,37 @@ tokens_to_sentences([TokenList | Tail], [Atom | RestT]) :-
 % @param Token is an ACE token
 % @param TokenPair is a list of 2 tokens, the 2nd of which is one of {-thing, -body, -one}
 %
-pronoun_split(everything, (every, '-thing')).
-pronoun_split('Everything', (every, '-thing')).
-pronoun_split(nothing, (no, '-thing')).
-pronoun_split('Nothing', (no, '-thing')).
-pronoun_split(something, (a, '-thing')).
-pronoun_split('Something', (a, '-thing')).
+pronoun_split(Token, TokenPair) :-
+	pronoun_split(Token, _, TokenPair).
 
-pronoun_split(everybody, (every, '-body')).
-pronoun_split('Everybody', (every, '-body')).
-pronoun_split(nobody, (no, '-body')).
-pronoun_split('Nobody', (no, '-body')).
-pronoun_split(somebody, (a, '-body')).
-pronoun_split('Somebody', (a, '-body')).
+pronoun_split(everything, lower, (every, '-thing')).
+pronoun_split('Everything', upper, (every, '-thing')).
+pronoun_split(nothing, lower, (no, '-thing')).
+pronoun_split('Nothing', upper, (no, '-thing')).
+pronoun_split(something, lower, (a, '-thing')).
+pronoun_split('Something', upper, (a, '-thing')).
 
-pronoun_split(everyone, (every, '-one')).
-pronoun_split('Everyone', (every, '-one')).
-pronoun_split(noone, (no, '-one')).
-pronoun_split('Noone', (no, '-one')).
-pronoun_split(someone, (a, '-one')).
-pronoun_split('Someone', (a, '-one')).
+pronoun_split(everybody, lower, (every, '-body')).
+pronoun_split('Everybody', upper, (every, '-body')).
+pronoun_split(nobody, lower, (no, '-body')).
+pronoun_split('Nobody', upper, (no, '-body')).
+pronoun_split(somebody, lower, (a, '-body')).
+pronoun_split('Somebody', upper, (a, '-body')).
+
+pronoun_split(everyone, lower, (every, '-one')).
+pronoun_split('Everyone', upper, (every, '-one')).
+pronoun_split(noone, lower, (no, '-one')).
+pronoun_split('Noone', upper, (no, '-one')).
+pronoun_split(someone, lower, (a, '-one')).
+pronoun_split('Someone', upper, (a, '-one')).
 
 
 %% atom_capitalize(+Atom:atom, -CapitalizedAtom:atom) is det.
 %
 % Simple predicate to capitalize those ACE words which can occur
 % in the beginning of the sentence.
+%
+% TODO: every preposition can also start a sentence
 %
 atom_capitalize(a, 'A') :- !.
 atom_capitalize(the, 'The') :- !.
@@ -110,8 +116,14 @@ atom_capitalize(an, 'An') :- !.
 atom_capitalize(there, 'There') :- !.
 atom_capitalize(if, 'If') :- !.
 atom_capitalize(it, 'It') :- !.
-atom_capitalize(they, 'They') :- !.
+atom_capitalize(is, 'Is') :- !.
+atom_capitalize(are, 'Are') :- !.
+atom_capitalize(do, 'Do') :- !.
+atom_capitalize(does, 'Does') :- !.
+atom_capitalize(for, 'For') :- !.
+atom_capitalize(not, 'Not') :- !.
 
+atom_capitalize(each, 'Each') :- !.
 atom_capitalize(every, 'Every') :- !.
 atom_capitalize(everything, 'Everything') :- !.
 atom_capitalize(everybody, 'Everybody') :- !.
@@ -121,8 +133,25 @@ atom_capitalize(nobody, 'Nobody') :- !.
 atom_capitalize(all, 'All') :- !.
 
 atom_capitalize(who, 'Who') :- !.
+atom_capitalize(whose, 'Whose') :- !.
 atom_capitalize(what, 'What') :- !.
 atom_capitalize(which, 'Which') :- !.
+atom_capitalize(where, 'Where') :- !.
+atom_capitalize(when, 'When') :- !.
+atom_capitalize(how, 'How') :- !.
+
+atom_capitalize(can, 'Can') :- !.
+atom_capitalize(must, 'Must') :- !.
+atom_capitalize(should, 'Should') :- !.
+atom_capitalize(may, 'May') :- !.
+
+atom_capitalize(he, 'He') :- !.
+atom_capitalize(his, 'His') :- !.
+atom_capitalize(she, 'She') :- !.
+atom_capitalize(her, 'Her') :- !.
+atom_capitalize(they, 'They') :- !.
+atom_capitalize(their, 'Their') :- !.
+atom_capitalize(its, 'Its') :- !.
 
 atom_capitalize(Token, Token).
 
