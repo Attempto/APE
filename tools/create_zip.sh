@@ -3,7 +3,7 @@ cd ../parser
 bash compile.sh
 cd ..
 
-echo Building the Attempto Java Packages...
+echo Building the Java Interface for APE...
 cd java
 ant
 cd ..
