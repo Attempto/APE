@@ -5,7 +5,7 @@ JPL
   files:     jpl.jar
   url:       http://www.swi-prolog.org/packages/jpl/java_api/
   copyright: 1990-2007 University of Amsterdam
-  licenses:  GNU Lesser General Public License (see licenses/gpl-3.txt)
+  licenses:  GNU Lesser General Public License (see LICENSE.txt)
 
 JDOM
   files:     jdom.jar
