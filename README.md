@@ -271,3 +271,12 @@ Apart from these main packages, there are some additional folders:
 - `tools/`    contains some auxiliary scripts
 
 For more information consult the commented source files.
+
+
+Mailing List
+------------
+
+If you encounter problems, you can get help from the Attempto community. Visit the Attempto Mailing
+List site:
+
+  http://attempto.ifi.uzh.ch/site/mailinglist/
