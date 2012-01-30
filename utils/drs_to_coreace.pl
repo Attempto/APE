@@ -459,9 +459,10 @@ referent_text(formula(Expr1, Eq, Expr2), top, RI--RO, [BoxMarker, Expr1Text, Eq,
 % Note: the question mark is added later.
 % Note: we only support top-level query-conditions.
 % Note: this rule generates "there is who?" and never "there are who?"
-referent_text(Referent, TopDeep, RI--[Referent | RI], [ThereIs, qp(QueryPronoun)], _Features) :-
+referent_text(Referent, TopDeep, RI--[Referent | RI], [ThereIs, QueryWord], _Features) :-
 	toplevel_id(ToplevelId),
-	ref2conds(Referent, [query(Referent, QueryPronoun)], ToplevelId, _SentenceId),
+	ref2conds(Referent, [Query], ToplevelId, _SentenceId),
+	query(Referent, Query, _, QueryWord),
 	get_box_prefix(ToplevelId, BoxPrefix),
 	get_thereis(TopDeep, sg, BoxPrefix, ThereIs),
 	\+ memberchk(Referent, RI).
@@ -1030,10 +1031,15 @@ conds_text(noun([object(A, na, countable, _, eq, QNum)], parts(ListOfObjects), _
 	objects_to_text(ListOfObjects, [A | RI]--RO, ListOfObjectsText),
 	debug(verbose, 'top:~w prefix:~w result:~w~n', [TopDeep, BoxPrefix, Prefix]).
 
-% Which men wait?
-% There are which men of John?
-conds_text(noun([object(A, Agent, countable, na, geq, 2)], parts([]), Owner, adjectives([query(A, which)])),
-BoxPrefix, TopDeep, RI--RO, [ThereIs, qp(which), AgentText, OwnerText], f(pl, _)) :-
+% Plural `which'
+% Example: which men wait?
+% Example: there are which men of John?
+% `how many' (+ plural noun)
+% Example: how many men wait?
+% Example: there are how many men of John?
+conds_text(noun([object(A, Agent, countable, na, geq, 2)], parts([]), Owner, adjectives([Query])),
+BoxPrefix, TopDeep, RI--RO, [ThereIs, QueryWord, AgentText, OwnerText], f(pl, _)) :-
+	query(A, Query, pl, QueryWord),
 	!,
 	\+ memberchk(A, RI),
 	toplevel_id(ToplevelId),
@@ -1096,18 +1102,34 @@ conds_text(noun([object(A, Value, _, _, _, _)], parts([]), Owner, _Adjectives), 
 	add_var(A).
 
 
-% Countable: which man?
+% Singular `which'
+% (Note that `which' is not possible with mass nouns, qeneralized quantifiers,
+% and indefinite pronouns.)
 % Which man waits?
 % There is which man of John?
-% (Note that `which' is not possible with mass nouns, qeneralized quantifiers, and indefinite pronouns.)
-conds_text(noun([object(A, Agent, countable, na, eq, 1)], parts([]), Owner, adjectives([query(A, which)])),
-BoxPrefix, TopDeep, RI--RO, [ThereIs, qp(which), AgentText, OwnerText], f(sg, _)) :-
+conds_text(noun([object(A, Agent, countable, na, eq, 1)], parts([]), Owner, adjectives([Query])),
+BoxPrefix, TopDeep, RI--RO, [ThereIs, QueryWord, AgentText, OwnerText], f(sg, _)) :-
+	query(A, Query, sg, QueryWord),
 	!,
 	\+ memberchk(A, RI),
 	toplevel_id(ToplevelId),
 	ref2conds(A, _, ToplevelId, _SentenceId),
 	get_thereis(TopDeep, sg, BoxPrefix, ThereIs),
 	surface_noun(cn, Agent, sg, AgentText),
+	verbalize_owners(A, RI--RO, Owner, OwnerText).
+
+
+% 'how much' (+ mass noun)
+% Example: John eats how much food?
+conds_text(noun([object(A, Agent, mass, na, na, na)], parts([]), Owner, adjectives([Query])),
+BoxPrefix, TopDeep, RI--RO, [ThereIs, QueryWord, AgentText, OwnerText], f(sg, _)) :-
+	query(A, Query, mass, QueryWord),
+	!,
+	\+ memberchk(A, RI),
+	toplevel_id(ToplevelId),
+	ref2conds(A, _, ToplevelId, _SentenceId),
+	get_thereis(TopDeep, sg, BoxPrefix, ThereIs),
+	surface_noun(cn, Agent, mass, AgentText),
 	verbalize_owners(A, RI--RO, Owner, OwnerText).
 
 
@@ -1298,7 +1320,8 @@ pps_to_text([modifier_pp(_, Prep, Modifier) | PPs], RI--RO, [Prep, ModifierText 
 	referent_text(Modifier, RI--RTmp, ModifierText, _Features),
 	pps_to_text(PPs, RTmp--RO, PPsText).
 
-pps_to_text([query(Referent, QueryPronoun) | PPs], RI--RO, [qp(QueryPronoun) | PPsText]) :-
+pps_to_text([Query | PPs], RI--RO, [QueryWord | PPsText]) :-
+	query(Referent, Query, _, QueryWord),
 	toplevel_id(ToplevelId),
 	ref2conds(Referent, _, ToplevelId, _SentenceId),
 	pps_to_text(PPs, RI--RO, PPsText).
@@ -1609,3 +1632,17 @@ parse_unary(can(drs(Dom, Conds)), can, Dom, Conds).
 parse_unary(must(drs(Dom, Conds)), must, Dom, Conds).
 parse_unary(should(drs(Dom, Conds)), should, Dom, Conds).
 parse_unary(may(drs(Dom, Conds)), may, Dom, Conds).
+
+
+%% query(+Ref, +QueryTerm:term, +SgPl:atom, -QueryPhrase:atom) is det.
+%
+%
+query(X, query(X, QLemma), SgPl, qp(QPhrase)) :-
+	query_(QLemma, SgPl, QPhrase),
+	!.
+
+query_(which, sg, [which]).
+query_(which, pl, [which]).
+query_(howm, pl, [how, many]).
+query_(howm, mass, [how, much]).
+query_(Word, _, [Word]).

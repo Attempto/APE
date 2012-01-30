@@ -532,4 +532,5 @@ unredefinable_fw(where).
 unredefinable_fw('Where').
 unredefinable_fw(when).
 unredefinable_fw('When').
-
+unredefinable_fw(many).
+unredefinable_fw(much).

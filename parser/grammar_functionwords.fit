@@ -1036,6 +1036,56 @@ determiner(
 
 
 %%-----------------------------------------------------------------------------
+% Determiner[+EXISTS,-SG,+Q] -->
+%	how many | how much
+%------------------------------------------------------------------------------
+
+determiner(
+		display!tree![qdet,'how many'] &
+		syn!head!agr!num!<pl &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!wh!in!<not_r &
+		syn!nonlocal!wh!out!<q &
+		sem!index!X &
+		sem!quantity!number!2 &
+		sem!quantity!comparison!geq &
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X | Dom],[query(X, howm)-ID/TID|Conds]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		drs!id!ID &
+		lexem!'how many'
+	) -->
+	get_position(TID),
+	word_capitalize(how, 'How'),
+	word_noninitial(many).
+
+determiner(
+		display!tree![qdet,'how much'] &
+		syn!head!agr!num!<mass &
+		syn!nonlocal!quant!<exists &
+		syn!nonlocal!wh!in!<not_r &
+		syn!nonlocal!wh!out!<q &
+		sem!index!X &
+		sem!quantity!number!2 &
+		sem!quantity!comparison!geq &
+		drs!in!drs(Dom,Conds) &
+		drs!out!ScopeOut &
+		drs!restr!in!drs([X | Dom],[query(X, howm)-ID/TID|Conds]) &
+		drs!restr!out!RestrOut &
+		drs!scope!in!RestrOut &
+		drs!scope!out!ScopeOut &
+		drs!id!ID &
+		lexem!'how much'
+	) -->
+	get_position(TID),
+	word_capitalize(how, 'How'),
+	word_noninitial(much).
+
+
+%%-----------------------------------------------------------------------------
 % Determiner[+EXISTS,-MASS,+Q] -->
 %	which | whose
 %------------------------------------------------------------------------------

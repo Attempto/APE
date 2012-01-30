@@ -187,6 +187,8 @@ functionword(yourself).
 functionword(yourselves).
 functionword(to).  % e.g. "wants to"
 functionword(own).  % e.g. "his own"
+functionword(many).  % e.g. "how many"
+functionword(much).  % e.g. "how much"
 
 
 %% variable(+Word) is det.

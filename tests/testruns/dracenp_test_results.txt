@@ -4369,3 +4369,13 @@ ERROR
 003734 [FAIL] John has a card every code of every copy of which is valid. --> John has a card.
 ERROR
 003737 [FAIL] Exactly 1 woman waits. --> NOT IMPLEMENTED
+003738 [FAIL] May John not wait? --> NOT IMPLEMENTED
+003739 [SAME] Brend is a man.
+003740 [ZERO] How many man waits?
+003741 [FAIL] How many men does which woman who eats how much food like? --> NOT IMPLEMENTED
+003742 [FAIL] There are which men of John? --> NOT IMPLEMENTED
+003743 [FAIL] There are how many men of John? --> NOT IMPLEMENTED
+003744 [FAIL] There is how much food of John? --> NOT IMPLEMENTED
+003745 [ZERO] How much man waits?
+003746 [FAIL] How many men wait? --> NOT IMPLEMENTED
+003747 [FAIL] How much food waits? --> NOT IMPLEMENTED

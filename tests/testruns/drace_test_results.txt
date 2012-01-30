@@ -4268,7 +4268,7 @@ It is false that it is possible that the man X1 gives an apple to a woman.
 002763 [----] Everybody does not like a dog that does not bark. --> If there is somebody X1 then it is false that X1 likes a dog X2 and that it is false that the dog X2 barks.
 002764 [----] A cat is not hated by a dog. --> There is a cat X1.
 It is false that a dog hates the cat X1.
-002765 [FAIL] Every goat likes some grass and likes some water and does not like something that is not some grass and that is not some water. --> If there is a goat X1 then the goat X1 likes some grass and the goat X1 likes some water and it is false that the goat X1 likes something X2 and that it is false that X2 is some grass and that it is false that X2 is some water.
+002765 [time_limit_exceeded] Every goat likes some grass and likes some water and does not like something that is not some grass and that is not some water. --> 
 002766 [----] which code does a customer enter? --> A customer enters which code?
 002767 [----] which code does who enter? --> Who enters which code?
 002768 [----] who gives what to who? --> Who gives what to who?
@@ -6048,3 +6048,13 @@ If there is a code X2 of the card X1 then it is false that the code X2 is valid.
 003734 [FAIL] John has a card every code of every copy of which is valid. --> John has a card X1.
 If there is a code X2 and if there is a copy X3 of the card X1 then the copy X3 v:OF-RELATION the code X2 then the code X2 is valid.
 003737 [SAME] Exactly 1 woman waits.
+003738 [FAIL] May John not wait? --> # ...
+003739 [SAME] Brend is a man.
+003740 [ZERO] How many man waits?
+003741 [FAIL] How many men does which woman who eats how much food like? --> # ...
+003742 [SAME] There are which men of John?
+003743 [SAME] There are how many men of John?
+003744 [SAME] There is how much food of John?
+003745 [ZERO] How much man waits?
+003746 [SAME] How many men wait?
+003747 [SAME] How much food waits?

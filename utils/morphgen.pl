@@ -528,6 +528,10 @@ listlist_listatom([TokenList | Tail], [Atom | RestT]) :-
 %% sentence_type(+TokenList:list, -NewTokenList:list) is det.
 %% sentence_type(+TokenList:list, -Type:atom, -NewTokenList:list) is det.
 %
+% Assigns a type to the given sentence. Type is one of '.' and '?'.
+%
+% The qp/1 term contains a list of tokens that represent the
+% query word (e.g. [how, many]).
 %
 sentence_type(TokenList, NewTokenList) :-
 	sentence_type(TokenList, _, NewTokenList).
@@ -537,9 +541,10 @@ sentence_type([], '.', ['.']) :- !.
 
 sentence_type([], '?', ['?']).
 
-sentence_type([qp(H) | T], _, [H | T2]) :-
+sentence_type([qp(QPhrase) | T], _, Tokens) :-
 	!,
-	sentence_type(T, '?', T2).
+	sentence_type(T, '?', T2),
+	append(QPhrase, T2, Tokens).
 
 sentence_type([H | T], Type, [H | T2]) :-
 	sentence_type(T, Type, T2).
