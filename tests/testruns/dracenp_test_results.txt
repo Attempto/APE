@@ -4379,3 +4379,4 @@ ERROR
 003745 [ZERO] How much man waits?
 003746 [FAIL] How many men wait? --> NOT IMPLEMENTED
 003747 [FAIL] How much food waits? --> NOT IMPLEMENTED
+003748 [FAIL] How many good men eat how much bad food? --> NOT IMPLEMENTED

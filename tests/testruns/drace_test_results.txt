@@ -6058,3 +6058,4 @@ If there is a code X2 and if there is a copy X3 of the card X1 then the copy X3 
 003745 [ZERO] How much man waits?
 003746 [SAME] How many men wait?
 003747 [SAME] How much food waits?
+003748 [FAIL] How many good men eat how much bad food? --> # ...

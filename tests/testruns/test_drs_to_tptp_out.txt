@@ -17806,3 +17806,5 @@ ERROR	DRS is empty	apply_converter/2	drs([],[])
 ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G388,howm)
 003747 How much food waits?
 ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G649,howm)
+003748 How many good men eat how much bad food?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1028,howm)
