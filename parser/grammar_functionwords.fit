@@ -1051,7 +1051,7 @@ determiner(
 		sem!quantity!comparison!geq &
 		drs!in!drs(Dom,Conds) &
 		drs!out!ScopeOut &
-		drs!restr!in!drs([X | Dom],[query(X, how_many)-ID/TID|Conds]) &
+		drs!restr!in!drs([X | Dom],[query(X, howm)-ID/TID|Conds]) &
 		drs!restr!out!RestrOut &
 		drs!scope!in!RestrOut &
 		drs!scope!out!ScopeOut &
@@ -1073,7 +1073,7 @@ determiner(
 		sem!quantity!comparison!geq &
 		drs!in!drs(Dom,Conds) &
 		drs!out!ScopeOut &
-		drs!restr!in!drs([X | Dom],[query(X, how_much)-ID/TID|Conds]) &
+		drs!restr!in!drs([X | Dom],[query(X, howm)-ID/TID|Conds]) &
 		drs!restr!out!RestrOut &
 		drs!scope!in!RestrOut &
 		drs!scope!out!ScopeOut &

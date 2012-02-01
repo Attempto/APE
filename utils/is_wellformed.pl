@@ -130,7 +130,7 @@ is_condition(query(R, Lemma)-Id) :-
 	id(Id),
 	var(R),
 	nonvar(Lemma),
-	member(Lemma, [who, what, which, how, where, when, how_many, how_much]).
+	member(Lemma, [who, what, which, how, where, when, howm]).
 
 is_condition(relation(R1, of, R2)-Id) :-
 	id(Id),

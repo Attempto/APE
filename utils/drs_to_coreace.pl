@@ -1643,6 +1643,6 @@ query(X, query(X, QLemma), SgPl, qp(QPhrase)) :-
 
 query_(which, sg, [which]).
 query_(which, pl, [which]).
-query_(how_many, pl, [how, many]).
-query_(how_much, mass, [how, much]).
+query_(howm, pl, [how, many]).
+query_(howm, mass, [how, much]).
 query_(Word, _, [Word]).
