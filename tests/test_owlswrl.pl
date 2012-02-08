@@ -1,6 +1,5 @@
-#!/usr/local/bin/swipl -f none -g main -t halt -s
-
-% Usage: ./test_owlswrl.pl
+% Usage:
+% $ swipl -f none -g main -t halt -s test_owlswrl.pl
 % Writes the test results into STDIN and statistics into STDERR.
 
 :- assert(user:file_search_path(ape, '../')).

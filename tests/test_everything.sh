@@ -20,32 +20,32 @@ echo
 echo "ACE -> DRS"
 echo
 
-bash rtest.bash
+time (bash rtest.bash)
 
 
 echo
 echo "DRS -> Core ACE"
 echo
 
-echo "[test_drace]. test_drace(core)." | $pl > ${results_coreace}
+time (echo "[test_drace]. test_drace(core)." | $pl > ${results_coreace})
 
 
 echo
 echo "DRS -> NP ACE"
 echo
 
-echo "[test_drace]. test_drace(np)." | $pl > ${results_npace}
+time (echo "[test_drace]. test_drace(np)." | $pl > ${results_npace})
 
 
 echo
 echo "DRS -> OWL/SWRL"
 echo
 
-./test_owlswrl.pl > ${results_owlswrl}
+time ($pl -f none -g main -t halt -s test_owlswrl.pl > ${results_owlswrl})
 
 
 echo
 echo "DRS -> TPTP"
 echo
 
-echo "[test_drs_to_x]. main." | $pl > ${results_tptp}
+time (echo "[test_drs_to_x]. main." | $pl > ${results_tptp})

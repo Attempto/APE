@@ -19,6 +19,8 @@ prolog=swipl
 #prolog=/opt/local/bin/swipl
 #prolog=`which swipl`
 
+echo "Using: `$prolog --version`"
+
 # Generate a timestamp.
 timestamp=`date '+%y%m%d-%H%M'`
 
