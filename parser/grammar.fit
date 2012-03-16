@@ -5406,8 +5406,7 @@ genitive_specifier(
 % GenitiveN' -->
 %	(AdjectiveCoord) N (VariableApposition)
 %
-% Example: [A] rich man X ['s dog barks.]
-% Example: [2] men X and Y ['s dog barks.]
+% Example: [A] rich and famous man X ['s dog barks.]
 %------------------------------------------------------------------------------
 
 genitive_nbar(
