@@ -1352,6 +1352,7 @@ tv_finsg(apes, ape).
 tv_finsg(approaches, approach).
 tv_finsg(approximates, approximate).
 tv_finsg(articles, article).
+tv_finsg(asks, ask).
 tv_finsg(assigns, assign).
 tv_finsg(assumes, assume).
 tv_finsg(authenticates, authenticate).
@@ -1565,6 +1566,7 @@ tv_infpl(ape, ape).
 tv_infpl(approach, approach).
 tv_infpl(approximate, approximate).
 tv_infpl(article, article).
+tv_infpl(ask, ask).
 tv_infpl(assign, assign).
 tv_infpl(assume, assume).
 tv_infpl(authenticate, authenticate).
