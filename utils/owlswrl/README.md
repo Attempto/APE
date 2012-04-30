@@ -39,15 +39,16 @@ Some examples of sentences that the OWL/SWRL translator supports are available a
 Usage
 -----
 
-Translating ACE sentences into OWL/SWRL using the APE commandline tool:
+Processing an ACE sentence `Every man likes Mary.` using the APE commandline:
 
-> ape.exe \
-> -uri "http://www.example.com/default" \
-> -noclex \
-> -ulextext "pn_sg('Mary', iri('http://www.example.com/names#Mary'), fem). noun_sg(man, man, masc). tv_finsg(likes, like)." \
-> -text "Every man likes Mary." \
-> -solo owlfsspp
+	ape.exe \
+	-uri "http://www.example.com/default" \
+	-noclex \
+	-ulextext "pn_sg('Mary', iri('http://www.example.com/names#Mary'), fem). noun_sg(man, man, masc). tv_finsg(likes, like)." \
+	-text "Every man likes Mary." \
+	-solo owlfsspp
 
+results in:
 
 	Prefix(:=<http://www.example.com/default#>)
 	Ontology(<http://www.example.com/default>
