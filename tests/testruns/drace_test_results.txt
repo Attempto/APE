@@ -1368,7 +1368,7 @@ The dog X1 sees a cat.
 000769 [ZERO] Some laundry are clean.
 000770 [ZERO] A man sees 2 signs "Go!" and "Stop".
 000771 [ZERO] A man sees 3 signs "Go!" and "Stop".
-000772 [FAIL] Where does a man quickly run? --> A man runs quickly where?
+000772 [FAIL] Where does a man quickly run? --> A man runs quickly and where?
 000773 [ZERO] Where does a man run quickly?
 000774 [----] A card of a man sees him. --> A card of a man X1 sees the man X1.
 000775 [ZERO] There are the man's dog and cat.
@@ -3013,7 +3013,7 @@ John sees the man X1.
 
 There is a man X1.
 The man X1 owns a cat.
-001871 [time_limit_exceeded] Every goat likes some grass and likes some water and doesn't like something that is not some grass and that is not some water. --> 
+001871 [FAIL] Every goat likes some grass and likes some water and doesn't like something that is not some grass and that is not some water. --> If there is a goat X1 then the goat X1 likes some grass and the goat X1 likes some water and it is false that the goat X1 likes something X2 and that it is false that X2 is some grass and that it is false that X2 is some water.
 001872 [----] Every pet is a dog or is a cat ,and is not something that is a dog and that is a cat. --> If there is a pet X1 then it is false that the pet X1 is something X2 and that X2 is a dog and that X2 is a cat, and the pet X1 is a dog or the pet X1 is a cat.
 001873 [----] If there is a pet X then X is a dog or X is a cat ,and it is false that X is a dog and that X is a cat. --> If there is a pet X1 then it is false that the pet X1 is a dog and that the pet X1 is a cat, and the pet X1 is a dog or the pet X1 is a cat.
 001874 [----] Every pet is a dog or is a cat ,and is a cow. --> If there is a pet X1 then the pet X1 is a cow, and the pet X1 is a dog or the pet X1 is a cat.
@@ -4051,9 +4051,9 @@ John tells Mary.
 002606 [FAIL] Who eats and drinks? --> # ...
 002607 [----] A man eats quickly and quickly. --> There is a man X1.
 The man X1 eats quickly.
-002608 [----] A man eats how in a park? --> A man eats in a park how?
-002609 [----] A man eats how in a park in a morning? --> A man eats in a morning in a park how?
-002610 [----] A man eats in a park how in a morning? --> A man eats in a morning how in a park?
+002608 [SAME] A man eats how in a park?
+002609 [----] A man eats how in a park in a morning? --> A man eats how in a morning in a park?
+002610 [----] A man eats in a park how in a morning? --> A man eats how in a morning in a park?
 002611 [----] A man eats in a park in a morning how? --> A man eats how in a morning in a park?
 002612 [ZERO] A man eats quickly and in a park.
 002613 [----] A man eats quickly in a park. --> There is a man X1.
@@ -4268,7 +4268,7 @@ It is false that it is possible that the man X1 gives an apple to a woman.
 002763 [----] Everybody does not like a dog that does not bark. --> If there is somebody X1 then it is false that X1 likes a dog X2 and that it is false that the dog X2 barks.
 002764 [----] A cat is not hated by a dog. --> There is a cat X1.
 It is false that a dog hates the cat X1.
-002765 [time_limit_exceeded] Every goat likes some grass and likes some water and does not like something that is not some grass and that is not some water. --> 
+002765 [FAIL] Every goat likes some grass and likes some water and does not like something that is not some grass and that is not some water. --> If there is a goat X1 then the goat X1 likes some grass and the goat X1 likes some water and it is false that the goat X1 likes something X2 and that it is false that X2 is some grass and that it is false that X2 is some water.
 002766 [----] which code does a customer enter? --> A customer enters which code?
 002767 [----] which code does who enter? --> Who enters which code?
 002768 [----] who gives what to who? --> Who gives what to who?
@@ -4334,8 +4334,8 @@ X1 drinks.
 002824 [----] A card is taken by John manually. --> John takes a card manually.
 002825 [FAIL] There are some men each of whose dogs barks. --> # ...
 002826 [SAME] John is when in Paris?
-002827 [SAME] John is in Paris when?
-002828 [----] John is in Paris when with Mary? --> John is in Paris with Mary when?
+002827 [----] John is in Paris when? --> John is when in Paris?
+002828 [----] John is in Paris when with Mary? --> John is when in Paris with Mary?
 002829 [ZERO] John is in Paris when where?
 002830 [ZERO] There are some men a dog of whose barks.
 002831 [ZERO] There are some men a dog of the men barks.
@@ -5316,7 +5316,7 @@ The ball X1 hits John in a park.
 003308 [----] A ball in a park hits John. --> There is a ball X1.
 The ball X1 hits John in a park.
 003309 [----] A ball where hits John? --> A ball hits John where?
-003310 [----] Where does a ball in a park hit John? --> A ball hits John in a park where?
+003310 [----] Where does a ball in a park hit John? --> A ball hits John where in a park?
 003311 [----] John does not provably mostly swim. --> It is not provable that John swims mostly.
 003312 [----] John does not provably in a park talk-to a girl. --> It is not provable that John talks-to a girl in a park.
 003313 [----] John must manually hit a button. --> It is necessary that John hits a button manually.
@@ -5699,8 +5699,8 @@ The woman X1 waits.
 003519 [----] John sees a man. A customer is him. --> John sees a man X1.
 There is a customer X2.
 The customer X2 is the man X1.
-003520 [FAIL] John is where and when? --> John is when where?
-003521 [FAIL] John is in Paris when and where? --> John is where when in Paris?
+003520 [----] John is where and when? --> John is when and where?
+003521 [----] John is in Paris when and where? --> John is where and when in Paris?
 003522 [FAIL] Every man sleeps where and when and how? --> # ...
 003523 [----] John sleeps where and where? --> John sleeps where?
 003524 [----] -007 likes -002.200. --> -7 likes -2.2.
@@ -6059,3 +6059,17 @@ If there is a code X2 and if there is a copy X3 of the card X1 then the copy X3 
 003746 [SAME] How many men wait?
 003747 [SAME] How much food waits?
 003748 [FAIL] How many good men eat how much bad food? --> # ...
+003749 [FAIL] There is some fluid. How many liters of the fluid are there? --> There are how_many liters of some fluid?
+003750 [FAIL] There are how many liters of some fluid? --> There are how_many liters of some fluid?
+003751 [----] Sun is the Sun. --> Sun is Sun.
+003752 [ZERO] There is a man that John is not.
+003753 [FAIL] Does John believe that Mary sleeps? --> # ...
+003756 [FAIL] Does John see a man that waits? --> # ...
+003757 [FAIL] How does John that waits see a man? --> John waits.
+John sees a man how?
+003758 [FAIL] John where sees a man that waits? --> A man X1 waits.
+John sees the man X1 where?
+003759 [FAIL] John how believes that Mary sleeps? --> # ...
+003760 [FAIL] John how and when and where believes that Mary sleeps? --> # ...
+003761 [----] How and when and where does John see a man? --> John sees a man where and when and how?
+003762 [----] John sees a man where and when and how? --> John sees a man how and when and where?

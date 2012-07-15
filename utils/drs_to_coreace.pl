@@ -22,7 +22,7 @@
 Translates an Attempto DRS into the Core ACE fragment of Attempto Controlled English (ACE).
 
 @author Kaarel Kaljurand
-@version 2011-07-26
+@version 2012-07-15
 
 The setup: we have DRS-boxes and discourse referents, such that
 
@@ -573,13 +573,15 @@ conditions_nountype([H | T], [H | Mains], Parts, Owners, Adjectives) :-
 % @param Adverbs
 % @param PPs
 %
-% @tbd Note that we treat query/2 as a PP because it seems to act more like a PP, but
-% this needs to be investigated further.
-%
 conditions_verbtype([], [], [], []).
 
 conditions_verbtype([H | T], Predicates, [H | Adverbs], PPs) :-
-	functor(H, modifier_adv, _),
+	functor(H, Functor, _),
+	(
+		Functor = modifier_adv
+	;
+		Functor = query
+	),
 	!,
 	conditions_verbtype(T, Predicates, Adverbs, PPs).
 
@@ -587,8 +589,6 @@ conditions_verbtype([H | T], Predicates, Adverbs, [H | PPs]) :-
 	functor(H, Functor, _),
 	(
 		Functor = modifier_pp
-	;
-		Functor = query
 	),
 	!,
 	conditions_verbtype(T, Predicates, Adverbs, PPs).
@@ -1058,7 +1058,7 @@ conds_text(noun([object(A, Agent, countable, na, Comp, Number)], parts([]), Owne
 	(Number = 0 ; Number > 1),
 	surface_det(A, RI, pl, TopDeep, BoxPrefix, countable, Comp, Number, SurfaceDeterminer),
 	surface_noun(cn, Agent, pl, AgentText),
-	adjectives_to_text(Adjectives, AdjectivesText),
+	conds_to_andlist(adjective_to_text, Adjectives, AdjectivesText),
 	verbalize_owners(A, RI--RO, Owner, OwnerText),
 	add_var(A).
 
@@ -1137,7 +1137,7 @@ BoxPrefix, TopDeep, RI--RO, [ThereIs, QueryWord, AgentText, OwnerText], f(sg, _)
 conds_text(noun([object(A, Agent, countable, na, eq, 1)], parts([]), Owner, adjectives(Adjectives)),
 	BoxPrefix, TopDeep, RI--RO, [SurfaceDeterminer, AdjectivesText, AgentText, A, OwnerText], f(sg, _)) :-
 	surface_noun(cn, Agent, sg, AgentText),
-	adjectives_to_text(Adjectives, AdjectivesText),
+	conds_to_andlist(adjective_to_text, Adjectives, AdjectivesText),
 	surface_det(A, RI, sg, TopDeep, BoxPrefix, countable, _, _, SurfaceDeterminer),
 	verbalize_owners(A, RI--RO, Owner, OwnerText),
 	add_var(A).
@@ -1148,7 +1148,7 @@ conds_text(noun([object(A, Value, countable, na, Eq, 1)], parts([]), Owner, adje
 	BoxPrefix, TopDeep, RI--RO, [SurfaceDeterminer, AdjectivesText, AgentText, A, OwnerText], f(sg, _)) :-
 	Eq \= eq,
 	surface_noun(cn, Value, sg, AgentText),
-	adjectives_to_text(Adjectives, AdjectivesText),
+	conds_to_andlist(adjective_to_text, Adjectives, AdjectivesText),
 	surface_det(A, RI, sg, TopDeep, BoxPrefix, countable, Eq, 1, SurfaceDeterminer),
 	verbalize_owners(A, RI--RO, Owner, OwnerText),
 	add_var(A).
@@ -1158,7 +1158,7 @@ conds_text(noun([object(A, Value, countable, na, Eq, 1)], parts([]), Owner, adje
 conds_text(noun([object(A, Agent, mass, na, na, na)], parts([]), Owner, adjectives(Adjectives)),
 BoxPrefix, TopDeep, RI--RO, [SurfaceDeterminer, AdjectivesText, AgentText, A, OwnerText], f(sg, _)) :-
 	surface_noun(cn, Agent, mass, AgentText),
-	adjectives_to_text(Adjectives, AdjectivesText),
+	conds_to_andlist(adjective_to_text, Adjectives, AdjectivesText),
 	surface_det(A, RI, sg, TopDeep, BoxPrefix, mass, _, _, SurfaceDeterminer),
 	verbalize_owners(A, RI--RO, Owner, OwnerText),
 	add_var(A).
@@ -1190,7 +1190,7 @@ BoxPrefix, TopDeep, RI--RO, [ThereIs, Specifier, AdjectivesText, AgentText, A, O
 		Specifier = [Q, Unit, of],
 		verbalize_owners(A, RI--RO, Owner, OwnerText)
 	),
-	adjectives_to_text(Adjectives, AdjectivesText),
+	conds_to_andlist(adjective_to_text, Adjectives, AdjectivesText),
 	surface_noun(cn, Agent, SgPl, AgentText),
 	add_var(A).
 
@@ -1200,7 +1200,7 @@ conds_text(verb([predicate(_, Predicate, Argument)], adverbs(Adverbs), pps(PPs))
 	RI--RO, [Box, ArgumentText, PredicateText, AdverbsText, PPsText], _) :-
 	referent_text(Argument, RI--RTmp, ArgumentText, f(SgPl, subj)),
 	surface_verb(SgPl, Predicate, PredicateText),
-	adverbs_to_text(Adverbs, AdverbsText),
+	conds_to_andlist(adverb_to_text, Adverbs, AdverbsText),
 	pps_to_text(PPs, RTmp--RO, PPsText).
 
 % Transitive verbs with (adverb | pp)* attachment.
@@ -1211,7 +1211,7 @@ conds_text(verb([predicate(_, Predicate, Argument1, Argument2)], adverbs(Adverbs
 	referent_text(Argument1, RI--RTmp1, Argument1Text, f(SgPl, subj)),
 	surface_verb(SgPl, Predicate, PredicateText),
 	referent_text(Argument2, RTmp1--RTmp2, Argument2Text, f(_, obj)),
-	adverbs_to_text(Adverbs, AdverbsText),
+	conds_to_andlist(adverb_to_text, Adverbs, AdverbsText),
 	pps_to_text(PPs, RTmp2--RO, PPsText),
 	make_comment(PredicateText, PPsText, _Comment).
 
@@ -1224,7 +1224,7 @@ conds_text(verb([predicate(_, Lemma, Argument1, Argument2, Argument3)], adverbs(
 	referent_text(Argument1, RI--RTmp1, Argument1Text, f(SgPl, subj)),
 	get_di_marker(SgPl, Lemma, SurfaceForm, DiMarker),
 	di_text(DiMarker, RTmp1--RTmp2, Box, Argument1Text, SurfaceForm, Argument2, Argument3, AdverbsText, PPsText, DiText),
-	adverbs_to_text(Adverbs, AdverbsText),
+	conds_to_andlist(adverb_to_text, Adverbs, AdverbsText),
 	pps_to_text(PPs, RTmp2--RO, PPsText).
 
 
@@ -1276,35 +1276,53 @@ verbalize_owners(Ref, RI--RO, owners([relation(_, of, OwnerReferent)]), [of, Own
 	referent_text(OwnerReferent, [Ref | RI]--RO, OwnerText, _Features).
 
 
-%% adjectives_to_text(+PropertyList:list, -TokenList:list) is det.
+%% conds_to_andlist(:Goal, +Conds:list, -AndList:list) is det.
 %
-% Adjectives are conjoined.
+% Maps a list of DRS conditions to an ACE conjunction, e.g.
+%  - where and when and how
+%  - rich and famous
 %
-adjectives_to_text([], []).
+% @param Goal maps a condition to ACE text (a word or two)
+% @param Conds is a list of DRS conditions
+% @param AndList is list of ACE words conjoined by 'and'
+%
+conds_to_andlist(_, [], []).
 
-adjectives_to_text([property(_, Property, Comparison)], PropertyText) :-
+conds_to_andlist(Cond_To_Text, [Cond], [Text]) :-
 	!,
+	call(Cond_To_Text, Cond, Text).
+
+conds_to_andlist(Cond_To_Text, [Cond | Conds], [Text, 'and' | Texts]) :-
+	call(Cond_To_Text, Cond, Text),
+	conds_to_andlist(Cond_To_Text, Conds, Texts).
+
+
+%% adjective_to_text(+AdjCond:term, -AdjToken:term) is det.
+%
+% @param AdjCond is a DRS condition that corresponds to an ACE adjective
+% @param AdjToken is the corresponding token (or possibly a list of tokens)
+%
+adjective_to_text(property(_, Property, Comparison), PropertyText) :-
 	surface_property(Property, Comparison, PropertyText).
 
-adjectives_to_text([property(_, Property, Comparison) | Adjectives], [PropertyText, and | AdjectivesText]) :-
-	surface_property(Property, Comparison, PropertyText),
-	adjectives_to_text(Adjectives, AdjectivesText).
 
-
-%% adverbs_to_text(+AdverbList:list, -AdverbListText:list) is det.
+%% adverb_to_text(+AdverbCond:term, -AdverbToken:term) is det.
 %
-% @param AdverbList is a list of modifier_adv/3 conditions.
-% @param AdverbListText is list of ACE adverbs conjoined by 'and'.
+% @param AdverbCond is a DRS condition that corresponds to an ACE adverb or how/where/when query word
+% @param AdverbToken is the corresponding token (or possibly a list of tokens)
 %
-adverbs_to_text([], []).
-
-adverbs_to_text([modifier_adv(_, Adverb, Comparison)], [AdverbText]) :-
+% @tbd
+% Note that we currently only support top-level query-conditions ('how', 'where', 'when'),
+% because we cannot correctly handle e.g. "John how believes that Mary sleeps?"
+%
+adverb_to_text(modifier_adv(_, Adverb, Comparison), AdverbText) :-
 	!,
 	surface_adverb(Adverb, Comparison, AdverbText).
 
-adverbs_to_text([modifier_adv(_, Adverb, Comparison) | AdverbList], [AdverbText, 'and' | AdverbListText]) :-
-	surface_adverb(Adverb, Comparison, AdverbText),
-	adverbs_to_text(AdverbList, AdverbListText).
+adverb_to_text(Query, QueryWord) :-
+	query(Referent, Query, _, QueryWord),
+	toplevel_id(ToplevelId),
+	ref2conds(Referent, _, ToplevelId, _SentenceId).
 
 
 %% pps_to_text(+Modifiers:list, -TokenList:list) is det.
@@ -1312,19 +1330,11 @@ adverbs_to_text([modifier_adv(_, Adverb, Comparison) | AdverbList], [AdverbText,
 % @param Modifiers is a list of modifier_pp- or query-conditions
 % @param TokenList is a list of ACE tokens
 %
-% Note that we only support top-level query-conditions ('how', 'where', 'when').
-%
 pps_to_text([], RI--RI, []).
 
 pps_to_text([modifier_pp(_, Prep, Modifier) | PPs], RI--RO, [Prep, ModifierText | PPsText]) :-
 	referent_text(Modifier, RI--RTmp, ModifierText, _Features),
 	pps_to_text(PPs, RTmp--RO, PPsText).
-
-pps_to_text([Query | PPs], RI--RO, [QueryWord | PPsText]) :-
-	query(Referent, Query, _, QueryWord),
-	toplevel_id(ToplevelId),
-	ref2conds(Referent, _, ToplevelId, _SentenceId),
-	pps_to_text(PPs, RI--RO, PPsText).
 
 
 %% properties_to_text(+Properties:list, -TokenList:list) is det.

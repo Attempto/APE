@@ -2816,7 +2816,7 @@ ERROR
 002432 [FAIL] Everybody X likes X's dog. --> ERROR
 002433 [FAIL] Jyri's dog hates Mari's cat. --> NOT IMPLEMENTED
 002434 [FAIL] Everybody X's dog hates X's cat. --> ERROR
-002435 [time_limit_exceeded] If somebody X's dog Y hates Y's meat then X's cat likes Y. --> 
+002435 [FAIL] If somebody X's dog Y hates Y's meat then X's cat likes Y. --> ERROR
 002436 [FAIL] 2 men X and Y's dog bark. --> NOT IMPLEMENTED
 002437 [ZERO] John owns not 3 cards.
 002438 [----] For everything X a man knows X. --> Everything is known by a man.
@@ -4380,3 +4380,15 @@ ERROR
 003746 [FAIL] How many men wait? --> NOT IMPLEMENTED
 003747 [FAIL] How much food waits? --> NOT IMPLEMENTED
 003748 [FAIL] How many good men eat how much bad food? --> NOT IMPLEMENTED
+003749 [FAIL] There is some fluid. How many liters of the fluid are there? --> NOT IMPLEMENTED
+003750 [FAIL] There are how many liters of some fluid? --> NOT IMPLEMENTED
+003751 [----] Sun is the Sun. --> Sun is Sun.
+003752 [ZERO] There is a man that John is not.
+003753 [FAIL] Does John believe that Mary sleeps? --> NOT IMPLEMENTED
+003756 [FAIL] Does John see a man that waits? --> NOT IMPLEMENTED
+003757 [FAIL] How does John that waits see a man? --> NOT IMPLEMENTED
+003758 [FAIL] John where sees a man that waits? --> NOT IMPLEMENTED
+003759 [FAIL] John how believes that Mary sleeps? --> NOT IMPLEMENTED
+003760 [FAIL] John how and when and where believes that Mary sleeps? --> NOT IMPLEMENTED
+003761 [FAIL] How and when and where does John see a man? --> NOT IMPLEMENTED
+003762 [FAIL] John sees a man where and when and how? --> NOT IMPLEMENTED

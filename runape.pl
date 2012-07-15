@@ -90,7 +90,7 @@ call_parser(_, [Quit]) :-
 call_parser(_, [help]) :-
 	nl, write('APE Prolog-commandline client\'s commands:'),
 	nl, write('   spy X            - spy predicate X'),
-	nl, write('   gr               - (re)compile grammar, flex, and contentwords'),
+	nl, write('   gr               - (re)compile grammar and contentwords'),
 	nl, write('   trace            - switch Prolog trace-mode on'),
 	nl, write('   notrace          - switch Prolog trace-mode off'),
 	nl, write('   help             - show this help'),
@@ -127,6 +127,15 @@ call_parser(_, [spy, X]) :-
 
 call_parser(AceTextCodes, _) :-
 	atom_codes(AceText, AceTextCodes),
+	parse_and_format(AceText),
+	!,
+	ape_input.
+
+call_parser(_, _) :-
+	ape_input.
+
+
+parse_and_format(AceText) :-
 	ace_to_drs:aceparagraph_to_drs(AceText, Sentences, Syntaxtrees, UnresolvedDrs, Drs, Messages),
 	format('~w~n~n', [Sentences]),
 	format('Unresolved DRS:~n~n'),
@@ -153,12 +162,7 @@ call_parser(AceTextCodes, _) :-
 	drs_to_ace(Drs, AceSentenceList),
 	acesentencelist_pp(AceSentenceList, Paraphrase),
 	format('~w~n~n', [Paraphrase]),
-	print_messages(Messages),
-	!,
-	ape_input.
-
-call_parser(_, _) :-
-	ape_input.
+	print_messages(Messages).
 
 
 %% print_messages(+MessageList:list) is det.
@@ -170,6 +174,17 @@ print_messages([]) :- nl.
 print_messages([H | T]) :-
 	format('~w~n~n', [H]),
 	print_messages(T).
+
+%%
+%
+%
+%
+make_ape :-
+	working_directory(Old, parser),
+	compile(fit_to_plp),
+	working_directory(_, Old),
+	make.
+
 
 % Note: we load the interface at startup
 :- ape.

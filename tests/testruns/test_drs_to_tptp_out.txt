@@ -70,7 +70,7 @@ fof(f1, axiom, (
 000020 a man is happy a dog.
 ERROR	DRS is empty	apply_converter/2	drs([],[])
 000021 where does a man wait?
-ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1134,where)
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1002,where)
 000022 John waits.
 fof(f1, axiom, (
 ? [A] : (predicate1(A,wait,'John')))).
@@ -17808,3 +17808,31 @@ ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G388,howm)
 ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G649,howm)
 003748 How many good men eat how much bad food?
 ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1028,howm)
+003749 There is some fluid. How many liters of the fluid are there?
+ERROR	DRS condition not supported: question	tptp/4	question(drs([_G1447],[query(_G1447,how_many)-2/1,object(_G1447,liter,countable,na,geq,2)-2/3,relation(_G1447,of,_G1486)-2/4]))
+003750 There are how many liters of some fluid?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1798,how_many)
+003751 Sun is the Sun.
+fof(f1, axiom, (
+'Sun'='Sun')).
+003752 There is a man that John is not.
+ERROR	DRS is empty	apply_converter/2	drs([],[])
+003753 Does John believe that Mary sleeps?
+ERROR	DRS condition not supported: :	tptp/4	_G2195:drs([_G2201],[predicate(_G2201,sleep,named(Mary))-1/6])
+003756 Does John see a man that waits?
+fof(f1, conjecture, (
+? [A,B,C] : ((man(A)) &
+((predicate1(B,wait,A)) &
+(predicate2(C,see,'John',A)))))).
+003757 How does John that waits see a man?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G2599,how)
+003758 John where sees a man that waits?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G2975,where)
+003759 John how believes that Mary sleeps?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G34,how)
+003760 John how and when and where believes that Mary sleeps?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G434,where)
+003761 How and when and where does John see a man?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G822,where)
+003762 John sees a man where and when and how?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1213,how)
