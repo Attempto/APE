@@ -47,8 +47,8 @@ directory of APE (where `ape.exe` is located). Then type `ape.exe` in the case o
     -ulextext "TEXT"    The user lexicon (taken from a string).
     -ulexfile FILENAME  The user lexicon (taken from a file or URL).
     -solo OUTPUT        Output just one output component. OUTPUT has to be one of {paraphrase,
-                        paraphrase1,paraphrase2,owlfss,owlfsspp,owlrdf,owlxml,fol,pnf,tptp,tokens,
-                        syntax,syntaxpp,syntaxd,syntaxdpp,drs,drsxml,drspp,drshtml}.
+                        paraphrase1,paraphrase2,owlfss,owlfsspp,owlrdf,owlxml,ruleml,fol,pnf,tptp,
+                        tokens,syntax,syntaxpp,syntaxd,syntaxdpp,drs,drsxml,drspp,drshtml}.
     -cdrs               Output the DRS as a Prolog term.
     -cdrsxml            Output the DRS in XML.
     -cdrspp             Output the DRS in pretty-printed form in plain text.
@@ -69,6 +69,7 @@ directory of APE (where `ape.exe` is located). Then type `ape.exe` in the case o
                         printed).
     -cowlxml            Output OWL/SWRL in the XML representation.
     -cowlrdf            Output OWL/SWRL in the RDF/XML representation. DEPRECATED
+    -cruleml            Output RuleML representation of the DRS.
     -cfol               Output standard first-order logic representations (default form) of the DRS
                         as a Prolog term.
     -cpnf               Output standard first-order logic representations (prenex normal form) of

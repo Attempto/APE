@@ -75,7 +75,7 @@ argument('-text', '"TEXT"', 'The input ACE text. If neither -text nor -file is p
 argument('-file', 'FILENAME', 'The name or URL of the input file containing the ACE text.').
 argument('-ulextext', '"TEXT"', 'The user lexicon (taken from a string).').
 argument('-ulexfile', 'FILENAME', 'The user lexicon (taken from a file or URL).').
-argument('-solo', 'OUTPUT', 'Output just one output component. OUTPUT has to be one of {paraphrase,paraphrase1,paraphrase2,owlfss,owlfsspp,owlrdf,owlxml,fol,pnf,tptp,tokens,syntax,syntaxpp,syntaxd,syntaxdpp,drs,drsxml,drspp,drshtml}.').
+argument('-solo', 'OUTPUT', 'Output just one output component. OUTPUT has to be one of {paraphrase,paraphrase1,paraphrase2,owlfss,owlfsspp,owlrdf,owlxml,ruleml,fol,pnf,tptp,tokens,syntax,syntaxpp,syntaxd,syntaxdpp,drs,drsxml,drspp,drshtml}.').
 argument('-cinput', '', hidden).
 argument('-cdrs', '', 'Output the DRS as a Prolog term.').
 argument('-cdrsxml', '', 'Output the DRS in XML.').
@@ -94,6 +94,7 @@ argument('-cowlfss', '', 'Output OWL/SWRL in the Functional-Style Syntax represe
 argument('-cowlfsspp', '', 'Output OWL/SWRL in the Functional-Style Syntax representation (pretty-printed).').
 argument('-cowlxml', '', 'Output OWL/SWRL in the XML representation.').
 argument('-cowlrdf', '', 'Output OWL/SWRL in the RDF/XML representation. DEPRECATED').
+argument('-cruleml', '', 'Output RuleML representation of the DRS.').
 argument('-cfol', '', 'Output standard first-order logic representations (default form) of the DRS as a Prolog term.').
 argument('-cpnf', '', 'Output standard first-order logic representations (prenex normal form) of the DRS as a Prolog term.').
 argument('-ctptp', '', 'Output TPTP representation of the DRS.').
