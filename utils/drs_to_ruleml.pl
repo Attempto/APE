@@ -23,7 +23,8 @@ This module converts the Attempto DRS into RuleML/folog as
 specified by David Hirtle in his thesis.
 
 @author Kaarel Kaljurand
-@version 2006-10-05
+@author Tobias Kuhn
+@version 2012-08-23
 @see http://www.ruleml.org/translator/
 
 @bug Test RuleML validity.
@@ -46,24 +47,26 @@ rejects such DRSs.)
 % as specified in David Hirtle's thesis.
 
 drs_to_ruleml(
-	drs(Dom, Conds),
+	DRS,
 	element('RuleML', [], [
-		element('Assert', [], [
-			element('Exists', [], Elements)
-		])
+		element('Assert', [], Elements)
 	])
 	) :-
-	args_els(Dom, DomElements),
-	conds_and(Conds, Element),
-	append(DomElements, [Element], Elements).
+	existdrs_els(DRS, Elements).
 
 
 %% conds_and(+Conds:list, -Element:functor) is det.
 %
 % Converts a list of DRS conditions into a RuleML and-element.
 
-conds_and(Conds, element('And', [], Elements)) :-
-	conds_elements(Conds, Elements).
+conds_and(Conds, ElementsOut) :-
+	conds_elements(Conds, Elements),
+	conds_and_x(Elements, ElementsOut).
+
+conds_and_x([Element], Element) :-
+    !.
+
+conds_and_x(Elements, element('And', [], Elements)).
 
 
 %% conds_elements(+Conds:list, -Elements:list) is det.
@@ -85,34 +88,26 @@ conds_elements([Cond | Tail], [SCond | STail]) :-
 % of the RuleML element (as specified by Hirtle),
 % we have to do some ugly appending.
 
-cond_element(drs(Dom1, Conds1) => drs(Dom2, Conds2),
+cond_element(drs(Dom1, Conds1) => DRS2,
 	element('Forall', [], SubElements0)
 	) :-
 	args_els(Dom1, VarElements1),
-	args_els(Dom2, VarElements2),
 	conds_and(Conds1, Element1),
-	conds_and(Conds2, Element2),
-	append(VarElements2, [Element2], SubElements2),
-	append([Element1], [element('Exists', [], SubElements2)], SubElements1),
+	existdrs_els(DRS2, SubElements2),
+	append([Element1], SubElements2, SubElements1),
 	append(VarElements1, [element('Implies', [], SubElements1)], SubElements0).
 
 
-cond_element(drs(Dom1, Conds1) v drs(Dom2, Conds2),
+cond_element(DRS1 v DRS2,
 	element('Or', [], SubElements0)
 	) :-
-	args_els(Dom1, VarElements1),
-	args_els(Dom2, VarElements2),
-	conds_and(Conds1, Element1),
-	conds_and(Conds2, Element2),
-	append(VarElements2, [Element2], SubElements2),
-	append(VarElements1, [Element1], SubElements1),
-	append([element('Exists', [], SubElements1)], [element('Exists', [], SubElements2)], SubElements0).
+	existdrs_els(DRS1, SubElements1),
+	existdrs_els(DRS2, SubElements2),
+	append(SubElements1, SubElements2, SubElements0).
 
 
-cond_element(-drs(Dom, Conds), element('Neg', [], [element('Exists', [], SubElements)])) :-
-	args_els(Dom, VarElements),
-	conds_and(Conds, Element),
-	append(VarElements, [Element], SubElements).
+cond_element(-DRS, element('Neg', [], SubElements)) :-
+	existdrs_els(DRS, SubElements).
 
 
 cond_element(Conds, Element) :-
@@ -151,6 +146,20 @@ args_els([H | T], [element('Ind', [], [H]) | ElsTail]) :-
 	args_els(T, ElsTail).
 
 
+%% existdrs_els(+Drs:drs, -Elements:list) is det.
+%
+% Converts an existential DRS box into RuleML elements.
+
+existdrs_els(drs([],Conds), [Element]) :-
+    !,
+	conds_and(Conds, Element).
+
+existdrs_els(drs(Dom,Conds), [element('Exists', [], Elements)]) :-
+	args_els(Dom, DomElements),
+	conds_and(Conds, Element),
+	append(DomElements, [Element], Elements).
+    
+
 %% to_xml(+Elements:list, -Xml:atom) is det.
 %
 % @param Elements is a list of XML elements
@@ -160,7 +169,7 @@ args_els([H | T], [element('Ind', [], [H]) | ElsTail]) :-
 %
 % Converts SWI Prolog's XML represenation into an XML atom.
 % Something like xml_write/3 but very simple.
-%
+
 to_xml([], '').
 
 to_xml([element(Name, _, Elements) | T], Xml) :-
