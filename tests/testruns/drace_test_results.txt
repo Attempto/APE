@@ -3438,7 +3438,7 @@ The dog X1 eats.
 The dog X1 barks.
 002196 [ZERO] There are not at most 5 men.
 002197 [ZERO] There are not at least 5 men.
-002198 [----] 3.1415926536 approximates Pi. --> 3.14159 approximates Pi.
+002198 [SAME] 3.1415926536 approximates Pi.
 002199 [ZERO] John waits. He that sleeps waits.
 002200 [----] How is John? --> John is how?
 002201 [ZERO] Xxx are a company.
@@ -5973,7 +5973,7 @@ The quick man X1 eats.
 The red man X1 runs quickly.
 003685 [FAIL] A man believes that he sleeps and that he sleeps. --> # ...
 003686 [ZERO] A man and he see a cat and it.
-003687 [----] Pi is 3.1415926536. --> Pi is 3.14159.
+003687 [SAME] Pi is 3.1415926536.
 003688 [ZERO] There is a man. A group is a dog of the man and the man.
 003689 [----] There is a name. There is a dog. "" is the name of the dog of a man and a woman. --> There is a name.
 
@@ -6073,3 +6073,11 @@ John sees the man X1 where?
 003760 [FAIL] John how and when and where believes that Mary sleeps? --> # ...
 003761 [----] How and when and where does John see a man? --> John sees a man where and when and how?
 003762 [----] John sees a man where and when and how? --> John sees a man how and when and where?
+003763 [FAIL] John when eats and where drinks? --> John eats when?
+John drinks where?
+003764 [----] How is John seen by a man? --> A man sees John how?
+003765 [FAIL] How is John that waits seen by a man? --> John waits.
+A man sees John how?
+003766 [FAIL] Is John seen by a man that waits? --> # ...
+003768 [FAIL] John eats when and where drinks? --> John eats when?
+John drinks where?

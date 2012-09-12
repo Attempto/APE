@@ -10386,7 +10386,7 @@ ERROR	DRS is empty	apply_converter/2	drs([],[])
 ERROR	DRS is empty	apply_converter/2	drs([],[])
 002198 3.1415926536 approximates Pi.
 fof(f1, axiom, (
-? [A] : (predicate2(A,approximate,3.14159,'Pi')))).
+? [A] : (predicate2(A,approximate,3.1415926536,'Pi')))).
 002199 John waits. He that sleeps waits.
 ERROR	DRS is empty	apply_converter/2	drs([],[])
 002200 How is John?
@@ -17532,7 +17532,7 @@ ERROR	DRS condition not supported: :	tptp/4	_G530:drs([_G536,_G539],[predicate(_
 ERROR	DRS is empty	apply_converter/2	drs([],[])
 003687 Pi is 3.1415926536.
 fof(f1, axiom, (
-'Pi'=3.14159)).
+'Pi'=3.1415926536)).
 003688 There is a man. A group is a dog of the man and the man.
 ERROR	DRS is empty	apply_converter/2	drs([],[])
 003689 There is a name. There is a dog. "" is the name of the dog of a man and a woman.
@@ -17836,3 +17836,16 @@ ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G434,where)
 ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G822,where)
 003762 John sees a man where and when and how?
 ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1213,how)
+003763 John when eats and where drinks?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1544,when)
+003764 How is John seen by a man?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1860,how)
+003765 How is John that waits seen by a man?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G2246,how)
+003766 Is John seen by a man that waits?
+fof(f1, conjecture, (
+? [A,B,C] : ((man(A)) &
+((predicate1(B,wait,A)) &
+(predicate2(C,see,A,'John')))))).
+003768 John eats when and where drinks?
+ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G2587,when)

@@ -4392,3 +4392,8 @@ ERROR
 003760 [FAIL] John how and when and where believes that Mary sleeps? --> NOT IMPLEMENTED
 003761 [FAIL] How and when and where does John see a man? --> NOT IMPLEMENTED
 003762 [FAIL] John sees a man where and when and how? --> NOT IMPLEMENTED
+003763 [FAIL] John when eats and where drinks? --> NOT IMPLEMENTED
+003764 [FAIL] How is John seen by a man? --> NOT IMPLEMENTED
+003765 [FAIL] How is John that waits seen by a man? --> NOT IMPLEMENTED
+003766 [FAIL] Is John seen by a man that waits? --> NOT IMPLEMENTED
+003768 [FAIL] John eats when and where drinks? --> NOT IMPLEMENTED
