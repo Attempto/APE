@@ -299,7 +299,8 @@ server :-
 	server(Port).
 
 server(Port) :-
-	format(user_error, "Starting a socket interface for APE at port ~w ...~n", [Port]),
+	get_time_formatted(Time),
+	format(user_error, "~w: Starting a socket interface for APE at port ~w ...~n", [Time, Port]),
 	tcp_socket(Socket),
 	tcp_bind(Socket, Port),
 	tcp_listen(Socket, 5),
@@ -433,7 +434,8 @@ http_server :-
 	http_server(Port).
 
 http_server(Port) :-
-	format(user_error, "Starting an HTTP interface for APE at port ~w ...~n", [Port]),
+	get_time_formatted(Time),
+	format(user_error, "~w: Starting an HTTP interface for APE at port ~w ...~n", [Time, Port]),
 	http_server(http_dispatch, [port(Port), workers(1)]),
 	thread_get_message(_),
 	halt.
@@ -631,3 +633,12 @@ set_utf8_encoding(Stream) :-
 		_,
 		true
 	).
+
+
+%% get_time_formatted(-FormattedTimestamp)
+%
+% Generates a timestamp for the current time
+%
+get_time_formatted(FormattedTimestamp) :-
+	get_time(Timestamp),
+	format_time(atom(FormattedTimestamp), '%F %T%z', Timestamp).
