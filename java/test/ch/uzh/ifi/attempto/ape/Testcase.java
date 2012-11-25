@@ -12,4 +12,7 @@ public class Testcase {
 
 	public static final String ACETEXT2 = "Every dooog's friend is an animal.";
 	public static final String ACETEXT2_CORE_ACE = "If there is a friend X1 of a n:dooog then the friend X1 is an animal.";
+
+	public static final String ACETEXT3 = "pn_sg('John','John_PN',masc) tv_finsg('buys','buy_V2') everything that isn't a noun_sg('present','present_N',neutr) .";
+	public static final Object ACETEXT3_OWLFSS = "'Ontology'(test,['SubClassOf'('ObjectComplementOf'('':present_N),'ObjectSomeValuesFrom'('ObjectInverseOf'('':buy_V2),'ObjectOneOf'(['':'John_PN'])))])";
 }

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class APEWebserviceTest {
 
+	private static final String URI = "test";
 	private static final String NOUN = "n1";
 	private static final String ADJ = "a1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
 	private static final String APEWS_URL = "http://attempto.ifi.uzh.ch/ws/ape/apews.perl";
@@ -19,16 +20,16 @@ public class APEWebserviceTest {
 
 	// Should be longer than MAX_HTTP_GET_LENGTH
 	private static final String ACETEXT_LONG = "There is a " +
-	ADJ + " and " +
-	ADJ + " and " +
-	ADJ + " and " +
-	ADJ + " and " +
-	ADJ + " and " +
-	ADJ + " and " +
-	ADJ + " and " +
-	ADJ + " and " +
-	ADJ + " and " +
-	ADJ + " " + NOUN + ".";
+			ADJ + " and " +
+			ADJ + " and " +
+			ADJ + " and " +
+			ADJ + " and " +
+			ADJ + " and " +
+			ADJ + " and " +
+			ADJ + " and " +
+			ADJ + " and " +
+			ADJ + " and " +
+			ADJ + " " + NOUN + ".";
 
 	@Test
 	public final void testGetSoloOutput() {
@@ -117,6 +118,23 @@ public class APEWebserviceTest {
 
 
 	@Test
+	public final void testGetSoloOutputLexiconInText() {
+		ACEParser ap = new APEWebservice(APEWS_URL_LOCALHOST);
+		ap.setGuessingEnabled(false);
+		ap.setClexEnabled(false);
+		ap.setURI(URI);
+		ACEText text = new ACEText(Testcase.ACETEXT3);
+		String result = null;
+		try {
+			result = ap.getSoloOutput(text.getText(), text.getLexicon(), OutputType.OWLFSS);
+		} catch (ACEParserException e) {
+			fail("Should NOT throw ACEParserException: " + e.getMessageContainer());
+		}
+		assertEquals(Testcase.ACETEXT3_OWLFSS, result.trim());
+	}
+
+
+	@Test
 	public final void testGetMultiOutput() {
 		ACEParser ap = new APEWebservice(APEWS_URL);
 		ACEParserResult result = ap.getMultiOutput(Testcase.ACETEXT, OutputType.DRS, OutputType.TPTP);
@@ -133,10 +151,15 @@ public class APEWebserviceTest {
 	}
 
 
-	private Lexicon createLexicon() {
+	private static Lexicon createLexicon() {
 		Lexicon lexicon = new Lexicon();
 		lexicon.addEntry(LexiconEntry.createNounSgEntry(NOUN, NOUN, Gender.NEUTRAL));
 		lexicon.addEntry(LexiconEntry.createAdjEntry(ADJ, ADJ));
 		return lexicon;
+	}
+
+
+	private static void show(String str) {
+		System.out.println(str);
 	}
 }

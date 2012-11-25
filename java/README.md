@@ -38,14 +38,28 @@ Apache Ant is needed for compilation. The following commands are available:
 APELocal
 --------
 
-The APELocal class is an interface to the ACE parser that is written in SWI Prolog. When this class
-is used directly or indirectly, you have to make sure that a recent version of SWI Prolog is
-installed and that the file ape.exe is available.
+The APELocal class is an interface to the ACE parser that is written in SWI-Prolog. When this class
+is used directly or indirectly, you have to make sure that a recent version of SWI-Prolog is
+installed and that the file `ape.exe` is available.
 
-Furthermore, you have to use the following Java VM argument that points to the location where the
-SWI Prolog system file libjpl.jnilib (under Mac OS X), jpl.dll (under Windows), or libjpl.so (under
-Unix) is located:
+Furthermore, you have to use the Java VM argument `java.library.path` to point to the location
+of the SWI-Prolog system file `libjpl.jnilib` (under Mac OS X), `jpl.dll` (under Windows),
+or `libjpl.so` (under Unix), e.g.
 
-  -Djava.library.path="/opt/local/lib/swipl-5.6.45/lib/i386-darwin8.10.1"
+	-Djava.library.path="/opt/local/lib/swipl-5.6.45/lib/i386-darwin8.10.1"
 
-Note that the exact path is most probably different on your system.
+or
+
+	-Djava.library.path="/usr/local/lib/swipl-6.2.2/lib/x86_64-linux/"
+
+depending on your operating system and the version of SWI-Prolog.
+
+
+Testing
+-------
+
+In order to run the unit tests (`ant test`), first start the `ape.exe`
+in the server more, both as socket server and as HTTP server.
+
+	$ ./ape.exe -server -port 5000
+	$ ./ape.exe -httpserver -port 8000
