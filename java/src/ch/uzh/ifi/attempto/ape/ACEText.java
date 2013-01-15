@@ -1,8 +1,5 @@
 package ch.uzh.ifi.attempto.ape;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * WARNING: This class is experimental and is incomplete (i.e. covers only a subset of the lexicon entries).
  *
@@ -12,11 +9,7 @@ import java.util.regex.Pattern;
  * to logical symbols.
  *
  * We experiment with a representation where the string and the lexicon are
- * packaged into a single string. Example:
- *
- * pn_sg('John','John_PN',masc) tv_finsg('buys','buy_V2') everything that isn't a noun_sg('present','present_N',neutr) .
- *
- * or maybe:
+ * packaged into a single string:
  *
  * John|pn_sg|John_PN|masc buys|tv_finsg|buy_V2 everything that isn't a present|noun_sg|present_N|neutr .
  *
@@ -24,12 +17,12 @@ import java.util.regex.Pattern;
  */
 public class ACEText {
 
-	public static final Pattern PN_SG = Pattern.compile("pn_sg\\('([a-zA-Z0-9_-]+)','([a-zA-Z0-9_-]+)',([a-zA-Z0-9_-]+)\\)");
-	public static final Pattern NOUN_SG = Pattern.compile("noun_sg\\('([a-zA-Z0-9_-]+)','([a-zA-Z0-9_-]+)',([a-zA-Z0-9_-]+)\\)");
-	public static final Pattern NOUN_PL = Pattern.compile("noun_pl\\('([a-zA-Z0-9_-]+)','([a-zA-Z0-9_-]+)',([a-zA-Z0-9_-]+)\\)");
-	public static final Pattern TV_FINSG = Pattern.compile("tv_finsg\\('([a-zA-Z0-9_-]+)','([a-zA-Z0-9_-]+)'\\)");
-	public static final Pattern TV_INFPL = Pattern.compile("tv_infpl\\('([a-zA-Z0-9_-]+)','([a-zA-Z0-9_-]+)'\\)");
-	public static final Pattern TV_PP = Pattern.compile("tv_pp\\('([a-zA-Z0-9_-]+)','([a-zA-Z0-9_-]+)'\\)");
+	public static final String WORDCLASS_PN_SG = "pn_sg";
+	public static final String WORDCLASS_NOUN_SG = "noun_sg";
+	public static final String WORDCLASS_NOUN_PL = "noun_pl";
+	public static final String WORDCLASS_TV_FINSG = "tv_finsg";
+	public static final String WORDCLASS_TV_INFPL = "tv_infpl";
+	public static final String WORDCLASS_TV_PP = "tv_pp";
 
 	private final StringBuilder mText = new StringBuilder();
 	private final Lexicon mLexicon = new Lexicon();
@@ -47,40 +40,59 @@ public class ACEText {
 	}
 
 
+	/**
+	 * Tokenizes that given string assuming that tokens are separated by sequences of spaces.
+	 * Each token is split by a vertical bar (|). If this splitting results in at least 3 units,
+	 * then they are assumed to be: word form, word class identifier, logical symbol. With nouns
+	 * a gender argument can also follow, but this is optional and by default the UNDEF gender is assumed.
+	 * If the word class does not match a known ACE word class then we assume that the token
+	 * is a regular ACE token.
+	 *
+	 * TODO: currently only AceWiki word classes are covered
+	 * TODO: correctly handle ACE quoted strings (which contain the vertical bar character)
+	 */
 	private void tokenize(String str) {
 		for (String tok : str.split("\\s+")) {
-			Matcher m = PN_SG.matcher(tok);
-			if (m.matches()) {
-				add(m.group(1), LexiconEntry.createPropernameSgEntry(m.group(1), m.group(2), Gender.create(m.group(3))));
+			String[] splits = tok.split("\\|");
+
+			if (splits.length <= 2) {
+				mText.append(' ');
+				mText.append(tok);
 				continue;
 			}
-			m = NOUN_SG.matcher(tok);
-			if (m.matches()) {
-				add(m.group(1), LexiconEntry.createNounSgEntry(m.group(1), m.group(2), Gender.create(m.group(3))));
-				continue;
+
+			String wordForm = splits[0];
+			String wordClass = splits[1];
+			String logicalSymbol = splits[2];
+
+			if (WORDCLASS_PN_SG.equals(wordClass)) {
+				if (splits.length > 3) {
+					add(wordForm, LexiconEntry.createPropernameSgEntry(wordForm, logicalSymbol, Gender.create(splits[3])));
+				} else {
+					add(wordForm, LexiconEntry.createPropernameSgEntry(wordForm, logicalSymbol, Gender.UNDEF));
+				}
+			} else if (WORDCLASS_NOUN_SG.equals(wordClass)) {
+				if (splits.length > 3) {
+					add(wordForm, LexiconEntry.createNounSgEntry(wordForm, logicalSymbol, Gender.create(splits[3])));
+				} else {
+					add(wordForm, LexiconEntry.createNounSgEntry(wordForm, logicalSymbol, Gender.UNDEF));
+				}
+			} else if (WORDCLASS_NOUN_PL.equals(wordClass)) {
+				if (splits.length > 3) {
+					add(wordForm, LexiconEntry.createNounPlEntry(wordForm, logicalSymbol, Gender.create(splits[3])));
+				} else {
+					add(wordForm, LexiconEntry.createNounPlEntry(wordForm, logicalSymbol, Gender.UNDEF));
+				}
+			} else if (WORDCLASS_TV_FINSG.equals(wordClass)) {
+				add(wordForm, LexiconEntry.createTrVerbThirdEntry(wordForm, logicalSymbol));
+			} else if (WORDCLASS_TV_INFPL.equals(wordClass)) {
+				add(wordForm, LexiconEntry.createTrVerbInfEntry(wordForm, logicalSymbol));
+			} else if (WORDCLASS_TV_PP.equals(wordClass)) {
+				add(wordForm, LexiconEntry.createTrVerbPPEntry(wordForm, logicalSymbol));
+			} else {
+				mText.append(' ');
+				mText.append(tok);
 			}
-			m = NOUN_PL.matcher(tok);
-			if (m.matches()) {
-				add(m.group(1), LexiconEntry.createNounPlEntry(m.group(1), m.group(2), Gender.create(m.group(3))));
-				continue;
-			}
-			m = TV_FINSG.matcher(tok);
-			if (m.matches()) {
-				add(m.group(1), LexiconEntry.createTrVerbThirdEntry(m.group(1), m.group(2)));
-				continue;
-			}
-			m = TV_INFPL.matcher(tok);
-			if (m.matches()) {
-				add(m.group(1), LexiconEntry.createTrVerbInfEntry(m.group(1), m.group(2)));
-				continue;
-			}
-			m = TV_PP.matcher(tok);
-			if (m.matches()) {
-				add(m.group(1), LexiconEntry.createTrVerbPPEntry(m.group(1), m.group(2)));
-				continue;
-			}
-			mText.append(' ');
-			mText.append(tok);
 		}
 	}
 

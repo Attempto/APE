@@ -66,12 +66,11 @@ public enum Gender {
 	 * Returns the gender that corresponds to the given Prolog atom.
 	 */
 	public static Gender create(String str) {
-		if ("undef".equals(str)) return UNDEF;
 		if ("neutr".equals(str)) return NEUTRAL;
 		if ("human".equals(str)) return HUMAN;
 		if ("masc".equals(str)) return MASCULINE;
 		if ("fem".equals(str)) return FEMININE;
-		return null;
+		return UNDEF;
 	}
 
 }
