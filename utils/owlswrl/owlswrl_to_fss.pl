@@ -1,5 +1,5 @@
 % This file is part of the Attempto Parsing Engine (APE).
-% Copyright 2008-2010, Kaarel Kaljurand <kaljurand@gmail.com>.
+% Copyright 2008-2013, Kaarel Kaljurand <kaljurand@gmail.com>.
 %
 % The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
 % under the terms of the GNU Lesser General Public License as published by the Free Software
@@ -17,10 +17,15 @@
 		owlswrl_to_fss/2
 	]).
 
+:- use_module(owlswrl_iri, [
+		iri_to_prefix/2
+	]).
+
+
 /** <module> OWL/SWRL serializer into OWL/SWRL Functional-Style Syntax
 
 @author Kaarel Kaljurand
-@version 2010-11-26
+@version 2013-02-06
 
 @tbd Escaping
 
@@ -34,7 +39,8 @@
 % Writes the OWL/SWRL ontology in Functional-Style Syntax into the current stream.
 %
 owlswrl_to_fss('Ontology'(OntologyIri, Axioms)) :-
-	format("Prefix(:=<~w#>)~n", [OntologyIri]),
+	iri_to_prefix(OntologyIri, Prefix),
+	format("Prefix(:=<~w>)~n", [Prefix]),
 	format("Ontology(<~w>~n", [OntologyIri]),
 	print_list(Axioms, 1),
 	format(")~n").

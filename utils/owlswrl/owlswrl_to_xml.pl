@@ -1,5 +1,5 @@
 % This file is part of the Attempto Parsing Engine (APE).
-% Copyright 2008-2010, Kaarel Kaljurand <kaljurand@gmail.com>.
+% Copyright 2008-2013, Kaarel Kaljurand <kaljurand@gmail.com>.
 %
 % The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
 % under the terms of the GNU Lesser General Public License as published by the Free Software
@@ -17,11 +17,15 @@
 		owlswrl_to_xml/2
 	]).
 
+:- use_module(owlswrl_iri, [
+		iri_to_prefix/2
+	]).
 
-/** <module> OWL/SWRL Functional-Style Syntax to OW/SWRL XML converter
+
+/** <module> OWL/SWRL Functional-Style Syntax to OWL/SWRL XML converter
 
 @author Kaarel Kaljurand
-@version 2010-11-26
+@version 2013-02-06
 
 @bug support for datatype properties is not implemented or buggy
 @tbd anonymous individuals should not be turned into regular individuals
@@ -51,7 +55,7 @@ owlswrl_to_xml(
 		'ontologyIRI' = OntologyIri
 		], ElList)
 	) :-
-	atom_concat(OntologyIri, '#', Prefix),
+	iri_to_prefix(OntologyIri, Prefix),
 	axiomlist_to_xml(AxiomList, Prefix, ElList).
 
 
