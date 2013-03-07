@@ -30,13 +30,6 @@ import java.util.regex.Pattern;
  * This class provides an interface to the SWI Prolog executable of the Attempto Parsing Engine
  * (APE). Note that you need the file "ape.exe" (which can be compiled from the Attempto APE
  * distribution) and that SWI Prolog needs to be installed.
- * Furthermore, you have to make sure that the JPL libraries of SWI Prolog are in the java library
- * path. This can be achieved by a Java VM argument which looks like this (for Mac OS X):
- * <p/>
- * <blockquote><code>
- * -Djava.library.path=/opt/local/lib/swipl-5.6.45/lib/i386-darwin8.10.1
- * </code></blockquote>
- * <p/>
  * Under Linux, the following environment variable has to be set additionally:
  * <p/>
  * <blockquote><code>
