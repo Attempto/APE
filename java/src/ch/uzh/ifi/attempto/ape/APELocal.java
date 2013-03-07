@@ -22,6 +22,17 @@ import jpl.Term;
 import jpl.Util;
 import jpl.Variable;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * This class provides an interface to the SWI Prolog executable of the Attempto Parsing Engine
  * (APE). Note that you need the file "ape.exe" (which can be compiled from the Attempto APE
@@ -63,7 +74,7 @@ public class APELocal extends ACEParser {
 	 * 
 	 * @param apeExeFile The path (with filename) of the file "ape.exe".
 	 */
-	public APELocal(String apeExeFile) {
+	private APELocal(String apeExeFile) {
 		if (apeLocal != null) {
 			throw new RuntimeException("Only one APELocal object can be created.");
 		}
@@ -110,8 +121,10 @@ public class APELocal extends ACEParser {
 	 * 
 	 * @param apeExeFile The path (with filename) of the file "ape.exe".
 	 */
-	public static void init(String apeExeFile) {
-		new APELocal(apeExeFile);
+	public synchronized static void init(String apeExeFile) {
+        if(apeLocal == null) {
+            apeLocal = new APELocal(apeExeFile);
+        }
 	}
 
 	/**
@@ -148,7 +161,8 @@ public class APELocal extends ACEParser {
 		}
 		Term input = Util.textToTerm("[text=" + PrologUtils.escape(text) + ulextext + ",solo=" + outputType.toString().toLowerCase() + getOptions() + "]");
 		Query q = new Query("get_ape_results", new Term[] {input, new Variable("Result")});
-		Atom result = (Atom) q.oneSolution().get("Result");
+        Hashtable hashtable = q.oneSolution();
+        Atom result = (Atom) hashtable.get("Result");
 		String s = result.name();
 
 		return checkForErrors(s);
@@ -216,4 +230,43 @@ public class APELocal extends ACEParser {
 		Query q = new Query("clear_messages");
 		q.oneSolution();
 	}
+    static {
+        try {
+            setProperties();
+        }  catch (Exception e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+    }
+
+    private static void setProperties() throws IOException, InterruptedException, NoSuchFieldException, IllegalAccessException {
+        Map<String, String> swiplVars = getSwiplVariables();
+        String plbase = swiplVars.get("PLBASE");
+        String plarch = swiplVars.get("PLARCH");
+        String libPath = plbase + "/lib/" + plarch;
+        System.setProperty("java.library.path", libPath);
+        Field sysPath = ClassLoader.class.getDeclaredField("sys_paths");
+        sysPath.setAccessible(true);
+        sysPath.set(ClassLoader.class,null);
+        sysPath.setAccessible(false);
+
+    }
+
+    private static Map<String, String> getSwiplVariables() throws IOException, InterruptedException {
+        Map<String, String> map = new HashMap<String, String>();
+        Process process = Runtime.getRuntime().exec(new String[]{"swipl", "--dump-runtime-variables"});
+        InputStream in = process.getInputStream();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        String line;
+        Pattern pattern = Pattern.compile("(^[^=]+)=\"(.+)\";$");
+        while ((line = reader.readLine()) != null) {
+            Matcher matcher = pattern.matcher(line);
+            if (matcher.matches()) {
+                String var = matcher.group(1);
+                String value = matcher.group(2);
+                map.put(var, value);
+            }
+        }
+        process.waitFor();
+        return map;
+    }
 }
