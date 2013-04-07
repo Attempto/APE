@@ -1,5 +1,5 @@
 % This file is part of the Attempto Parsing Engine (APE).
-% Copyright 2008-2012, Kaarel Kaljurand <kaljurand@gmail.com>.
+% Copyright 2008-2013, Kaarel Kaljurand <kaljurand@gmail.com>.
 %
 % The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
 % under the terms of the GNU Lesser General Public License as published by the Free Software
@@ -54,7 +54,7 @@ as these require more background semantics.
 
 
 @author Kaarel Kaljurand
-@version 2011-07-28
+@version 2013-04-07
 
 */
 
@@ -384,7 +384,10 @@ is_dataitem_(string(_)).
 
 %% is_named(+CondList:list, +Condition:term)
 %
-% This is used for excluding certain conditions.
+% This is used for excluding certain conditions
+% in the top-level DRS.
+%
+% @bug is this still needed?
 %
 is_named(CondList, predicate(_, be, X, Y)-_) :-
 	member(query(A, _)-_, CondList),
@@ -394,15 +397,17 @@ is_named(CondList, predicate(_, be, X, Y)-_) :-
 
 % Filters out:
 % John is a man.
-% A man is manager.
+% A man is a manager.
 % A man is John.
-% BUG: also filters out: John is John. (which might not be wanted)
 % Note that the rule is so complex because we want to
 % avoid filtering out numbers, strings, and the like.
+/*
 is_named(_, predicate(_, be, X, Y)-_) :-
 	var(X),
 	var(Y),
 	!,
 	X = Y.
+*/
 
-is_named(_, predicate(_, be, named(N), named(N))-_).
+% This filters out: John is John. (probably not wanted)
+%is_named(_, predicate(_, be, named(N), named(N))-_).

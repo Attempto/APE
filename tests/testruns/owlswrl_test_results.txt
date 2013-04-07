@@ -369,13 +369,13 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
       ObjectSomeValuesFrom(
          :like
          ObjectOneOf(
-            _:741263377528127000
+            _:395134701963383438
          )
       )
    )
    ClassAssertion(
       :woman
-      _:741263377528127000
+      _:395134701963383438
    )
 )
 
@@ -392,7 +392,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind741263377528127000"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind395134701963383438"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </SubClassOf>
@@ -400,7 +400,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#woman"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind741263377528127000"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind395134701963383438"/>
   </ClassAssertion>
 </Ontology>
 
@@ -2340,11 +2340,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          :tall
          :animal
       )
-      _:772590251992167415
+      _:769130151812166345
    )
    ClassAssertion(
       :man
-      _:772590251992167415
+      _:769130151812166345
    )
 )
 
@@ -2362,13 +2362,13 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#animal"/>
     </ObjectMinCardinality>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind772590251992167415"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind769130151812166345"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind772590251992167415"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind769130151812166345"/>
   </ClassAssertion>
 </Ontology>
 
@@ -2380,11 +2380,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
       ObjectComplementOf(
          :woman
       )
-      _:760385666038037760
+      _:227193735176314860
    )
    ClassAssertion(
       :man
-      _:760385666038037760
+      _:227193735176314860
    )
 )
 
@@ -2400,13 +2400,13 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#woman"/>
     </ObjectComplementOf>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind760385666038037760"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind227193735176314860"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind760385666038037760"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind227193735176314860"/>
   </ClassAssertion>
 </Ontology>
 
@@ -2512,18 +2512,18 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
             :like
          )
          ObjectOneOf(
-            _:709621323563108450
+            _:627525381170225610
          )
       )
    )
    ObjectPropertyAssertion(
       :brother
       :John
-      _:709621323563108450
+      _:627525381170225610
    )
    ClassAssertion(
       owl:Thing
-      _:709621323563108450
+      _:627525381170225610
    )
 )
 
@@ -2542,7 +2542,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
       </ObjectInverseOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind709621323563108450"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind627525381170225610"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </SubClassOf>
@@ -2552,12 +2552,12 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind709621323563108450"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind627525381170225610"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind709621323563108450"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind627525381170225610"/>
   </ClassAssertion>
 </Ontology>
 
@@ -3061,18 +3061,18 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
       ObjectSomeValuesFrom(
          :like
          ObjectOneOf(
-            _:819522308180284980
+            _:244459816317997661
          )
       )
    )
    ObjectPropertyAssertion(
       :like
       :Mary
-      _:819522308180284980
+      _:244459816317997661
    )
    ClassAssertion(
       :cat
-      _:819522308180284980
+      _:244459816317997661
    )
 )
 
@@ -3090,7 +3090,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind819522308180284980"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind244459816317997661"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </SubClassOf>
@@ -3100,13 +3100,13 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind819522308180284980"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind244459816317997661"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#cat"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind819522308180284980"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind244459816317997661"/>
   </ClassAssertion>
 </Ontology>
 
@@ -3119,7 +3119,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          ObjectSomeValuesFrom(
             :like
             ObjectOneOf(
-               _:699318364213097682
+               _:692322064134393209
             )
          )
       )
@@ -3127,7 +3127,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       :dog
-      _:699318364213097682
+      _:692322064134393209
    )
 )
 
@@ -3144,7 +3144,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
 	<ObjectOneOf>
 	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind699318364213097682"/>
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind692322064134393209"/>
 	</ObjectOneOf>
       </ObjectSomeValuesFrom>
     </ObjectComplementOf>
@@ -3155,7 +3155,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#dog"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind699318364213097682"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind692322064134393209"/>
   </ClassAssertion>
 </Ontology>
 
@@ -3163,24 +3163,23 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-   ObjectPropertyAssertion(
-      :brother
-      :John
-      _:206036454291080490
-   )
    ClassAssertion(
-      owl:Thing
-      _:206036454291080490
-   )
-   DataPropertyAssertion(
-      :age
-      _:206036454291080490
-      "10"^^<http://www.w3.org/2001/XMLSchema#integer>
-   )
-   ObjectPropertyAssertion(
-      :like
-      _:206036454291080490
-      :Mary
+      ObjectSomeValuesFrom(
+         :brother
+         ObjectIntersectionOf(
+            DataHasValue(
+               :age
+               "10"^^<http://www.w3.org/2001/XMLSchema#integer>
+            )
+            ObjectSomeValuesFrom(
+               :like
+               ObjectOneOf(
+                  :Mary
+               )
+            )
+         )
+      )
+      :John
    )
 )
 
@@ -3190,34 +3189,29 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#brother"/>
+  <ClassAssertion>
+    <ObjectSomeValuesFrom>
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#brother"/>
+      <ObjectIntersectionOf>
+	<DataHasValue>
+	  <DataProperty
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#age"/>
+	  <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+	</DataHasValue>
+	<ObjectSomeValuesFrom>
+	  <ObjectProperty
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
+	  <ObjectOneOf>
+	    <NamedIndividual
+		IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
+	  </ObjectOneOf>
+	</ObjectSomeValuesFrom>
+      </ObjectIntersectionOf>
+    </ObjectSomeValuesFrom>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind206036454291080490"/>
-  </ObjectPropertyAssertion>
-  <ClassAssertion>
-    <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind206036454291080490"/>
   </ClassAssertion>
-  <DataPropertyAssertion>
-    <DataProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#age"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind206036454291080490"/>
-    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
-  </DataPropertyAssertion>
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind206036454291080490"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
-  </ObjectPropertyAssertion>
 </Ontology>
 
 83: John is something that is not Mary.
@@ -3230,10 +3224,6 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
             :Mary
          )
       )
-      :John
-   )
-   ClassAssertion(
-      owl:Thing
       :John
    )
 )
@@ -3251,11 +3241,6 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
       </ObjectOneOf>
     </ObjectComplementOf>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-  </ClassAssertion>
-  <ClassAssertion>
-    <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
   </ClassAssertion>
@@ -3858,7 +3843,7 @@ Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :man
-      _:961035578247543278
+      _:683704711528081773
    )
 )
 
@@ -3872,7 +3857,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind961035578247543278"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind683704711528081773"/>
   </ClassAssertion>
 </Ontology>
 
@@ -4779,19 +4764,17 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-   ObjectPropertyAssertion(
-      :father
-      :John
-      _:713453772939151763
-   )
    ClassAssertion(
-      owl:Thing
-      _:713453772939151763
-   )
-   ObjectPropertyAssertion(
-      :like
-      _:713453772939151763
-      <http://www.example.org/words#Bill>
+      ObjectSomeValuesFrom(
+         :father
+         ObjectSomeValuesFrom(
+            :like
+            ObjectOneOf(
+               <http://www.example.org/words#Bill>
+            )
+         )
+      )
+      :John
    )
 )
 
@@ -4801,45 +4784,40 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#father"/>
+  <ClassAssertion>
+    <ObjectSomeValuesFrom>
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#father"/>
+      <ObjectSomeValuesFrom>
+	<ObjectProperty
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
+	<ObjectOneOf>
+	  <NamedIndividual IRI="http://www.example.org/words#Bill"/>
+	</ObjectOneOf>
+      </ObjectSomeValuesFrom>
+    </ObjectSomeValuesFrom>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind713453772939151763"/>
-  </ObjectPropertyAssertion>
-  <ClassAssertion>
-    <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind713453772939151763"/>
   </ClassAssertion>
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind713453772939151763"/>
-    <NamedIndividual IRI="http://www.example.org/words#Bill"/>
-  </ObjectPropertyAssertion>
 </Ontology>
 
 126: Bill likes John's father.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-   ObjectPropertyAssertion(
-      :father
-      :John
-      _:444841850571629653
-   )
    ClassAssertion(
-      owl:Thing
-      _:444841850571629653
-   )
-   ObjectPropertyAssertion(
-      :like
-      <http://www.example.org/words#Bill>
-      _:444841850571629653
+      ObjectSomeValuesFrom(
+         :father
+         ObjectSomeValuesFrom(
+            ObjectInverseOf(
+               :like
+            )
+            ObjectOneOf(
+               <http://www.example.org/words#Bill>
+            )
+         )
+      )
+      :John
    )
 )
 
@@ -4849,26 +4827,23 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#father"/>
+  <ClassAssertion>
+    <ObjectSomeValuesFrom>
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#father"/>
+      <ObjectSomeValuesFrom>
+	<ObjectInverseOf>
+	  <ObjectProperty
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
+	</ObjectInverseOf>
+	<ObjectOneOf>
+	  <NamedIndividual IRI="http://www.example.org/words#Bill"/>
+	</ObjectOneOf>
+      </ObjectSomeValuesFrom>
+    </ObjectSomeValuesFrom>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind444841850571629653"/>
-  </ObjectPropertyAssertion>
-  <ClassAssertion>
-    <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind444841850571629653"/>
   </ClassAssertion>
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
-    <NamedIndividual IRI="http://www.example.org/words#Bill"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind444841850571629653"/>
-  </ObjectPropertyAssertion>
 </Ontology>
 
 127: If something X is a father of something Y then X is a parent of Y.
@@ -5639,7 +5614,7 @@ Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :continent
-      _:267072051886532185
+      _:887456524459311119
    )
 )
 
@@ -5653,7 +5628,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#continent"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind267072051886532185"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind887456524459311119"/>
   </ClassAssertion>
 </Ontology>
 
@@ -7834,17 +7809,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-   ObjectPropertyAssertion(
-      :own
-      :John
-      _:258056359872172312
-   )
    ClassAssertion(
-      :car
-      _:258056359872172312
-   )
-   ClassAssertion(
-      :man
+      ObjectIntersectionOf(
+         :man
+         ObjectSomeValuesFrom(
+            :own
+            :car
+         )
+      )
       :John
    )
 )
@@ -7855,23 +7827,17 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#own"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind258056359872172312"/>
-  </ObjectPropertyAssertion>
   <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#car"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind258056359872172312"/>
-  </ClassAssertion>
-  <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+    <ObjectIntersectionOf>
+      <Class
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+      <ObjectSomeValuesFrom>
+	<ObjectProperty
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#own"/>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#car"/>
+      </ObjectSomeValuesFrom>
+    </ObjectIntersectionOf>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
   </ClassAssertion>
@@ -7881,9 +7847,13 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
+   SameIndividual(
+      :John
+      _:999553203143083403
+   )
    ClassAssertion(
       :man
-      :John
+      _:999553203143083403
    )
 )
 
@@ -7893,15 +7863,22 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <SameIndividual>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind999553203143083403"/>
+  </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind999553203143083403"/>
   </ClassAssertion>
 </Ontology>
 
 190: John is at least 2 men.
+message(error,owl,1-2,be,Subject or object of this verb makes an illegal reference.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
@@ -7953,11 +7930,10 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
-      :manager
-      :John
-   )
-   ClassAssertion(
-      :man
+      ObjectIntersectionOf(
+         :man
+         :manager
+      )
       :John
    )
 )
@@ -7969,14 +7945,12 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
   <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#manager"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-  </ClassAssertion>
-  <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+    <ObjectIntersectionOf>
+      <Class
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+      <Class
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#manager"/>
+    </ObjectIntersectionOf>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
   </ClassAssertion>
@@ -7986,13 +7960,17 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
+   SameIndividual(
+      _:321393680100992483
+      _:616186487427215738
+   )
    ClassAssertion(
       :human
-      _:559973599216994691
+      _:616186487427215738
    )
    ClassAssertion(
       :man
-      _:559973599216994691
+      _:321393680100992483
    )
 )
 
@@ -8002,17 +7980,23 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <SameIndividual>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind321393680100992483"/>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind616186487427215738"/>
+  </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#human"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind559973599216994691"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind616186487427215738"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind559973599216994691"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind321393680100992483"/>
   </ClassAssertion>
 </Ontology>
 
@@ -8044,26 +8028,9 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-)
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<Ontology
-    xml:base="http://www.w3.org/2002/07/owl#"
-    xmlns="http://www.w3.org/2002/07/owl#"
-    ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test"/>
-
-196: A man is a man.
-
-Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
-Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-   ClassAssertion(
-      :man
-      _:923090544609013734
-   )
-   ClassAssertion(
-      :man
-      _:923090544609013734
+   SameIndividual(
+      :John
+      :John
    )
 )
 
@@ -8073,17 +8040,55 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <SameIndividual>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+  </SameIndividual>
+</Ontology>
+
+196: A man is a man.
+
+Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
+   SameIndividual(
+      _:30965621914878918
+      _:24152719295604801
+   )
+   ClassAssertion(
+      :man
+      _:24152719295604801
+   )
+   ClassAssertion(
+      :man
+      _:30965621914878918
+   )
+)
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Ontology
+    xml:base="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.w3.org/2002/07/owl#"
+    ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <SameIndividual>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind30965621914878918"/>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind24152719295604801"/>
+  </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind923090544609013734"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind24152719295604801"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind923090544609013734"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind30965621914878918"/>
   </ClassAssertion>
 </Ontology>
 
@@ -8093,7 +8098,7 @@ Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :man
-      _:230412238819745308
+      _:949253798034622001
    )
 )
 
@@ -8107,7 +8112,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind230412238819745308"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind949253798034622001"/>
   </ClassAssertion>
 </Ontology>
 
@@ -8171,21 +8176,15 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
-      ObjectComplementOf(
-         ObjectOneOf(
-            :Mary
+      ObjectSomeValuesFrom(
+         :child
+         ObjectComplementOf(
+            ObjectOneOf(
+               :Mary
+            )
          )
       )
-      _:536762267112087039
-   )
-   ObjectPropertyAssertion(
-      :child
       :John
-      _:536762267112087039
-   )
-   ClassAssertion(
-      owl:Thing
-      _:536762267112087039
    )
 )
 
@@ -8196,27 +8195,18 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
   <ClassAssertion>
-    <ObjectComplementOf>
-      <ObjectOneOf>
-	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
-      </ObjectOneOf>
-    </ObjectComplementOf>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind536762267112087039"/>
-  </ClassAssertion>
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#child"/>
+    <ObjectSomeValuesFrom>
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#child"/>
+      <ObjectComplementOf>
+	<ObjectOneOf>
+	  <NamedIndividual
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
+	</ObjectOneOf>
+      </ObjectComplementOf>
+    </ObjectSomeValuesFrom>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind536762267112087039"/>
-  </ObjectPropertyAssertion>
-  <ClassAssertion>
-    <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind536762267112087039"/>
   </ClassAssertion>
 </Ontology>
 
@@ -8226,7 +8216,7 @@ Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectOneOf(
-         _:98157616122066607
+         _:669822642833531252
       )
       ObjectOneOf(
          :Mary
@@ -8235,11 +8225,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :child
       :John
-      _:98157616122066607
+      _:669822642833531252
    )
    ClassAssertion(
       owl:Thing
-      _:98157616122066607
+      _:669822642833531252
    )
 )
 
@@ -8252,7 +8242,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <SubClassOf>
     <ObjectOneOf>
       <NamedIndividual
-	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind98157616122066607"/>
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind669822642833531252"/>
     </ObjectOneOf>
     <ObjectOneOf>
       <NamedIndividual
@@ -8265,12 +8255,12 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind98157616122066607"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind669822642833531252"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind98157616122066607"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind669822642833531252"/>
   </ClassAssertion>
 </Ontology>
 
@@ -8699,13 +8689,16 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-   ObjectPropertyAssertion(
-      :see
-      :John
-      :Mary
-   )
    ClassAssertion(
-      :man
+      ObjectIntersectionOf(
+         :man
+         ObjectSomeValuesFrom(
+            :see
+            ObjectOneOf(
+               :Mary
+            )
+         )
+      )
       :John
    )
 )
@@ -8716,17 +8709,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#see"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
-  </ObjectPropertyAssertion>
   <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+    <ObjectIntersectionOf>
+      <Class
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+      <ObjectSomeValuesFrom>
+	<ObjectProperty
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#see"/>
+	<ObjectOneOf>
+	  <NamedIndividual
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
+	</ObjectOneOf>
+      </ObjectSomeValuesFrom>
+    </ObjectIntersectionOf>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
   </ClassAssertion>
@@ -8736,13 +8731,18 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-   ObjectPropertyAssertion(
-      :see
-      :Mary
-      :John
-   )
    ClassAssertion(
-      :man
+      ObjectIntersectionOf(
+         :man
+         ObjectSomeValuesFrom(
+            ObjectInverseOf(
+               :see
+            )
+            ObjectOneOf(
+               :Mary
+            )
+         )
+      )
       :John
    )
 )
@@ -8753,17 +8753,21 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#see"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-  </ObjectPropertyAssertion>
   <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+    <ObjectIntersectionOf>
+      <Class
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+      <ObjectSomeValuesFrom>
+	<ObjectInverseOf>
+	  <ObjectProperty
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#see"/>
+	</ObjectInverseOf>
+	<ObjectOneOf>
+	  <NamedIndividual
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
+	</ObjectOneOf>
+      </ObjectSomeValuesFrom>
+    </ObjectIntersectionOf>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
   </ClassAssertion>
@@ -8819,26 +8823,34 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
       ObjectSomeValuesFrom(
          :like
          ObjectOneOf(
-            :John
+            _:412982371330438493
          )
       )
    )
+   SameIndividual(
+      :John
+      _:412982371330438493
+   )
    ClassAssertion(
       :man
-      :John
+      _:412982371330438493
    )
    SubClassOf(
       owl:Thing
       ObjectSomeValuesFrom(
          :like
          ObjectOneOf(
-            :Mary
+            _:329560644720284008
          )
       )
    )
+   SameIndividual(
+      :Mary
+      _:329560644720284008
+   )
    ClassAssertion(
       :woman
-      :Mary
+      _:329560644720284008
    )
 )
 
@@ -8855,15 +8867,21 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind412982371330438493"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </DisjointClasses>
+  <SameIndividual>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind412982371330438493"/>
+  </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind412982371330438493"/>
   </ClassAssertion>
   <SubClassOf>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
@@ -8872,15 +8890,21 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind329560644720284008"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </SubClassOf>
+  <SameIndividual>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind329560644720284008"/>
+  </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#woman"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind329560644720284008"/>
   </ClassAssertion>
 </Ontology>
 
@@ -9411,17 +9435,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
-      :car
-      _:753612476123459984
-   )
-   ClassAssertion(
-      :fast
-      _:753612476123459984
-   )
-   ObjectPropertyAssertion(
-      :have
+      ObjectSomeValuesFrom(
+         :have
+         ObjectIntersectionOf(
+            :car
+            :fast
+         )
+      )
       :John
-      _:753612476123459984
    )
 )
 
@@ -9432,25 +9453,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
   <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#car"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind753612476123459984"/>
-  </ClassAssertion>
-  <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#fast"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind753612476123459984"/>
-  </ClassAssertion>
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#have"/>
+    <ObjectSomeValuesFrom>
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#have"/>
+      <ObjectIntersectionOf>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#car"/>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#fast"/>
+      </ObjectIntersectionOf>
+    </ObjectSomeValuesFrom>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind753612476123459984"/>
-  </ObjectPropertyAssertion>
+  </ClassAssertion>
 </Ontology>
 
 225: John has more than 5 fast cars.
@@ -9458,13 +9473,15 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
-      :fast
-      _:311924125741789474
-   )
-   ObjectPropertyAssertion(
-      :have
+      ObjectMinCardinality(
+         6
+         :have
+         ObjectIntersectionOf(
+            :car
+            :fast
+         )
+      )
       :John
-      _:311924125741789474
    )
 )
 
@@ -9475,19 +9492,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
   <ClassAssertion>
-    <Class
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#fast"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind311924125741789474"/>
-  </ClassAssertion>
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#have"/>
+    <ObjectMinCardinality cardinality="6">
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#have"/>
+      <ObjectIntersectionOf>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#car"/>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#fast"/>
+      </ObjectIntersectionOf>
+    </ObjectMinCardinality>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind311924125741789474"/>
-  </ObjectPropertyAssertion>
+  </ClassAssertion>
 </Ontology>
 
 226: John has less than 5 fast cars.
@@ -10287,7 +10304,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
          ObjectOneOf(
-            _:871557991128991763
+            _:549379377829465749
          )
          :fireman
       )
@@ -10295,7 +10312,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:871557991128991763
+      _:549379377829465749
    )
 )
 
@@ -10309,7 +10326,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectIntersectionOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind871557991128991763"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind549379377829465749"/>
       </ObjectOneOf>
       <Class
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#fireman"/>
@@ -10320,7 +10337,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind871557991128991763"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind549379377829465749"/>
   </ClassAssertion>
 </Ontology>
 
@@ -10331,12 +10348,12 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
          ObjectOneOf(
-            _:749939255028795373
+            _:29589382410829404
          )
          ObjectSomeValuesFrom(
             :like
             ObjectOneOf(
-               _:739116755628866617
+               _:705163158900875225
             )
          )
       )
@@ -10344,11 +10361,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:739116755628866617
+      _:705163158900875225
    )
    ClassAssertion(
       owl:Thing
-      _:749939255028795373
+      _:29589382410829404
    )
 )
 
@@ -10362,14 +10379,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectIntersectionOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind749939255028795373"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind29589382410829404"/>
       </ObjectOneOf>
       <ObjectSomeValuesFrom>
 	<ObjectProperty
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
 	<ObjectOneOf>
 	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind739116755628866617"/>
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind705163158900875225"/>
 	</ObjectOneOf>
       </ObjectSomeValuesFrom>
     </ObjectIntersectionOf>
@@ -10379,12 +10396,12 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind739116755628866617"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind705163158900875225"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind749939255028795373"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind29589382410829404"/>
   </ClassAssertion>
 </Ontology>
 
@@ -10395,14 +10412,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
          ObjectOneOf(
-            _:263986034652410570
+            _:977424044723351853
          )
          ObjectSomeValuesFrom(
             ObjectInverseOf(
                :like
             )
             ObjectOneOf(
-               _:557087793794974981
+               _:536298709811629796
             )
          )
       )
@@ -10410,11 +10427,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:263986034652410570
+      _:977424044723351853
    )
    ClassAssertion(
       owl:Thing
-      _:557087793794974981
+      _:536298709811629796
    )
 )
 
@@ -10428,7 +10445,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectIntersectionOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind263986034652410570"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind977424044723351853"/>
       </ObjectOneOf>
       <ObjectSomeValuesFrom>
 	<ObjectInverseOf>
@@ -10437,7 +10454,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	</ObjectInverseOf>
 	<ObjectOneOf>
 	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind557087793794974981"/>
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind536298709811629796"/>
 	</ObjectOneOf>
       </ObjectSomeValuesFrom>
     </ObjectIntersectionOf>
@@ -10447,12 +10464,12 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind263986034652410570"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind977424044723351853"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind557087793794974981"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind536298709811629796"/>
   </ClassAssertion>
 </Ontology>
 
@@ -10463,7 +10480,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
          ObjectOneOf(
-            _:836170873244240817
+            _:405209665706990757
          )
          ObjectSomeValuesFrom(
             :like
@@ -10476,7 +10493,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:836170873244240817
+      _:405209665706990757
    )
 )
 
@@ -10490,7 +10507,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectIntersectionOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind836170873244240817"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind405209665706990757"/>
       </ObjectOneOf>
       <ObjectSomeValuesFrom>
 	<ObjectProperty
@@ -10507,7 +10524,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind836170873244240817"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind405209665706990757"/>
   </ClassAssertion>
 </Ontology>
 
@@ -10523,7 +10540,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          ObjectSomeValuesFrom(
             :like
             ObjectOneOf(
-               _:280529303443306818
+               _:953579668511736163
             )
          )
       )
@@ -10531,7 +10548,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:280529303443306818
+      _:953579668511736163
    )
 )
 
@@ -10552,7 +10569,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
 	<ObjectOneOf>
 	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind280529303443306818"/>
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind953579668511736163"/>
 	</ObjectOneOf>
       </ObjectSomeValuesFrom>
     </ObjectIntersectionOf>
@@ -10562,7 +10579,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind280529303443306818"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind953579668511736163"/>
   </ClassAssertion>
 </Ontology>
 
@@ -10915,7 +10932,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          ObjectPropertyAtom(
             :like
             Variable(<urn:swrl#x2>)
-            _:915103285344986910
+            _:829842741311633596
          )
          ObjectPropertyAtom(
             :own
@@ -10933,7 +10950,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:915103285344986910
+      _:829842741311633596
    )
 )
 
@@ -10960,7 +10977,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
 	<Variable IRI="urn:swrl#x2"/>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind915103285344986910"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind829842741311633596"/>
       </ObjectPropertyAtom>
       <ObjectPropertyAtom>
 	<ObjectProperty
@@ -10981,7 +10998,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind915103285344986910"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind829842741311633596"/>
   </ClassAssertion>
 </Ontology>
 
@@ -11013,6 +11030,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 </Ontology>
 
 257: Mary's brother is rich and is taller than John's father.
+message(error,owl,1-5,be,Subject or object of this verb makes an illegal reference.)
 message(error,owl,1-,brother,Subject or object of this verb makes an illegal reference.)
 message(error,owl,1-9,tall,Adjective not supported.)
 
@@ -11020,16 +11038,16 @@ Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :rich
-      _:233474809286910540
+      _:447803240610531381
    )
    ObjectPropertyAssertion(
       :father
       :John
-      _:919342620420748985
+      _:681445883726840642
    )
    ClassAssertion(
       owl:Thing
-      _:919342620420748985
+      _:681445883726840642
    )
 )
 
@@ -11043,7 +11061,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#rich"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind233474809286910540"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind447803240610531381"/>
   </ClassAssertion>
   <ObjectPropertyAssertion>
     <ObjectProperty
@@ -11051,12 +11069,12 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind919342620420748985"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind681445883726840642"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind919342620420748985"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind681445883726840642"/>
   </ClassAssertion>
 </Ontology>
 
@@ -11064,19 +11082,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
-   ObjectPropertyAssertion(
-      :sister
-      :Mary
-      _:468656062517269217
-   )
    ClassAssertion(
-      owl:Thing
-      _:468656062517269217
-   )
-   ObjectPropertyAssertion(
-      :like
-      :John
-      _:468656062517269217
+      ObjectSomeValuesFrom(
+         :sister
+         ObjectSomeValuesFrom(
+            ObjectInverseOf(
+               :like
+            )
+            ObjectOneOf(
+               :John
+            )
+         )
+      )
+      :Mary
    )
 )
 
@@ -11086,27 +11104,24 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#sister"/>
+  <ClassAssertion>
+    <ObjectSomeValuesFrom>
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#sister"/>
+      <ObjectSomeValuesFrom>
+	<ObjectInverseOf>
+	  <ObjectProperty
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
+	</ObjectInverseOf>
+	<ObjectOneOf>
+	  <NamedIndividual
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+	</ObjectOneOf>
+      </ObjectSomeValuesFrom>
+    </ObjectSomeValuesFrom>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind468656062517269217"/>
-  </ObjectPropertyAssertion>
-  <ClassAssertion>
-    <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind468656062517269217"/>
   </ClassAssertion>
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind468656062517269217"/>
-  </ObjectPropertyAssertion>
 </Ontology>
 
 259: Everybody likes something.
@@ -11256,9 +11271,13 @@ message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
+   SameIndividual(
+      :John
+      _:106919202558681675
+   )
    ClassAssertion(
       :author
-      :John
+      _:106919202558681675
    )
 )
 
@@ -11268,11 +11287,17 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <SameIndividual>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind106919202558681675"/>
+  </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#author"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind106919202558681675"/>
   </ClassAssertion>
 </Ontology>
 
@@ -11397,24 +11422,20 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
-      ObjectComplementOf(
-         ObjectSomeValuesFrom(
-            :make
-            ObjectOneOf(
-               _:148699808277373314
+      ObjectSomeValuesFrom(
+         :want
+         ObjectComplementOf(
+            ObjectSomeValuesFrom(
+               ObjectInverseOf(
+                  :make
+               )
+               ObjectOneOf(
+                  :John
+               )
             )
          )
       )
-      :John
-   )
-   ClassAssertion(
-      owl:Thing
-      _:148699808277373314
-   )
-   ObjectPropertyAssertion(
-      :want
       :Mary
-      _:148699808277373314
    )
 )
 
@@ -11425,32 +11446,25 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
   <ClassAssertion>
-    <ObjectComplementOf>
-      <ObjectSomeValuesFrom>
-	<ObjectProperty
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#make"/>
-	<ObjectOneOf>
-	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind148699808277373314"/>
-	</ObjectOneOf>
-      </ObjectSomeValuesFrom>
-    </ObjectComplementOf>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
-  </ClassAssertion>
-  <ClassAssertion>
-    <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind148699808277373314"/>
-  </ClassAssertion>
-  <ObjectPropertyAssertion>
-    <ObjectProperty
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#want"/>
+    <ObjectSomeValuesFrom>
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#want"/>
+      <ObjectComplementOf>
+	<ObjectSomeValuesFrom>
+	  <ObjectInverseOf>
+	    <ObjectProperty
+		IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#make"/>
+	  </ObjectInverseOf>
+	  <ObjectOneOf>
+	    <NamedIndividual
+		IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+	  </ObjectOneOf>
+	</ObjectSomeValuesFrom>
+      </ObjectComplementOf>
+    </ObjectSomeValuesFrom>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
-    <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind148699808277373314"/>
-  </ObjectPropertyAssertion>
+  </ClassAssertion>
 </Ontology>
 
 268: Who does not make everything that Mary wants?
@@ -11646,4 +11660,173 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     xml:base="http://www.w3.org/2002/07/owl#"
     xmlns="http://www.w3.org/2002/07/owl#"
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test"/>
+
+280: John has more than 2 cats that Mary likes.
+
+Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
+   ClassAssertion(
+      ObjectMinCardinality(
+         3
+         :have
+         ObjectIntersectionOf(
+            :cat
+            ObjectSomeValuesFrom(
+               ObjectInverseOf(
+                  :like
+               )
+               ObjectOneOf(
+                  :Mary
+               )
+            )
+         )
+      )
+      :John
+   )
+)
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Ontology
+    xml:base="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.w3.org/2002/07/owl#"
+    ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <ClassAssertion>
+    <ObjectMinCardinality cardinality="3">
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#have"/>
+      <ObjectIntersectionOf>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#cat"/>
+	<ObjectSomeValuesFrom>
+	  <ObjectInverseOf>
+	    <ObjectProperty
+		IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
+	  </ObjectInverseOf>
+	  <ObjectOneOf>
+	    <NamedIndividual
+		IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
+	  </ObjectOneOf>
+	</ObjectSomeValuesFrom>
+      </ObjectIntersectionOf>
+    </ObjectMinCardinality>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+  </ClassAssertion>
+</Ontology>
+
+281: John has at least 2 cats that at least 3 dogs like.
+
+Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
+   ClassAssertion(
+      ObjectMinCardinality(
+         2
+         :have
+         ObjectIntersectionOf(
+            :cat
+            ObjectMinCardinality(
+               3
+               ObjectInverseOf(
+                  :like
+               )
+               :dog
+            )
+         )
+      )
+      :John
+   )
+)
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Ontology
+    xml:base="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.w3.org/2002/07/owl#"
+    ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <ClassAssertion>
+    <ObjectMinCardinality cardinality="2">
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#have"/>
+      <ObjectIntersectionOf>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#cat"/>
+	<ObjectMinCardinality cardinality="3">
+	  <ObjectInverseOf>
+	    <ObjectProperty
+		IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
+	  </ObjectInverseOf>
+	  <Class
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#dog"/>
+	</ObjectMinCardinality>
+      </ObjectIntersectionOf>
+    </ObjectMinCardinality>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+  </ClassAssertion>
+</Ontology>
+
+282: John knows at least 2 rich men.
+
+Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
+   ClassAssertion(
+      ObjectMinCardinality(
+         2
+         :know
+         ObjectIntersectionOf(
+            :man
+            :rich
+         )
+      )
+      :John
+   )
+)
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Ontology
+    xml:base="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.w3.org/2002/07/owl#"
+    ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <ClassAssertion>
+    <ObjectMinCardinality cardinality="2">
+      <ObjectProperty
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#know"/>
+      <ObjectIntersectionOf>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
+	<Class
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#rich"/>
+      </ObjectIntersectionOf>
+    </ObjectMinCardinality>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
+  </ClassAssertion>
+</Ontology>
+
+283: There are more than 3 rich men.
+message(error,owl,1-,be,Subject or object of this verb makes an illegal reference.)
+
+Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
+   ClassAssertion(
+      :rich
+      _:395391707120608717
+   )
+)
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Ontology
+    xml:base="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.w3.org/2002/07/owl#"
+    ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
+  <ClassAssertion>
+    <Class
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#rich"/>
+    <NamedIndividual
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind395391707120608717"/>
+  </ClassAssertion>
+</Ontology>
 

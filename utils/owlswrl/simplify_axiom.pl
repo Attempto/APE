@@ -1,5 +1,5 @@
 % This file is part of the Attempto Parsing Engine (APE).
-% Copyright 2008-2010, Kaarel Kaljurand <kaljurand@gmail.com>.
+% Copyright 2008-2013, Kaarel Kaljurand <kaljurand@gmail.com>.
 %
 % The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
 % under the terms of the GNU Lesser General Public License as published by the Free Software
@@ -31,7 +31,7 @@ following forms:
 - DisjointClasses
 
 @author Kaarel Kaljurand
-@version 2010-12-11
+@version 2013-04-07
 @license LGPLv3
 
 */
@@ -44,6 +44,24 @@ following forms:
 % @param Axiom is an OWL axiom
 % @param SimplerAxiom is the same axiom possibly in a simpler form
 %
+
+% object property assertion
+simplify_axiom(
+	'ClassAssertion'('ObjectSomeValuesFrom'(OPE, 'ObjectOneOf'([I2])), I1),
+	'ObjectPropertyAssertion'(OPE, I1, I2)
+	) :- !.
+
+% data property assertion
+simplify_axiom(
+	'ClassAssertion'('DataHasValue'(DPE, Data), I1),
+	'DataPropertyAssertion'(DPE, I1, Data)
+	) :- !.
+
+% same individual
+simplify_axiom(
+	'ClassAssertion'('ObjectOneOf'([I2]), I1),
+	'SameIndividual'([I1, I2])
+	) :- !.
 
 % disjoint classes
 simplify_axiom(

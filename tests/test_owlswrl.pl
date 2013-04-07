@@ -457,6 +457,11 @@ t(277, 'John has at most 3kg of apples.').
 t(278, 'What likes what?').
 t(279, 'Which man likes which woman?').
 
+% Complex toplevel box
+t(280, 'John has more than 2 cats that Mary likes.').
+t(281, 'John has at least 2 cats that at least 3 dogs like.').
+t(282, 'John knows at least 2 rich men.').
+t(283, 'There are more than 3 rich men.').
 
 main :-
 	add_to_lexicon,
