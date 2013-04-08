@@ -37,7 +37,7 @@ capture is not completely implemented. Sometimes the translation simply
 fails and no explanatory messages are asserted.
 
 @author Kaarel Kaljurand
-@version 2013-04-07
+@version 2013-04-08
 @license LGPLv3
 
 */
@@ -124,19 +124,24 @@ is_object_with_generalized_quantifier(object(_, Name, countable, na, QType, QNum
 %
 % @bug Also, sentences like "There are exactly 4 continents." are handled here.
 
-% Try to roll up the complete DRS if contains a toplevel predicate.
+% Try to roll up the complete DRS if contains a toplevel predicate with
+% a proper name as an argument.
 % E.g. John likes a woman.
-% E.g. John is liked by a woman.
+% E.g. There is a woman that likes John and that owns a cat.
 % E.g. John owns at least 2 fast cars.
+%
+% @tbd "A man owns at least 2 cars that a woman likes."
+% i.e. toplevel DRS which does not contain proper names.
+% Maybe it's better to do it using the 'there are...' technique.
 condlist_axiomlist_with_cheat(
 	CondList,
-	RefList,
+	_RefList,
 	[SimplerAxiom]
 ) :-
 	member(predicate(_, _, X1, X2)-_, CondList),
-	(D = X1 ; D = X2),
-	is_toplevel(D, RefList, 'ObjectOneOf'([Individual])),
-	condlist_and(D, CondList, RefList, And),
+	(named(Name) = X1 ; named(Name) = X2),
+	get_entity(named_individual, Name, Individual),
+	condlist_and(named(Name), CondList, [], And),
 	!,
 	simplify_axiom('ClassAssertion'(And, Individual), SimplerAxiom).
 
@@ -345,10 +350,9 @@ condition_axiom(
 	is_toplevel(Ref1, RefList, 'ObjectOneOf'([Name1])),
 	is_toplevel(Ref2, RefList, 'ObjectOneOf'([Name2])).
 
-% BUG: experimental: predicate(_, _, Ref1, Ref2)
-% BUG: find out how often this applies
-% supports: John owns more than 3 cars.
-% does not support: John owns more than 3 cars that Mary likes.
+% predicate(_, _, Ref1, Ref2) with generalized quantifier
+% E.g. A man owns at least 2 cars.
+% BUG: incorrectly handles: A man owns at least 2 cars that a woman likes.
 condition_axiom(
 	predicate(_, Predicate, Ref1, Ref2)-_,
 	RefList,
