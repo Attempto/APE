@@ -292,7 +292,7 @@ is_argument(expr(Operator, Arg1, Arg2)) :-
 	is_argument(Arg1),
 	is_argument(Arg2),
 	atom(Operator),
-	member(Operator, ['+', '-', '*', '/', '&']).
+	member(Operator, ['+', '-', '*', '/', '&', '^']).
 
 
 %% is_argument_list(+Arguments:list) is det.

@@ -5719,7 +5719,7 @@ term2_tail(
 		sem!exprpart!X &
 		sem!datatype!number
 	) -->
-	word_noninitial(Op, (Op == '*' ; Op == '/')),
+	word_noninitial(Op, (Op == '*' ; Op == '/' ; Op == '^')),
 	term2(
 		display!tree!Tree &
 		display!treepart![expr,Tree1,[Op],Tree2] &
