@@ -300,7 +300,7 @@ relation_builtin('>=', greaterThanOrEqual).
 
 %% op_builtin(?Op:atom, ?Builtin:atom) is det.
 %
-% SWRL math built-ins (4) and string built-ins (1).
+% SWRL math built-ins and string built-ins.
 %
 % @param Op is DRS (binary) operator
 % @param Builtin is SWRL built-in
@@ -309,4 +309,5 @@ op_builtin('+', add).
 op_builtin('-', subtract).
 op_builtin('*', multiply).
 op_builtin('/', divide).
+op_builtin('^', pow).
 op_builtin('&', stringConcat).
