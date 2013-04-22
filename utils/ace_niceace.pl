@@ -164,13 +164,22 @@ atom_capitalize(Token, Token).
 % @tbd Some of these transformations (e.g. a -> an) should
 % be optional.
 
-ace_niceace([], []) :-
-	!.
+% Strip the sentence start marker (^) if present.
+ace_niceace([^ | In], Out) :-
+	!,
+	ace_niceace_x(In, Out).
 
 ace_niceace(In, Out) :-
+	ace_niceace_x(In, Out).
+
+
+ace_niceace_x([], []) :-
+	!.
+
+ace_niceace_x(In, Out) :-
 	ace_merge(In, Prefix, Rest),
 	simple_append(Prefix, RestOut, Out),
-	ace_niceace(Rest, RestOut).
+	ace_niceace_x(Rest, RestOut).
 
 
 %% ace_merge(+TokenList:list, -Prefix:list, -NewTokenList:list) is nondet.
@@ -181,9 +190,6 @@ ace_niceace(In, Out) :-
 %
 ace_merge([Tok1, Tok2 | Rest], [Tok1Tok2], Rest) :-
 	pronoun_split(Tok1Tok2, (Tok1, Tok2)),
-	!.
-
-ace_merge([^ | Rest], [], Rest) :-
 	!.
 
 ace_merge([a, Prefix, ':', Token | Rest], [Article], [Prefix, ':', Token | Rest]) :-

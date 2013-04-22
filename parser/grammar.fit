@@ -1,5 +1,5 @@
 %% This file is part of the Attempto Parsing Engine (APE).
-%% Copyright 2008-2012, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
+%% Copyright 2008-2013, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
 %%
 %% The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
 %% under the terms of the GNU Lesser General Public License as published by the Free Software
@@ -5530,6 +5530,15 @@ genitive_n_apposition(
 %==============================================================================
 
 % Arithmetic terms are treated as normal NPs.
+% Every operator is left-associative.
+% Every operator with the exception of '&' must be used in numerical
+% context, '&' requires string context.
+%
+% The operator precedence levels are:
+%
+%   >> 1. ^ <<
+%   >> 2. *  / <<
+%   >> 3. +  -  & <<
 
 %-140--------------------------------------------------------------------------
 % Term -->
@@ -5674,7 +5683,6 @@ term1_tail(
 % Example: X * Y * 3 * 5
 % Example: X / 4
 %------------------------------------------------------------------------------
-
 term2(
 		display!tree!Tree &
 		display!treepart!TreePart &
@@ -5687,14 +5695,18 @@ term2(
 		sem!exprpart!ExprPart &
 		sem!exprnext!ExprNext &
 		sem!datatype!DataType
- 	) -->
+	) -->
 	term3(
 		display!tree!TreeNext &
+		display!treepart!T &
+		display!treenext!T &
 		syn!Syn &
 		drs!id!ID &
 		drs!in!DrsIn &
 		drs!out!DrsTmp &
 		sem!expr!ExprNext &
+		sem!exprpart!E &
+		sem!exprnext!E &
 		sem!datatype!DataType
 	),
 	term2_tail(
@@ -5740,11 +5752,89 @@ term2_tail(
 		drs!out!Drs &
 		sem!expr!Expr &
 		sem!exprpart!Expr
- 	) --> [].
+	) --> [].
 
 
 %-142--------------------------------------------------------------------------
 % Term3 -->
+%	Term4 ( Term3_Tail )
+%
+% Term3_Tail -->
+%	'^' Term3
+%
+% Example: X ^ 4
+%------------------------------------------------------------------------------
+
+term3(
+		display!tree!Tree &
+		display!treepart!TreePart &
+		display!treenext!TreeNext &
+		syn!Syn &
+		drs!id!ID &
+		drs!in!DrsIn &
+		drs!out!DrsOut &
+		sem!expr!Expr &
+		sem!exprpart!ExprPart &
+		sem!exprnext!ExprNext &
+		sem!datatype!DataType
+ 	) -->
+	term4(
+		display!tree!TreeNext &
+		syn!Syn &
+		drs!id!ID &
+		drs!in!DrsIn &
+		drs!out!DrsTmp &
+		sem!expr!ExprNext &
+		sem!datatype!DataType
+	),
+	term3_tail(
+		display!tree!Tree &
+		display!treepart!TreePart &
+		drs!id!ID &
+		drs!in!DrsTmp &
+		drs!out!DrsOut &
+		sem!expr!Expr &
+		sem!exprpart!ExprPart &
+		sem!datatype!DataType
+	).
+
+
+term3_tail(
+		display!tree!Tree &
+		display!treepart!Tree1 &
+		drs!id!ID &
+		drs!in!DrsIn &
+		drs!out!DrsOut &
+		sem!expr!Expr &
+		sem!exprpart!X &
+		sem!datatype!number
+	) -->
+	word_noninitial(Op, (Op == '^')),
+	term3(
+		display!tree!Tree &
+		display!treepart![expr,Tree1,[Op],Tree2] &
+		display!treenext!Tree2 &
+		drs!id!ID &
+		drs!in!DrsIn &
+		drs!out!DrsOut &
+		sem!expr!Expr &
+		sem!exprpart!expr(Op, X, Y) &
+		sem!exprnext!Y &
+		sem!datatype!number
+	).
+
+term3_tail(
+		display!tree!Tree &
+		display!treepart!Tree &
+		drs!in!Drs &
+		drs!out!Drs &
+		sem!expr!Expr &
+		sem!exprpart!Expr
+ 	) --> [].
+
+
+%-143--------------------------------------------------------------------------
+% Term4 -->
 %	AtomicTerm | '(' Term ')' | '[' TermList ']' | '{' TermList '}'
 %
 % Example: 1234
@@ -5753,10 +5843,10 @@ term2_tail(
 % Example: {"a",5,X}
 %------------------------------------------------------------------------------
 
-term3(AVM) -->
+term4(AVM) -->
 	atomic_term(AVM).
 
-term3(
+term4(
 		display!tree![brackets,'(',Term,')'] &
 		drs!id!ID &
 		drs!in!DrsIn &
@@ -5775,7 +5865,7 @@ term3(
 	),
 	word_noninitial(')').
 
-term3(
+term4(
 		display!tree![list|ListTree] &
 		drs!id!ID &
 		drs!in!DrsIn &
@@ -5796,7 +5886,7 @@ term3(
 		append([['[']|Tree], [[']']], ListTree)
 	}.
 
-term3(
+term4(
 		display!tree![set|ListTree] &
 		drs!id!ID &
 		drs!in!DrsIn &
@@ -5818,7 +5908,7 @@ term3(
 	}.
 
 
-%-143--------------------------------------------------------------------------
+%-144--------------------------------------------------------------------------
 % TermList -->
 %	( Term | Term ',' TermList )
 %
@@ -5873,7 +5963,7 @@ term_list(
 	).
 
 
-%-144--------------------------------------------------------------------------
+%-145--------------------------------------------------------------------------
 % AtomicTerm -->
 %	_String_ | _Integer_ | _Real_ | PropernameNP | VariableNP
 %

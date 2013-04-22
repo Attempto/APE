@@ -270,6 +270,9 @@ is_special(44, ',').
 % plus sign
 is_special(43, '+').
 
+% exponentiation sign
+is_special(94, '^').
+
 % star
 is_special(42, '*').
 
