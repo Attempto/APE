@@ -18,14 +18,15 @@
 	]).
 
 :- use_module(owlswrl_iri, [
-		iri_to_prefix/2
+		iri_to_prefix/2,
+		builtin_iri/2
 	]).
 
 
 /** <module> OWL/SWRL serializer into OWL/SWRL Functional-Style Syntax
 
 @author Kaarel Kaljurand
-@version 2013-02-06
+@version 2013-06-03
 
 @tbd Escaping
 
@@ -41,6 +42,10 @@
 owlswrl_to_fss('Ontology'(OntologyIri, Axioms)) :-
 	iri_to_prefix(OntologyIri, Prefix),
 	format("Prefix(:=<~w>)~n", [Prefix]),
+	forall(
+		builtin_iri(Abbr, IriPrefix),
+		format("Prefix(~w:=<~w>)~n", [Abbr, IriPrefix])
+	),
 	format("Ontology(<~w>~n", [OntologyIri]),
 	print_list(Axioms, 1),
 	format(")~n").

@@ -13,13 +13,14 @@
 % Parsing Engine (APE). If not, see http://www.gnu.org/licenses/.
 
 :- module(owlswrl_iri, [
-		iri_to_prefix/2
+		iri_to_prefix/2,
+		builtin_iri/2
 	]).
 
 /** <module> Some helper predicates related to IRIs
 
 @author Kaarel Kaljurand
-@version 2013-02-06
+@version 2013-06-03
 
 */
 
@@ -35,3 +36,11 @@ iri_to_prefix(Iri, Iri) :-
 
 iri_to_prefix(Iri, Prefix) :-
 	atom_concat(Iri, '#', Prefix).
+
+
+%% builtin_iri
+%
+% Lists all the builtin / hardcoded IRI prefixes,
+% and their abbreviations.
+%
+builtin_iri(ace, 'http://attempto.ifi.uzh.ch/ace#').

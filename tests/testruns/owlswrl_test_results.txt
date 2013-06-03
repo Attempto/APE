@@ -1,6 +1,7 @@
 1-1: Every man is a human.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -25,6 +26,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 1-2: Every man is somebody.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -48,6 +50,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 1-3: Every man is something.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -71,6 +74,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 2: Every human is a male or is a female.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :human
@@ -102,6 +106,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 3: No dog is a cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       :dog
@@ -126,6 +131,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 4: Every driver owns a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :driver
@@ -157,6 +163,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 5: Everything that a goat eats is some grass.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectSomeValuesFrom(
@@ -192,6 +199,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 6: John likes Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :like
@@ -219,6 +227,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 7: Everybody who loves somebody likes him/her.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubObjectPropertyOf(
       :love
@@ -243,6 +252,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 8: Every professor is a scientist and is a teacher.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :professor
@@ -274,6 +284,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 9: Everybody who is not a child is an adult.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectComplementOf(
@@ -302,6 +313,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 10: Nothing is a man and is a woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       owl:Thing
@@ -332,6 +344,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 11: If there is a woman then she does not like a snake.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       :woman
@@ -363,19 +376,20 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 12: There is a woman who everybody likes.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
       ObjectSomeValuesFrom(
          :like
          ObjectOneOf(
-            _:66357871932913224
+            _:17775295470569263
          )
       )
    )
    ClassAssertion(
       :woman
-      _:66357871932913224
+      _:17775295470569263
    )
 )
 
@@ -392,7 +406,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind66357871932913224"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind17775295470569263"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </SubClassOf>
@@ -400,13 +414,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#woman"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind66357871932913224"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind17775295470569263"/>
   </ClassAssertion>
 </Ontology>
 
 13: Every man likes at least 3 things.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -438,6 +453,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 14: If a thing A is taller than a thing B then B is shorter than A.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubObjectPropertyOf(
       :tall
@@ -466,6 +482,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 15: If something A is taller than something B and B is taller than something C then A is taller than C.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    TransitiveObjectProperty(
       :tall
@@ -487,6 +504,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 15-1: If a thing A is taller than a thing that is taller than a thing C then A is taller than C.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    TransitiveObjectProperty(
       :tall
@@ -508,6 +526,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 15-2: If a dog is taller than a cat that is taller than a mouse then the dog is taller than the mouse.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -594,6 +613,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 16: Everybody who writes something is a human.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyDomain(
       :write
@@ -618,6 +638,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 17: Everybody who writes at least 1 thing is a human.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyDomain(
       :write
@@ -642,6 +663,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 18: Everything that somebody writes is a book or is a paper.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyRange(
       :write
@@ -673,6 +695,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 19: Everything identifies at most 1 thing.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -703,6 +726,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 20: If a thing A loves a thing B then B loves A.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubObjectPropertyOf(
       :love
@@ -731,6 +755,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 21: Nobody who likes a carrot is a carnivore.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       ObjectSomeValuesFrom(
@@ -762,6 +787,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 22: Every man likes at least 3 cars.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -794,6 +820,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 23: Every man likes some cars.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -826,6 +853,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 24: John likes every car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :car
@@ -865,6 +893,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 25: John likes no car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       :car
@@ -904,6 +933,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 27: If there is a man then a dog likes the man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -939,6 +969,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 28: If there is a cat then at least 2 things like the cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :cat
@@ -974,6 +1005,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 29: If there is a cat then at least 2 persons like the cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :cat
@@ -1010,6 +1042,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 30: For every thing at most 1 thing is identified by it.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -1040,6 +1073,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 31: John likes Mary. Bill sees Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :like
@@ -1079,6 +1113,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 32: Every man is somebody that a dog likes.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -1114,6 +1149,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 33: If a man sees a woman then the woman sees John.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -1167,6 +1203,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 34: If a man sees a woman then a dog sees a cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -1251,6 +1288,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 35: If a man sees a woman then John knows the man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -1306,6 +1344,7 @@ message(error,owl,1-3,wait,Intransitive verbs not supported.)
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -1320,6 +1359,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -1334,6 +1374,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -1348,6 +1389,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -1361,6 +1403,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 40: If a man sees a dog then the man hears the dog.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -1427,6 +1470,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 41: For every carnivore everything that the carnivore eats is a meat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectSomeValuesFrom(
@@ -1462,6 +1506,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 42: Every man who sees a dog hears a cat that sees itself.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -1518,6 +1563,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 43: Every man who sees a dog hears a cat that sees a mouse that hates the cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -1624,6 +1670,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 44: Every man who sees a dog hears a cat that sees a mouse that hates itself.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -1694,6 +1741,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 45: Every man who likes himself is strange.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -1729,6 +1777,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 46: Every man likes himself.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -1757,6 +1806,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 47: Every man who is not liked by a woman and who owns a dog sees a cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -1820,6 +1870,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 48: If there is a man and it is false that the man is liked by a woman and that a dog is owned by the man then the man sees a cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -1887,6 +1938,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 49: John's age is 30.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DataPropertyAssertion(
       :age
@@ -1913,6 +1965,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 50: John's address is "Poland".
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DataPropertyAssertion(
       :address
@@ -1939,6 +1992,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 51: John is not Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectComplementOf(
@@ -1972,6 +2026,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -1987,6 +2042,7 @@ message(error,owl,1-4,wait,Intransitive verbs not supported.)
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -2000,6 +2056,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 54: Everybody whose age is 31 is a grown-up.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       DataHasValue(
@@ -2030,6 +2087,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 55: Everybody whose address is "Poland" is a human.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       DataHasValue(
@@ -2062,6 +2120,7 @@ message(error,owl,1-9,wait,Intransitive verbs not supported.)
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -2075,6 +2134,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 57: Every man likes no dog.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       :man
@@ -2106,6 +2166,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 58: Every student is John or is Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :student
@@ -2145,6 +2206,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 59: Everybody who is John or who is Mary is a student.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectUnionOf(
@@ -2184,6 +2246,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 60: John is a man or owns less than 3 cars.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectUnionOf(
@@ -2223,6 +2286,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 61: John does not like Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectComplementOf(
@@ -2262,6 +2326,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 62: John does not own a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectComplementOf(
@@ -2297,6 +2362,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 63: John does not own more than 3 cars.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectComplementOf(
@@ -2333,6 +2399,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 64: A man is taller than more than 3 animals.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -2340,11 +2407,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          :tall
          :animal
       )
-      _:640591925782202839
+      _:510252046081746334
    )
    ClassAssertion(
       :man
-      _:640591925782202839
+      _:510252046081746334
    )
 )
 
@@ -2362,29 +2429,30 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#animal"/>
     </ObjectMinCardinality>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind640591925782202839"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind510252046081746334"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind640591925782202839"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind510252046081746334"/>
   </ClassAssertion>
 </Ontology>
 
 65: A man is not a woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectComplementOf(
          :woman
       )
-      _:588532412876271405
+      _:962266921723546771
    )
    ClassAssertion(
       :man
-      _:588532412876271405
+      _:962266921723546771
    )
 )
 
@@ -2400,19 +2468,20 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#woman"/>
     </ObjectComplementOf>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind588532412876271405"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind962266921723546771"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind588532412876271405"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind962266921723546771"/>
   </ClassAssertion>
 </Ontology>
 
 66: Every carnivore eats every meat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -2468,6 +2537,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 67: Everybody likes everybody.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -2504,6 +2574,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 68: John's brother likes everybody.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -2512,18 +2583,18 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
             :like
          )
          ObjectOneOf(
-            _:785848756825230127
+            _:497405942529159079
          )
       )
    )
    ObjectPropertyAssertion(
       :brother
       :John
-      _:785848756825230127
+      _:497405942529159079
    )
    ClassAssertion(
       owl:Thing
-      _:785848756825230127
+      _:497405942529159079
    )
 )
 
@@ -2542,7 +2613,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
       </ObjectInverseOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind785848756825230127"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind497405942529159079"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </SubClassOf>
@@ -2552,18 +2623,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind785848756825230127"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind497405942529159079"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind785848756825230127"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind497405942529159079"/>
   </ClassAssertion>
 </Ontology>
 
 69: If somebody X loves somebody Y then it is false that X hates Y.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointObjectProperties(
       :love
@@ -2588,6 +2660,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 70: If a man likes somebody that is a person then the person owns a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -2637,6 +2710,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 71: If John is a man then the man is a person.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -2672,6 +2746,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 72: If a man owns a dog and the man owns a cat and the dog likes the cat then the man is a human.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -2776,6 +2851,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -2789,6 +2865,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 74: Mary is liked by nobody.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       owl:Thing
@@ -2823,6 +2900,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 75: Every man is something that likes something that owns a car and that likes Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -2879,6 +2957,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 76: Every man is something that likes a car and that likes a bike.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -2924,6 +3003,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 77: No man is something that likes a car and that likes a bike.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       :man
@@ -2969,6 +3049,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 78: If there is a goat and everything that the goat eats is an apple then the goat is an animal.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -3014,6 +3095,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 79: If there is a goat and everything that the goat eats is not an apple then the goat is an animal.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -3055,24 +3137,25 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 80: Mary likes a cat. Every man likes the cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
       ObjectSomeValuesFrom(
          :like
          ObjectOneOf(
-            _:789326044951444712
+            _:866189131468659757
          )
       )
    )
    ObjectPropertyAssertion(
       :like
       :Mary
-      _:789326044951444712
+      _:866189131468659757
    )
    ClassAssertion(
       :cat
-      _:789326044951444712
+      _:866189131468659757
    )
 )
 
@@ -3090,7 +3173,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind789326044951444712"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind866189131468659757"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </SubClassOf>
@@ -3100,26 +3183,27 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind789326044951444712"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind866189131468659757"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#cat"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind789326044951444712"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind866189131468659757"/>
   </ClassAssertion>
 </Ontology>
 
 81: John does not like every dog.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectComplementOf(
          ObjectSomeValuesFrom(
             :like
             ObjectOneOf(
-               _:793897024866825467
+               _:419370493941872845
             )
          )
       )
@@ -3127,7 +3211,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       :dog
-      _:793897024866825467
+      _:419370493941872845
    )
 )
 
@@ -3144,7 +3228,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
 	<ObjectOneOf>
 	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind793897024866825467"/>
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind419370493941872845"/>
 	</ObjectOneOf>
       </ObjectSomeValuesFrom>
     </ObjectComplementOf>
@@ -3155,13 +3239,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#dog"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind793897024866825467"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind419370493941872845"/>
   </ClassAssertion>
 </Ontology>
 
 82: John's brother likes Mary. An age of the brother is 10.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -3217,6 +3302,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 83: John is something that is not Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectComplementOf(
@@ -3249,6 +3335,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 84: John is not something that is Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectComplementOf(
@@ -3281,6 +3368,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 85: Everything that likes something that sees something that hears something hates it.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubObjectPropertyOf(
       ObjectPropertyChain(
@@ -3315,6 +3403,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 86: Every man owns exactly 3 cars.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -3347,6 +3436,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 87: Every man owns exactly 3 things.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -3378,6 +3468,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 88: If a man likes a dog that likes a cat and the man likes a cow that likes a sheep then the man owns a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -3461,6 +3552,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 89: If there is a man then the man likes a dog that likes a cat and the man likes a cow that likes a sheep.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -3534,6 +3626,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 90: If there is a man then the man likes a dog that likes a cat and that likes a rat and the man likes a cow that likes a sheep and that likes a pig.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -3627,6 +3720,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 91: If a man is a dog that is a cat and the man is a cow that is a sheep then the man is a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -3675,6 +3769,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 92: If there is a man then the man is a dog that is a cat and that is a rat and the man is a cow that is a sheep and that is a pig.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -3726,6 +3821,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 93: If John likes Mary then Mary likes Bill.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -3786,6 +3882,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 94: If John owns a car then there are at least 3 women that like John.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -3840,10 +3937,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 95: There is at least 1 man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :man
-      _:728050390925699079
+      _:513192008685355912
    )
 )
 
@@ -3857,13 +3955,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind728050390925699079"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind513192008685355912"/>
   </ClassAssertion>
 </Ontology>
 
 96: John likes at most 3 women.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMaxCardinality(
@@ -3896,6 +3995,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 97: John likes less than 3 women.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMaxCardinality(
@@ -3928,6 +4028,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 98: John likes exactly 3 women.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectExactCardinality(
@@ -3960,6 +4061,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 99: John likes at least 3 women.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -3992,6 +4094,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 100: John likes more than 3 women.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -4024,6 +4127,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 101: John likes at most 1 woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMaxCardinality(
@@ -4056,6 +4160,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 102: John likes less than 1 woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMaxCardinality(
@@ -4088,6 +4193,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 103: John likes exactly 1 woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectExactCardinality(
@@ -4120,6 +4226,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 104: John likes at least 1 woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -4151,6 +4258,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 105: John likes more than 1 woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -4183,6 +4291,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 106: Everybody who loves somebody loves himself.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyDomain(
       :love
@@ -4211,6 +4320,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 107: If a man likes Mary and Mary hates a dog then the man owns a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -4274,6 +4384,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 108: If a man likes Mary and Mary does not hate a dog then the man owns a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -4341,6 +4452,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 109: Every man is John who owns a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -4383,6 +4495,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 110: Every man is John who does not own a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -4429,6 +4542,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 111: Everybody's age is 31.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -4453,6 +4567,7 @@ error('Not an individual nor a SWRL variable',context(v_or_ie_to_xml/3,int(31)))
 112: Everybody's address is "Poland".
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -4477,6 +4592,7 @@ error('Not an individual nor a SWRL variable',context(v_or_ie_to_xml/3,string('P
 113: If somebody's age is 31 then his address is "Poland".
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       DataHasValue(
@@ -4513,6 +4629,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 114: John's father is Bill.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :father
@@ -4540,6 +4657,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -4554,6 +4672,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -4568,6 +4687,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -4582,6 +4702,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -4596,6 +4717,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -4610,6 +4732,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -4623,6 +4746,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 121: If there is a number X then X + 1 = John.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -4649,6 +4773,7 @@ error('Not a variable nor a literal',context(v_or_l_to_xml/3,'':'John'))
 122: If 1.1 * 2 = 2.2 then 0.9 = 2 - 1.1.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -4712,6 +4837,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(warning,word,1-8,Pi,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -4737,6 +4863,7 @@ error('Not an individual nor a SWRL variable',context(v_or_ie_to_xml/3,real(3.14
 124: Bill is John's father.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :father
@@ -4763,6 +4890,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 125: John's father likes Bill.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -4804,6 +4932,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 126: Bill likes John's father.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -4849,6 +4978,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 127: If something X is a father of something Y then X is a parent of Y.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubObjectPropertyOf(
       :father
@@ -4873,6 +5003,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 128: If something X is a part of something Y and Y is a part of something Z then X is a part of Z.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    TransitiveObjectProperty(
       :part
@@ -4894,6 +5025,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 129: Every man that owns a car and that is not a manager cleans the car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -4973,6 +5105,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 130: Every man that does not ride a car, and that rides a bus or that rides a bike owns a dog that likes the man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -5089,6 +5222,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 131: For every thing X for every thing Y if X owns something that contains Y then X owns Y.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubObjectPropertyOf(
       ObjectPropertyChain(
@@ -5120,6 +5254,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 132: If a man likes something X then the man sees X.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -5177,6 +5312,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 133: John is a man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :man
@@ -5201,6 +5337,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 134: John owns a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -5232,6 +5369,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 135: John is somebody.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       owl:Thing
@@ -5255,6 +5393,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 136: If somebody X sees something that is heard by somebody Y then X likes Y.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubObjectPropertyOf(
       ObjectPropertyChain(
@@ -5290,6 +5429,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 137: For every day a man does not see a woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -5354,6 +5494,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 138: For every day John does not see a woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -5410,6 +5551,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 139: For every day John does not see Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -5470,6 +5612,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 140: For every day John sees a dog or sees a cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -5537,6 +5680,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(warning,word,1-5,Estonia,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectExactCardinality(
@@ -5573,6 +5717,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 142: Who does Mary like?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectSomeValuesFrom(
@@ -5611,10 +5756,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 143: There is a continent.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :continent
-      _:231499016936770974
+      _:741625350332603732
    )
 )
 
@@ -5628,13 +5774,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#continent"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind231499016936770974"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind741625350332603732"/>
   </ClassAssertion>
 </Ontology>
 
 144: There are at least 4 continents.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -5687,6 +5834,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 145: There are exactly 4 continents.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -5739,6 +5887,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 146: There are at most 4 continents.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -5791,6 +5940,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 147: It is false that there are more than 4 continents.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -5847,6 +5997,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 148: It is false that there are exactly 4 continents.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -5903,6 +6054,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 149: It is false that there are less than 4 continents.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -5960,6 +6112,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(warning,word,1-4,Estonia,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -6002,6 +6155,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(warning,word,1-6,Estonia,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -6049,6 +6203,7 @@ message(warning,word,1-7,Estonia,Undefined word. Interpreted as a singular prope
 message(warning,word,1-10,Switzerland,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -6112,6 +6267,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 153: John is fond-of Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :fond-of
@@ -6139,6 +6295,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 154: John is as rich as Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :rich
@@ -6166,6 +6323,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 155: John is fonder-of Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :fond-of
@@ -6193,6 +6351,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 156: John is more rich than Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :rich
@@ -6220,6 +6379,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 157: John is fondest-of Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :fond-of
@@ -6251,6 +6411,7 @@ message(warning,word,1-20,Sculpture-E,Undefined word. Interpreted as a singular 
 message(warning,word,1-23,Sculpture-F,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -6344,6 +6505,7 @@ message(warning,word,1-21,Sculpture-E,Undefined word. Interpreted as a singular 
 message(warning,word,1-24,Sculpture-F,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -6437,6 +6599,7 @@ message(warning,word,1-18,Sculpture-E,Undefined word. Interpreted as a singular 
 message(warning,word,1-21,Sculpture-F,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -6530,6 +6693,7 @@ message(warning,word,1-28,Sculpture-E,Undefined word. Interpreted as a singular 
 message(warning,word,1-31,Sculpture-F,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       ObjectIntersectionOf(
@@ -6623,6 +6787,7 @@ message(warning,word,1-25,Sculpture-E,Undefined word. Interpreted as a singular 
 message(warning,word,1-31,Sculpture-F,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       ObjectIntersectionOf(
@@ -6716,6 +6881,7 @@ message(warning,word,1-16,Sculpture-E,Undefined word. Interpreted as a singular 
 message(warning,word,1-21,Sculpture-F,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       ObjectIntersectionOf(
@@ -6807,6 +6973,7 @@ message(warning,word,1-2,Constant-E,Undefined word. Interpreted as a singular pr
 message(warning,word,1-8,Constant-Pi,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -6834,6 +7001,7 @@ message(warning,word,1-2,Constant-E,Undefined word. Interpreted as a singular pr
 message(warning,word,1-6,Constant-Pi,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -6885,6 +7053,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -6898,6 +7067,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 167: Every city overlaps-with itself or does not overlap-with a city.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :city
@@ -6945,6 +7115,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -6958,6 +7129,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 169: Every man who owns a car that likes a cat is a dog that is hated by a bike or that likes itself.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -7039,6 +7211,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 170: Every man who owns a car is a dog that is hated by a bike or that likes itself.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -7106,6 +7279,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 171: Every man is a dog that is hated by a bike or that likes itself.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -7159,6 +7333,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 172: Every man is a dog that hates a bike or that likes itself.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -7209,6 +7384,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Query not supported)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -7223,6 +7399,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Query not supported)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -7236,6 +7413,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 175: What is a country that borders a territory that guards the territory?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -7284,6 +7462,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 176: Which territories guard themselves?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -7318,6 +7497,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 177: Which territories border more than 3 territories that guard themselves?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -7367,6 +7547,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 178: Which territories border nothing but lakes?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -7412,6 +7593,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 179: What is a country that borders no sea?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -7454,6 +7636,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(warning,word,1-7,Adam,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyRange(
       :ancestor
@@ -7483,6 +7666,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(warning,word,1-8,Adam,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       ObjectSomeValuesFrom(
@@ -7522,6 +7706,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(warning,word,1-4,EU,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectSomeValuesFrom(
@@ -7560,6 +7745,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 183: If X is a friend of something that is an enemy of Y then X is an enemy of Y.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubObjectPropertyOf(
       ObjectPropertyChain(
@@ -7592,6 +7778,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,sentence,1-5,Every man owns 2.5 <> cars.,This is the first sentence that was not ACE. The sign <> indicates the position where parsing failed.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -7605,6 +7792,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 185: If a man owns a car then the man likes the car and likes exactly 3 cats.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -7688,6 +7876,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 186: If John owns a car then Mary likes a car and likes at most 3 cats.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -7774,6 +7963,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 187: Which man is John?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -7808,6 +7998,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 188: John is a man that owns a car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectIntersectionOf(
@@ -7846,14 +8037,15 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 189: John is at least 1 man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SameIndividual(
       :John
-      _:329804924143461394
+      _:847915306677688639
    )
    ClassAssertion(
       :man
-      _:329804924143461394
+      _:847915306677688639
    )
 )
 
@@ -7867,13 +8059,13 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind329804924143461394"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind847915306677688639"/>
   </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind329804924143461394"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind847915306677688639"/>
   </ClassAssertion>
 </Ontology>
 
@@ -7881,6 +8073,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,1-2,be,Subject or object of this verb makes an illegal reference.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -7894,6 +8087,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 191: John is a man. Mary is a woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :man
@@ -7928,6 +8122,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 192: John is a man that is a manager.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectIntersectionOf(
@@ -7959,18 +8154,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 193: A man is a human.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SameIndividual(
-      _:619485685198273945
-      _:877029962132652985
+      _:894112400441183172
+      _:74188154014570134
    )
    ClassAssertion(
       :human
-      _:877029962132652985
+      _:74188154014570134
    )
    ClassAssertion(
       :man
-      _:619485685198273945
+      _:894112400441183172
    )
 )
 
@@ -7982,27 +8178,28 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
   <SameIndividual>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind619485685198273945"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind894112400441183172"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind877029962132652985"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind74188154014570134"/>
   </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#human"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind877029962132652985"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind74188154014570134"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind619485685198273945"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind894112400441183172"/>
   </ClassAssertion>
 </Ontology>
 
 194: A man is John.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :man
@@ -8027,6 +8224,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 195: John is John.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SameIndividual(
       :John
@@ -8051,18 +8249,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 196: A man is a man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SameIndividual(
-      _:604721982313777157
-      _:369410167881984061
+      _:713299112881045869
+      _:484532778621044692
    )
    ClassAssertion(
       :man
-      _:369410167881984061
+      _:484532778621044692
    )
    ClassAssertion(
       :man
-      _:604721982313777157
+      _:713299112881045869
    )
 )
 
@@ -8074,35 +8273,36 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
   <SameIndividual>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind604721982313777157"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind713299112881045869"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind369410167881984061"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind484532778621044692"/>
   </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind369410167881984061"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind484532778621044692"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind604721982313777157"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind713299112881045869"/>
   </ClassAssertion>
 </Ontology>
 
 197: A man is the man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SameIndividual(
-      _:915407718118058548
-      _:915407718118058548
+      _:340651613007721381
+      _:340651613007721381
    )
    ClassAssertion(
       :man
-      _:915407718118058548
+      _:340651613007721381
    )
 )
 
@@ -8114,21 +8314,22 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     ontologyIRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test">
   <SameIndividual>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind915407718118058548"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind340651613007721381"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind915407718118058548"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind340651613007721381"/>
   </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind915407718118058548"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind340651613007721381"/>
   </ClassAssertion>
 </Ontology>
 
 198: A country is what?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :country
@@ -8152,6 +8353,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 199: John is nothing but Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectOneOf(
@@ -8184,6 +8386,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 200: John's child is not Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -8223,10 +8426,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 201: John's child is nothing but Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectOneOf(
-         _:468195943313246797
+         _:863713688907943241
       )
       ObjectOneOf(
          :Mary
@@ -8235,11 +8439,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :child
       :John
-      _:468195943313246797
+      _:863713688907943241
    )
    ClassAssertion(
       owl:Thing
-      _:468195943313246797
+      _:863713688907943241
    )
 )
 
@@ -8252,7 +8456,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <SubClassOf>
     <ObjectOneOf>
       <NamedIndividual
-	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind468195943313246797"/>
+	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind863713688907943241"/>
     </ObjectOneOf>
     <ObjectOneOf>
       <NamedIndividual
@@ -8265,18 +8469,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind468195943313246797"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind863713688907943241"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind468195943313246797"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind863713688907943241"/>
   </ClassAssertion>
 </Ontology>
 
 202: Every child of John is Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectSomeValuesFrom(
@@ -8321,6 +8526,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Query not supported)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -8334,6 +8540,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 204: Who is a person whose child is Mary and whose child is nothing but Mary?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -8397,6 +8604,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 205: John knows a man. Who is the man?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -8442,6 +8650,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 206: John owns a car. Mary owns the car. What is it?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -8505,6 +8714,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 207: John owns a car. Mary owns the car. What is it? Bill sees the car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -8585,6 +8795,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 208: John owns a car. Mary owns the car. What is it? Bill sees John.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -8660,6 +8871,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 209: Who owns nothing but cats?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectComplementOf(
@@ -8698,6 +8910,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 210: John is a man that sees Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectIntersectionOf(
@@ -8740,6 +8953,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 211: John is a man that is seen by Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectIntersectionOf(
@@ -8786,6 +9000,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 212: Mary sees John that is not a man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :see
@@ -8827,40 +9042,41 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 213: John is a man. Mary is a woman. Everybody likes the woman. Nobody likes the man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DisjointClasses(
       owl:Thing
       ObjectSomeValuesFrom(
          :like
          ObjectOneOf(
-            _:284739170639562733
+            _:700704391019629457
          )
       )
    )
    SameIndividual(
       :John
-      _:284739170639562733
+      _:700704391019629457
    )
    ClassAssertion(
       :man
-      _:284739170639562733
+      _:700704391019629457
    )
    SubClassOf(
       owl:Thing
       ObjectSomeValuesFrom(
          :like
          ObjectOneOf(
-            _:52339076655753756
+            _:483402935867977701
          )
       )
    )
    SameIndividual(
       :Mary
-      _:52339076655753756
+      _:483402935867977701
    )
    ClassAssertion(
       :woman
-      _:52339076655753756
+      _:483402935867977701
    )
 )
 
@@ -8877,7 +9093,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind284739170639562733"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind700704391019629457"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </DisjointClasses>
@@ -8885,13 +9101,13 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind284739170639562733"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind700704391019629457"/>
   </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind284739170639562733"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind700704391019629457"/>
   </ClassAssertion>
   <SubClassOf>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
@@ -8900,7 +9116,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind52339076655753756"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind483402935867977701"/>
       </ObjectOneOf>
     </ObjectSomeValuesFrom>
   </SubClassOf>
@@ -8908,13 +9124,13 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Mary"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind52339076655753756"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind483402935867977701"/>
   </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#woman"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind52339076655753756"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind483402935867977701"/>
   </ClassAssertion>
 </Ontology>
 
@@ -8922,6 +9138,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(warning,word,1-24,Pi,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -8969,6 +9186,7 @@ error('Not a variable nor a literal',context(v_or_l_to_xml/3,'':'Pi'))
 message(warning,word,1-9,William,Undefined word. Interpreted as a singular proper name.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9017,6 +9235,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 216: If 1 + 2 = 3 then 1 = 3 - 2.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9079,6 +9298,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 217: If 1 + 2 = X then X = 3.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9131,6 +9351,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 218: If a country X1 surrounds a territory X2 and the territory X2 is a part of a country X3 and it is false that the country X3 is the country X1 then the territory X2 is an enclave.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9231,6 +9452,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 219: If "12" & "34" = "1234" then John owns at most 5 cars.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9293,6 +9515,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 220: If X = 1 + 2 then X = 3.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9345,6 +9568,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 221: For everything John likes Mary.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9383,6 +9607,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 222: If there is X and there is Y then X knows Y.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9419,6 +9644,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 223: John is rich.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :rich
@@ -9443,6 +9669,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 224: John has a fast car.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -9481,6 +9708,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 225: John has more than 5 fast cars.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -9520,6 +9748,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 226: John has less than 5 fast cars.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMaxCardinality(
@@ -9559,6 +9788,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 227: Every fast car is owned by a rich man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -9608,6 +9838,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 228: Every fast car is owned by at least 5 rich men.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -9658,6 +9889,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 229: Every fast car is owned by at most 5 rich men.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -9711,6 +9943,7 @@ message(error,owl,1-7,be,Subject or object of this verb makes an illegal referen
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -9724,6 +9957,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 231: If John is rich then Mary is pretty.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9786,6 +10020,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 232: Every talented and beautiful woman is rich and famous.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -9827,6 +10062,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 233: Every talented and beautiful woman is rich and famous and is smarter than her own husband.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -9952,6 +10188,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 234: Every man has at least 5 cars that are red.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -9991,6 +10228,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 235: Every man has at most 5 cars that are red.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -10030,6 +10268,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 236: Every man knows at least 2 persons whose age is 42.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -10075,6 +10314,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 237: Every man knows at most 2 persons whose age is 42.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -10120,6 +10360,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 238: Every man knows at least 2 persons whose friend is Bill.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -10169,6 +10410,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 239: Every man knows at most 2 persons whose friend is Bill.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -10218,6 +10460,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 240: Every man knows at least 2 persons that do not own no cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -10264,6 +10507,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 241: Every man knows at most 2 persons that do not own no cat.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -10310,11 +10554,12 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 242: There is X. If X is a fireman then X is a man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
          ObjectOneOf(
-            _:333977482399647952
+            _:814128422393801068
          )
          :fireman
       )
@@ -10322,7 +10567,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:333977482399647952
+      _:814128422393801068
    )
 )
 
@@ -10336,7 +10581,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectIntersectionOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind333977482399647952"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind814128422393801068"/>
       </ObjectOneOf>
       <Class
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#fireman"/>
@@ -10347,23 +10592,24 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind333977482399647952"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind814128422393801068"/>
   </ClassAssertion>
 </Ontology>
 
 243: There is X. There is Y. If X likes Y then X is a man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
          ObjectOneOf(
-            _:857847569870573451
+            _:745122418158354135
          )
          ObjectSomeValuesFrom(
             :like
             ObjectOneOf(
-               _:441798076144262678
+               _:575143026585657381
             )
          )
       )
@@ -10371,11 +10617,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:441798076144262678
+      _:575143026585657381
    )
    ClassAssertion(
       owl:Thing
-      _:857847569870573451
+      _:745122418158354135
    )
 )
 
@@ -10389,14 +10635,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectIntersectionOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind857847569870573451"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind745122418158354135"/>
       </ObjectOneOf>
       <ObjectSomeValuesFrom>
 	<ObjectProperty
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
 	<ObjectOneOf>
 	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind441798076144262678"/>
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind575143026585657381"/>
 	</ObjectOneOf>
       </ObjectSomeValuesFrom>
     </ObjectIntersectionOf>
@@ -10406,30 +10652,31 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind441798076144262678"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind575143026585657381"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind857847569870573451"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind745122418158354135"/>
   </ClassAssertion>
 </Ontology>
 
 244: There is X. There is Y. If X likes Y then Y is a man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
          ObjectOneOf(
-            _:320023281038550962
+            _:168330731334787669
          )
          ObjectSomeValuesFrom(
             ObjectInverseOf(
                :like
             )
             ObjectOneOf(
-               _:941461118335175497
+               _:783267084152155161
             )
          )
       )
@@ -10437,11 +10684,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:320023281038550962
+      _:168330731334787669
    )
    ClassAssertion(
       owl:Thing
-      _:941461118335175497
+      _:783267084152155161
    )
 )
 
@@ -10455,7 +10702,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectIntersectionOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind320023281038550962"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind168330731334787669"/>
       </ObjectOneOf>
       <ObjectSomeValuesFrom>
 	<ObjectInverseOf>
@@ -10464,7 +10711,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	</ObjectInverseOf>
 	<ObjectOneOf>
 	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind941461118335175497"/>
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind783267084152155161"/>
 	</ObjectOneOf>
       </ObjectSomeValuesFrom>
     </ObjectIntersectionOf>
@@ -10474,23 +10721,24 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind320023281038550962"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind168330731334787669"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind941461118335175497"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind783267084152155161"/>
   </ClassAssertion>
 </Ontology>
 
 245: There is X. If X likes John then X is a woman.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
          ObjectOneOf(
-            _:812913666390911855
+            _:707112975275521605
          )
          ObjectSomeValuesFrom(
             :like
@@ -10503,7 +10751,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:812913666390911855
+      _:707112975275521605
    )
 )
 
@@ -10517,7 +10765,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectIntersectionOf>
       <ObjectOneOf>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind812913666390911855"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind707112975275521605"/>
       </ObjectOneOf>
       <ObjectSomeValuesFrom>
 	<ObjectProperty
@@ -10534,13 +10782,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind812913666390911855"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind707112975275521605"/>
   </ClassAssertion>
 </Ontology>
 
 246: There is X. If John likes X then John is a man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectIntersectionOf(
@@ -10550,7 +10799,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          ObjectSomeValuesFrom(
             :like
             ObjectOneOf(
-               _:624298811936557416
+               _:715324227875993064
             )
          )
       )
@@ -10558,7 +10807,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:624298811936557416
+      _:715324227875993064
    )
 )
 
@@ -10579,7 +10828,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
 	<ObjectOneOf>
 	  <NamedIndividual
-	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind624298811936557416"/>
+	      IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind715324227875993064"/>
 	</ObjectOneOf>
       </ObjectSomeValuesFrom>
     </ObjectIntersectionOf>
@@ -10589,13 +10838,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind624298811936557416"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind715324227875993064"/>
   </ClassAssertion>
 </Ontology>
 
 247: If John likes Mary then 1 = 2.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10643,6 +10893,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 248: If John likes Mary then 1 \= 2.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10690,6 +10941,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 249: If John likes Mary then 1 < 2.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10737,6 +10989,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 250: If John likes Mary then 1 =< 2.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10784,6 +11037,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 251: If John likes Mary then 1 > 2.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10831,6 +11085,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 252: If John likes Mary then 1 >= 2.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10878,6 +11133,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 253: If John likes Mary then 1 is not 2.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10904,6 +11160,7 @@ error('Not an individual nor a SWRL variable',context(v_or_ie_to_xml/3,int(1)))
 254: Everybody's address is not "Poland".
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10928,6 +11185,7 @@ error('Not an individual nor a SWRL variable',context(v_or_ie_to_xml/3,string('P
 255: There is X. If a man owns a dog that likes X then the dog likes the man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    DLSafeRule(
       Body(
@@ -10942,7 +11200,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          ObjectPropertyAtom(
             :like
             Variable(<urn:swrl#x2>)
-            _:758169559607427208
+            _:370209083595419806
          )
          ObjectPropertyAtom(
             :own
@@ -10960,7 +11218,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    )
    ClassAssertion(
       owl:Thing
-      _:758169559607427208
+      _:370209083595419806
    )
 )
 
@@ -10987,7 +11245,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
 	<Variable IRI="urn:swrl#x2"/>
 	<NamedIndividual
-	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind758169559607427208"/>
+	    IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind370209083595419806"/>
       </ObjectPropertyAtom>
       <ObjectPropertyAtom>
 	<ObjectProperty
@@ -11008,13 +11266,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind758169559607427208"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind370209083595419806"/>
   </ClassAssertion>
 </Ontology>
 
 256: Mary's brother is John.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :brother
@@ -11045,19 +11304,20 @@ message(error,owl,1-,brother,Subject or object of this verb makes an illegal ref
 message(error,owl,1-9,tall,Adjective not supported.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :rich
-      _:902501515695788898
+      _:425538731860720484
    )
    ObjectPropertyAssertion(
       :father
       :John
-      _:672719040220478045
+      _:485176203776381409
    )
    ClassAssertion(
       owl:Thing
-      _:672719040220478045
+      _:485176203776381409
    )
 )
 
@@ -11071,7 +11331,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#rich"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind902501515695788898"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind425538731860720484"/>
   </ClassAssertion>
   <ObjectPropertyAssertion>
     <ObjectProperty
@@ -11079,18 +11339,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind672719040220478045"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind485176203776381409"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind672719040220478045"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind485176203776381409"/>
   </ClassAssertion>
 </Ontology>
 
 258: John likes Mary's sister.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -11137,6 +11398,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 259: Everybody likes something.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       owl:Thing
@@ -11166,6 +11428,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 260: Every man is a brother of somebody.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -11200,6 +11463,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 261: Everybody who somebody likes does not hate a dog or is not an alien.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyRange(
       :like
@@ -11246,6 +11510,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 262: Every man is taller than 3 women.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       :man
@@ -11280,14 +11545,15 @@ message(error,owl,1-5,of,Possessive constructions not supported (in this particu
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SameIndividual(
       :John
-      _:788146750491079280
+      _:760657806194446728
    )
    ClassAssertion(
       :author
-      _:788146750491079280
+      _:760657806194446728
    )
 )
 
@@ -11301,19 +11567,20 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <NamedIndividual
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#John"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind788146750491079280"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind760657806194446728"/>
   </SameIndividual>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#author"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind788146750491079280"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind760657806194446728"/>
   </ClassAssertion>
 </Ontology>
 
 264: John does not see what?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectComplementOf(
@@ -11357,6 +11624,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Yes/no queries not supported)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11370,6 +11638,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 266: John does not see a man who sees what?
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    SubClassOf(
       ObjectComplementOf(
@@ -11430,6 +11699,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 267: John does not make everything that Mary wants.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -11481,6 +11751,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Query not supported)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11494,6 +11765,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 269: John is a man or is something and is nothing.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectUnionOf(
@@ -11531,6 +11803,7 @@ message(error,owl,1-3,have,Subject or object of this verb makes an illegal refer
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11545,6 +11818,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11560,6 +11834,7 @@ message(error,owl,1-2,have,Subject or object of this verb makes an illegal refer
 message(error,owl,1-8,kg,Measurement nouns are not supported.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11574,6 +11849,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11590,6 +11866,7 @@ message(error,owl,1-3,have,Subject or object of this verb makes an illegal refer
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11604,6 +11881,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11619,6 +11897,7 @@ message(error,owl,1-2,have,Subject or object of this verb makes an illegal refer
 message(error,owl,1-8,kg,Measurement nouns are not supported.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11633,6 +11912,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,-,,Text could not be translated.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11647,6 +11927,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,1-3,what,Queries with multiple query words not supported)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11661,6 +11942,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,1-,which,Queries with multiple query words not supported)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 )
 
@@ -11674,6 +11956,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 280: John has more than 2 cats that Mary likes.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -11728,6 +12011,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 281: John has at least 2 cats that at least 3 dogs like.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -11779,6 +12063,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 282: John knows at least 2 rich men.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -11819,10 +12104,11 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 message(error,owl,1-,be,Subject or object of this verb makes an illegal reference.)
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       :rich
-      _:228848376620866041
+      _:935030308331270209
    )
 )
 
@@ -11836,13 +12122,14 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#rich"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind228848376620866041"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind935030308331270209"/>
   </ClassAssertion>
 </Ontology>
 
 284: A man likes Mary that likes the man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectSomeValuesFrom(
@@ -11900,24 +12187,25 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 285: A man likes a woman that likes the man.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ObjectPropertyAssertion(
       :like
-      _:234926554419689650
-      _:955804619400536982
+      _:163025000145668623
+      _:507643213325760546
    )
    ObjectPropertyAssertion(
       :like
-      _:955804619400536982
-      _:234926554419689650
+      _:507643213325760546
+      _:163025000145668623
    )
    ClassAssertion(
       :woman
-      _:955804619400536982
+      _:507643213325760546
    )
    ClassAssertion(
       :man
-      _:234926554419689650
+      _:163025000145668623
    )
 )
 
@@ -11931,35 +12219,36 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
     <ObjectProperty
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind234926554419689650"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind163025000145668623"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind955804619400536982"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind507643213325760546"/>
   </ObjectPropertyAssertion>
   <ObjectPropertyAssertion>
     <ObjectProperty
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#like"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind955804619400536982"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind507643213325760546"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind234926554419689650"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind163025000145668623"/>
   </ObjectPropertyAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#woman"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind955804619400536982"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind507643213325760546"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind234926554419689650"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind163025000145668623"/>
   </ClassAssertion>
 </Ontology>
 
 286: A man owns at least 2 cars that a woman likes.
 
 Prefix(:=<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#>)
+Prefix(ace:=<http://attempto.ifi.uzh.ch/ace#>)
 Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
    ClassAssertion(
       ObjectMinCardinality(
@@ -11967,7 +12256,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          :own
          :car
       )
-      _:13410948125174425
+      _:414799729779162876
    )
    ClassAssertion(
       ObjectMinCardinality(
@@ -11975,15 +12264,15 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
          :like
          :car
       )
-      _:815673607821097258
+      _:149355451830707119
    )
    ClassAssertion(
       :woman
-      _:815673607821097258
+      _:149355451830707119
    )
    ClassAssertion(
       :man
-      _:13410948125174425
+      _:414799729779162876
    )
 )
 
@@ -12001,7 +12290,7 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#car"/>
     </ObjectMinCardinality>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind13410948125174425"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind414799729779162876"/>
   </ClassAssertion>
   <ClassAssertion>
     <ObjectMinCardinality cardinality="2">
@@ -12011,19 +12300,19 @@ Ontology(<http://attempto.ifi.uzh.ch/ontologies/owlswrl/test>
 	  IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#car"/>
     </ObjectMinCardinality>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind815673607821097258"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind149355451830707119"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#woman"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind815673607821097258"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind149355451830707119"/>
   </ClassAssertion>
   <ClassAssertion>
     <Class
 	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#man"/>
     <NamedIndividual
-	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind13410948125174425"/>
+	IRI="http://attempto.ifi.uzh.ch/ontologies/owlswrl/test#Ind414799729779162876"/>
   </ClassAssertion>
 </Ontology>
 
