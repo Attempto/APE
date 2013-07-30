@@ -1,0 +1,14 @@
+<ivy-module version="2.0">
+    <info organisation="ch.uzh.ifi.attempto" module="ape"/>
+    <dependencies>
+        <dependency org="junit" name="junit" rev="latest.release"/>
+        <dependency org="commons-logging" name="commons-logging" rev="latest.release"/>
+        <dependency org="org.apache.httpcomponents" name="httpclient" rev="latest.release"/>
+        <dependency org="commons-lang" name="commons-lang" rev="2+"/>
+        <dependency org="com.sun.phobos" name="jdom" rev="1.0"/>
+        <dependency org="jpl" name="jpl" rev="3.1.4-alpha"/>
+        <dependency org="org.slf4j" name="slf4j-api" rev="latest.release"/>
+        <dependency org="org.slf4j" name="slf4j-log4j12" rev="latest.release"/>
+
+    </dependencies>
+</ivy-module>
