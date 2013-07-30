@@ -87,7 +87,7 @@ public class Lexicon {
 	 * @return The lexicon as a serialized Prolog list.
 	 */
 	public String toList() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		for (LexiconEntry entry : entries) {
 			sb.append(entry.toString());
 			sb.append(", ");
@@ -104,7 +104,7 @@ public class Lexicon {
 	 */
 	@Override
 	public String toString() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		for (LexiconEntry entry : entries) {
 			sb.append(entry.toString());
 			sb.append(". ");

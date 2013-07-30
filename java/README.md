@@ -41,11 +41,3 @@ APELocal
 The APELocal class is an interface to the ACE parser that is written in SWI Prolog. When this class
 is used directly or indirectly, you have to make sure that a recent version of SWI Prolog is
 installed and that the file ape.exe is available.
-
-Furthermore, you have to use the following Java VM argument that points to the location where the
-SWI Prolog system file libjpl.jnilib (under Mac OS X), jpl.dll (under Windows), or libjpl.so (under
-Unix) is located:
-
-  -Djava.library.path="/opt/local/lib/swipl-5.6.45/lib/i386-darwin8.10.1"
-
-Note that the exact path is most probably different on your system.
