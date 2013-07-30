@@ -18,6 +18,7 @@ package ch.uzh.ifi.attempto.ape;
  * This enumeration lists the possible gender types for nouns and proper names.
  * 
  * @author Tobias Kuhn
+ * @author Kaarel Kaljurand
  */
 public enum Gender {
 
@@ -58,6 +59,18 @@ public enum Gender {
 		case FEMININE: return "fem";
 		}
 		return null;
+	}
+
+
+	/**
+	 * Returns the gender that corresponds to the given Prolog atom.
+	 */
+	public static Gender create(String str) {
+		if ("neutr".equals(str)) return NEUTRAL;
+		if ("human".equals(str)) return HUMAN;
+		if ("masc".equals(str)) return MASCULINE;
+		if ("fem".equals(str)) return FEMININE;
+		return UNDEF;
 	}
 
 }
