@@ -194,7 +194,6 @@ public class APEWebserviceTest {
         ACEParser ap = new APEWebservice(APEWS_URL_LOCALHOST);
         ap.setGuessingEnabled(false);
         ap.setClexEnabled(false);
-        ap.setURI(URI);
         ACEText text = new ACEText(input);
         String result = null;
         try {

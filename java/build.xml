@@ -16,6 +16,7 @@
             description="Compile the Java files">
         <javac
                 target="1.5"
+        	    source="1.5"
                 includeantruntime="false"
                 srcdir="src/"
                 excludes="**/test/**"
@@ -75,7 +76,7 @@
             />
 
     <target name="test" depends="compile" description="Unit test">
-        <javac srcdir="${test_src}" destdir="${classes}">
+        <javac srcdir="${test_src}" destdir="${classes}" includeantruntime="false">
             <classpath>
                 <fileset dir="lib">
                     <include name="*.jar"/>
