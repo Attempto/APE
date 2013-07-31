@@ -16,7 +16,6 @@
 %%==============================================================================
 %% APE Grammar --- Syntax and DRS-Threading for ACE Sentences
 %% Authors: Stefan Hoefler, Gerold Schneider, Kaarel Kaljurand, Tobias Kuhn
-% \version{ape-6.6-110816}
 %%==============================================================================
 
 :- module(grammar, [parse/4]).

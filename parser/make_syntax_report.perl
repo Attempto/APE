@@ -1,5 +1,5 @@
 # This file is part of the Attempto Parsing Engine (APE).
-# Copyright 2008-2010, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
+# Copyright 2008-2013, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
 #
 # The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published by the Free Software
@@ -31,19 +31,28 @@
 #
 # @author Tobias Kuhn
 # @author Kaarel Kaljurand
-# @version 2008-03-17
+# @version 2013-07-31
 #
 # Usage:
 #
-# cat grammar.fit grammar_functionwords.fit grammar_contentwords.fit | perl make_syntax_report.perl
+# cat grammar.fit grammar_functionwords.fit grammar_contentwords.fit | perl make_syntax_report.perl --number 6.7
 
 use strict;
 use Getopt::Long;
 
+# Version number (e.g. 6.7) of the grammar, shown in the title.
+# Specify it on the commandline.
+my $number = "";
+
+my $getopt_result = GetOptions(
+	"number=s" => \$number,
+);
+
 my $syntax_report_toc = 'syntax_report.toc';
 my $title_numbers = [0, 0, 0, 0, 0];
 
-my $message = "This report was generated automatically from the following files:
+# This is output only if the input contains \version{...}
+my $message = "This report was generated automatically from the following APE grammar files:
 				<code>grammar.fit</code>,
 				<code>grammar_functionwords.fit</code>,
 				<code>grammar_contentwords.fit</code>.";
@@ -222,7 +231,7 @@ print <<EOF;
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<title>ACE 6.6 Syntax Report</title>
+<title>ACE $number Syntax Report</title>
 
 <style type="text/css">
 .bug { background-color: #fdd }
@@ -242,7 +251,7 @@ a[href]:hover {color: blue; text-decoration: none; }
 
 <body>
 
-<h1>ACE 6.6 Syntax Report</h1>
+<h1>ACE $number Syntax Report</h1>
 EOF
 }
 
