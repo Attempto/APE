@@ -6,13 +6,12 @@ import static org.junit.Assert.*;
 
 public class APEWebserviceTest {
 
+	// It is expected that "ape.exe httpserver" runs on localhost:8000
+	private static final String APEWS_URL = "http://localhost:8000";
 	private static final String URI = "test";
     private static final String ACETEXT_LONG_NO_LEXICON_DRS = "drs([A],[object(A,n1,countable,na,eq,1)-1/45,property(A,a1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890,pos)-1/42])";
     private static final String NOUN = "n1";
     private static final String ADJ = "a1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
-    private static final String APEWS_URL = "http://attempto.ifi.uzh.ch/ws/ape/apews.perl";
-    // It is expected that "ape.exe httpserver" runs on localhost:8000
-    private static final String APEWS_URL_LOCALHOST = "http://localhost:8000";
     private static final String WRONG_URL = "http://attempto.ifiuzh.ch/ws/apews.perl";
     private static final String ACETEXT_UTF8 = "John sees \"✈\".";
     private static final String ACETEXT_WRONG = "There is there is.";
@@ -78,43 +77,23 @@ public class APEWebserviceTest {
     }
 
     @Test
-    public final void testGetSoloOutputLocalhost() throws ACEParserException {
-        ACEParser ap = new APEWebservice(APEWS_URL_LOCALHOST);
-        String result = ap.getSoloOutput(Testcase.ACETEXT, OutputType.DRS);
-        assertEquals(Testcase.ACETEXT_DRS, result.trim());
-    }
-
-
-    @Test
     public final void testGetSoloOutputLong() throws ACEParserException {
         ACEParser ap = new APEWebservice(APEWS_URL);
         Lexicon lexicon = createLexicon();
         String result = null;
         result = ap.getSoloOutput(ACETEXT_LONG, lexicon, OutputType.DRS);
-
+		assertEquals("long drs", ACETEXT_LONG_DRS, result);
+		assertEquals(ACETEXT_LONG_DRS, result.trim());
     }
 
     @Test
     public final void testGetSoloOutputLocalhostLongNoLexicon() throws ACEParserException {
 
-        ACEParser ap = new APEWebservice(APEWS_URL_LOCALHOST);
+        ACEParser ap = new APEWebservice(APEWS_URL);
         String result = null;
         ap.setGuessingEnabled(true);
         result = ap.getSoloOutput(ACETEXT_LONG, OutputType.DRS);
         assertEquals("long drs, no lexicon (guessing)", ACETEXT_LONG_NO_LEXICON_DRS, result);
-
-    }
-
-    @Test
-    public final void testGetSoloOutputLocalhostLong() throws ACEParserException {
-
-        ACEParser ap = new APEWebservice(APEWS_URL_LOCALHOST);
-        Lexicon lexicon = createLexicon();
-        String result = null;
-        result = ap.getSoloOutput(ACETEXT_LONG, lexicon, OutputType.DRS);
-        assertEquals("long drs", ACETEXT_LONG_DRS, result);
-
-        assertEquals(ACETEXT_LONG_DRS, result.trim());
     }
 
     @Test
@@ -132,10 +111,6 @@ public class APEWebserviceTest {
         runMultiOutputTestForURL(APEWS_URL);
     }
 
-    @Test
-    public final void testGetMultiOutputLocalhost() {
-        runMultiOutputTestForURL(APEWS_URL_LOCALHOST);
-    }
 
     private void runMultiOutputTestForURL(String url) {
         ACEParser ap = new APEWebservice(url);
@@ -165,7 +140,7 @@ public class APEWebserviceTest {
     }
 
     private void testGetSoloOutputLexiconInText(String input, String output) {
-        ACEParser ap = new APEWebservice(APEWS_URL_LOCALHOST);
+        ACEParser ap = new APEWebservice(APEWS_URL);
         ap.setGuessingEnabled(false);
         ap.setClexEnabled(false);
 		ap.setURI(URI);
