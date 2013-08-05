@@ -14,6 +14,7 @@ public class APEWebserviceTest {
     @SuppressWarnings("UnusedDeclaration")
     private static Logger logger = LoggerFactory.getLogger(APEWebserviceTest.class);
 
+	private static final String URI = "test";
     private static final String ACETEXT_LONG_NO_LEXICON_DRS = "drs([A],[object(A,n1,countable,na,eq,1)-1/45,property(A,a1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890,pos)-1/42])";
     private static final String NOUN = "n1";
     private static final String ADJ = "a1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
@@ -194,6 +195,7 @@ public class APEWebserviceTest {
         ACEParser ap = new APEWebservice(APEWS_URL_LOCALHOST);
         ap.setGuessingEnabled(false);
         ap.setClexEnabled(false);
+		ap.setURI(URI);
         ACEText text = new ACEText(input);
         String result = null;
         try {
