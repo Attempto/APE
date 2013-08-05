@@ -47,7 +47,7 @@ Testing
 -------
 
 In order to run the unit tests (`ant test`), first start the `ape.exe`
-in the server more, both as socket server and as HTTP server.
+in the server mode, both as socket server and as HTTP server.
 
 	$ ./ape.exe -server -port 5000
 	$ ./ape.exe -httpserver -port 8000
