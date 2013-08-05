@@ -1,32 +1,11 @@
 package ch.uzh.ifi.attempto.ape;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.io.IOException;
 
 import static org.junit.Assert.*;
 
 public class APESocketTest {
     private static final ACEParser parser = new APESocket(5000);
-    private static Process serverProcess;
-
-    @BeforeClass
-    public static void setUp() throws IOException, InterruptedException {
-
-        ProcessBuilder serverProcessBuilder = new ProcessBuilder("../ape.exe", "-server", "-port", "5000");
-        serverProcess = serverProcessBuilder.start();
-        assertNotNull("create server process", serverProcess);
-    }
-
-    @AfterClass
-    public static void tearDown() throws Exception {
-        assertNotNull(serverProcess);
-        serverProcess.getOutputStream().close();
-        int status = serverProcess.waitFor();
-        assertEquals(0, status);
-    }
 
     @Test
     public final void testGetSoloOutput() {

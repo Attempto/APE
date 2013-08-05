@@ -1,18 +1,10 @@
 package ch.uzh.ifi.attempto.ape;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 import static org.junit.Assert.*;
 
 public class APEWebserviceTest {
-    @SuppressWarnings("UnusedDeclaration")
-    private static Logger logger = LoggerFactory.getLogger(APEWebserviceTest.class);
 
 	private static final String URI = "test";
     private static final String ACETEXT_LONG_NO_LEXICON_DRS = "drs([A],[object(A,n1,countable,na,eq,1)-1/45,property(A,a1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890,pos)-1/42])";
@@ -39,25 +31,6 @@ public class APEWebserviceTest {
             ADJ + " and " +
             ADJ + " and " +
             ADJ + " " + NOUN + ".";
-
-    private static Process serverProcess;
-
-    @BeforeClass
-    public static void setUp() throws IOException {
-        String executableName = "../ape.exe";
-        serverProcess = Runtime.getRuntime().exec(new String[]{executableName, "-httpserver", "-port", "8000"});
-
-        assertNotNull(serverProcess);
-
-    }
-
-    @AfterClass
-    public static void tearDown() throws Exception {
-        assertNotNull(serverProcess);
-        serverProcess.getOutputStream().close();
-        int status = serverProcess.waitFor();
-        assertEquals(0, status);
-    }
 
 
     @Test
