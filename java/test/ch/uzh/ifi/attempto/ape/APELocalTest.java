@@ -5,15 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created with IntelliJ IDEA.
- * User: ses
- * Date: 2/2/13
- * Time: 2:54 AM
- * To change this template use File | Settings | File Templates.
- */
-
-public class ApeLocalTest extends Testcase {
+public class APELocalTest extends Testcase {
 
     private static ACEParser parser;
 
