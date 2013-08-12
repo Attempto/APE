@@ -200,18 +200,7 @@ pointer an HTTP resource (i.e. URL) but not via pointing to a local file (such a
 
 ### Using APE from Java programs
 
-To simplify calling APE from Java we provide the `ACEParser` interface which
-is effectively a Java-style front-end to querying the predicate `get_ape_results/2`.
-`ACEParser` is implemented by the following classes:
-
-  - `APELocal` accesses APE via JPL, the bidirectional Prolog/Java interface, which is included in the SWI-Prolog installation
-  - `APESocket` accesses APE via its socket server
-  - `APEWebservice` accesses APE via its HTTP server
-
-To build `attempto_ape.jar` containing the mentioned classes, run `ant` in the `java`-subdirectory.
-
-    cd java
-    ant
+See the documentation in [java/](java/).
 
 
 ### Some examples
