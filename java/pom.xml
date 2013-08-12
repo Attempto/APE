@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ch.uzh.ifi.attempto.ape</groupId>
+  <artifactId>attempto-ape</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0.1</version>
+  <name>Java Interface for APE</name>
+  <description>Java Interface for APE</description>
+  <url>http://attempto.ifi.uzh.ch/</url>
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/Attempto/APE/issues?labels=java</url>
+  </issueManagement>
+  <licenses>
+    <license>
+      <name>LGPL 3.0 license</name>
+      <url>http://www.opensource.org/licenses/lgpl-3.0.html</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Kaarel Kaljurand</name>
+      <email>kaljurand@gmail.com</email>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <name>Tobias Kuhn</name>
+      <email>kuhntobias@gmail.com</email>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>jpl</groupId>
+      <artifactId>jpl</artifactId>
+      <version>6.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.5</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.3-beta2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.phobos</groupId>
+      <artifactId>jdom</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9</version>
+      </plugin>
+    </plugins>
+  </reporting>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
