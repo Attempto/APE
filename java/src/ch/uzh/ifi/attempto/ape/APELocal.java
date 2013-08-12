@@ -60,12 +60,14 @@ public class APELocal extends ACEParser {
      *
      * @param apeExeFile The path (with filename) of the file "ape.exe".
      */
-    private APELocal(String apeExeFile) {
+    private APELocal(String apeExeFile, boolean guessSwiPrologPath) {
         if (apeLocal != null) {
             throw new RuntimeException("Only one APELocal object can be created.");
         }
 
-        JPL.setNativeLibraryDir(getSwiplLibraryDir());
+        if (guessSwiPrologPath) {
+			JPL.setNativeLibraryDir(getSwiplLibraryDir());
+        }
         // A problem was reported that might be solved by using the --nosignals option.
         // Otherwise, it seems to have no effect in our case.
         // The first argument "swipl" has no effect and could be any other string.
@@ -81,15 +83,15 @@ public class APELocal extends ACEParser {
      * then a runtime exception is thrown.
      * <br>
      * This method is deprecated because the {@code prologCommand} argument is actually not needed.
-     * Use {@link #APELocal(String)} instead.
+     * Use {@link #APELocal(String,boolean)} instead.
      *
      * @param prologCommand The command to run the SWI Prolog interpreter.
-     *                      On Windows this is usually "plcon", on Linux "pl", and on Mac "swipl".
+     *                      On Windows this is usually "plcon", on Linux and MacOS "swipl".
      * @param apeExeFile    The path (with filename) of the file "ape.exe".
      */
     @Deprecated
-    public APELocal(String prologCommand, String apeExeFile) {
-        this(apeExeFile);
+    private APELocal(String prologCommand, String apeExeFile) {
+        this(apeExeFile, false);
     }
 
     /**
@@ -104,16 +106,28 @@ public class APELocal extends ACEParser {
 
     /**
      * Initializes the APELocal singleton instance. This method can be called at most once.
-     * If you call it twice or if you called the constructor before then a runtime exception
+     * If you call it twice then a runtime exception
      * is thrown.
      *
      * @param apeExeFile The path (with filename) of the file "ape.exe".
+	 * @param guessSwiPrologPath Guess the location of SWI-Prolog.
      */
-    public synchronized static void init(String apeExeFile) {
+    public synchronized static void init(String apeExeFile, boolean guessSwiPrologPath) {
         if (apeLocal == null) {
-            apeLocal = new APELocal(apeExeFile);
+            apeLocal = new APELocal(apeExeFile, guessSwiPrologPath);
         }
     }
+
+	/**
+	 * Initializes the APELocal singleton instance. This method can be called at most once.
+	 * If you call it twice then a runtime exception
+	 * is thrown.
+	 *
+	 * @param apeExeFile The path (with filename) of the file "ape.exe".
+	 */
+	public synchronized static void init(String apeExeFile) {
+		init(apeExeFile, false);
+	}
 
     /**
      * Initializes the APELocal singleton instance. This method can be called at most once.
@@ -124,7 +138,7 @@ public class APELocal extends ACEParser {
      * Use {@link #init(String)} instead.
      *
      * @param prologCommand The command to run the SWI Prolog interpreter.
-     *                      On Windows this is usually "plcon", on Linux "pl", and on Mac "swipl".
+     *                      On Windows this is usually "plcon", on Linux and MacOS "swipl".
      * @param apeExeFile    The path (with filename) of the file "ape.exe".
      */
     @Deprecated
