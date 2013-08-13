@@ -13,8 +13,8 @@ public class APELocalTest extends Testcase {
         parser = getApeLocal();
     }
 
-    private static  APELocal getApeLocal() {
-        APELocal.init("../ape.exe");
+    private static APELocal getApeLocal() {
+        APELocal.init("../ape.exe", true);
         return APELocal.getInstance();
     }
 
@@ -27,7 +27,7 @@ public class APELocalTest extends Testcase {
     }
 
     @Test
-    public final void testGetSoloOutput () throws ACEParserException {
+    public final void testGetSoloOutput() throws ACEParserException {
         parser.setGuessingEnabled(false);
         String response = null;
             response = parser.getSoloOutput(Testcase.ACETEXT1, OutputType.PARAPHRASE1);
