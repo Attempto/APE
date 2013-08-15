@@ -1,5 +1,5 @@
 % This file is part of the Attempto Parsing Engine (APE).
-% Copyright 2008-2012, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
+% Copyright 2008-2013, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
 %
 % The Attempto Parsing Engine (APE) is free software: you can redistribute it and/or modify it
 % under the terms of the GNU Lesser General Public License as published by the Free Software
@@ -51,7 +51,7 @@
 %
 ape :-
 	format('
-Attempto Parsing Engine for ACE 6.6~nCopyright 2008-2010 Attempto Group, University of Zurich
+Attempto Parsing Engine for ACE 6.6~nCopyright 2008-2013, Attempto Group, University of Zurich
 This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it under certain conditions.
 Please visit http://attempto.ifi.uzh.ch for details.

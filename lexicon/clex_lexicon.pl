@@ -1,4 +1,4 @@
-% Copyright 2008-2012, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
+% Copyright 2008-2013, Attempto Group, University of Zurich (see http://attempto.ifi.uzh.ch).
 % Derived from: COMLEX, Copyright 2005 LDC, University of Pennsylvania.
 %
 % This program is free software: you can redistribute it and/or modify it under the terms of the
