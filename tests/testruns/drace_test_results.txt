@@ -3013,7 +3013,7 @@ John sees the man X1.
 
 There is a man X1.
 The man X1 owns a cat.
-001871 [FAIL] Every goat likes some grass and likes some water and doesn't like something that is not some grass and that is not some water. --> If there is a goat X1 then the goat X1 likes some grass and the goat X1 likes some water and it is false that the goat X1 likes something X2 and that it is false that X2 is some grass and that it is false that X2 is some water.
+001871 [time_limit_exceeded] Every goat likes some grass and likes some water and doesn't like something that is not some grass and that is not some water. --> 
 001872 [----] Every pet is a dog or is a cat ,and is not something that is a dog and that is a cat. --> If there is a pet X1 then it is false that the pet X1 is something X2 and that X2 is a dog and that X2 is a cat, and the pet X1 is a dog or the pet X1 is a cat.
 001873 [----] If there is a pet X then X is a dog or X is a cat ,and it is false that X is a dog and that X is a cat. --> If there is a pet X1 then it is false that the pet X1 is a dog and that the pet X1 is a cat, and the pet X1 is a dog or the pet X1 is a cat.
 001874 [----] Every pet is a dog or is a cat ,and is a cow. --> If there is a pet X1 then the pet X1 is a cow, and the pet X1 is a dog or the pet X1 is a cat.
@@ -4039,6 +4039,7 @@ The man X2 brings the dog X1 the dog X1.
 002596 [----] A man gives John at most 3 apples. --> A man gives at most 3 apples to John.
 002597 [----] A man gives at least 3 apples to John. --> There is a man X1.
 The man X1 gives at least 3 apples to John.
+002598 [FAIL] A man brings a card its pencil and his own computer. --> A man X1 brings a card X2 a computer of the man X1 and a pencil of the card X2.
 002599 [FAIL] There is a man who owns each of 3 dogs. The man who owns each of 3 dogs waits. --> # ...
 002600 [FAIL] There are 3 dogs. There is a man who owns each of the dogs. The man who owns each of the dogs waits. --> # ...
 002601 [ZERO] There is not each of 3 men.
@@ -4986,6 +4987,7 @@ The man X1 waits.
 John sees a man X1.
 The man X1 sleeps or the man X1 waits.
 003096 [----] There is 1kg of n:laundry. --> There are 1 kg of laundries.
+003097 [SAME] 3.141592653611111 approximates Pi.
 003098 [ZERO] A man visits a town Zürich.
 003099 [----] There is a man who does not sleep soundly in a bed in a morning. John sees the man who does not sleep soundly in a bed in a morning. --> There is a man X1.
 It is false that the man X1 sleeps soundly in a morning in a bed.
@@ -5848,7 +5850,14 @@ The man X1 waits.
 
 1 is bigger.
 003592 [ZERO] -0.5 = -.5.
+003594 [----] There is nothing X such that X waits. --> It is false that there is something.
+
+There is something X1.
+X1 waits.
 003595 [SAME] John gives something to somebody.
+003596 [----] Pi = 3.14. Pi is not 3.14. --> Pi = 3.14.
+
+It is false that Pi is 3.14.
 003598 [----] Pi = 3.14.
 
 If there is a circle C and C's radius is R and C's area is S then S = Pi * (R * R).
@@ -5859,6 +5868,10 @@ If a radius of a circle X1 is something X2 and an area of the circle X1 is somet
 
 A radius of a circle X1 is 5.
 What is a surface of the circle X1?
+003601 [----] There is no man such that the man waits. --> It is false that there is a man.
+
+There is a man X1.
+The man X1 waits.
 003602 [----] There are some men such that the men wait. --> There are at least 2 men X1.
 The men X1 wait.
 003603 [ZERO] There are no men such that the men wait.
@@ -5911,6 +5924,9 @@ X1 = X1.
 003637 [ZERO] for every friend of who Mary asks a woman.
 003638 [----] For everything of X X waits. --> If there is something of something X1 then X1 waits.
 003641 [FAIL] John is everything of who? --> # ...
+003642 [----] Every card the code of which is correct is valid. --> If a code of a card X1 is correct then the card X1 is valid.
+003643 [----] There is a code of a card. Every card the code of which is correct is valid. --> There is a code X1 of a card.
+If there is a card X2 and the code X1 is correct then the card X2 is valid.
 003644 [----] There is a code of a card. If the code of a card is correct then the card is valid. --> There is a code X1 of a card X2.
 If the code X1 is correct then the card X2 is valid.
 003645 [----] There is a code of a card. The code of a card is correct. The card is valid. --> A code of a card X1 is correct.
@@ -6081,3 +6097,18 @@ A man sees John how?
 003766 [FAIL] Is John seen by a man that waits? --> # ...
 003768 [FAIL] John eats when and where drinks? --> John eats when?
 John drinks where?
+003770 [----] John has nothing but apples. --> If John has something X1 then X1 is an apple.
+003771 [----] A = 2*3^4. --> There is something X1.
+X1 = ( 2 * ( 3 ^ 4 ) ).
+003772 [----] A = 2*3^4.5. --> There is something X1.
+X1 = ( 2 * ( 3 ^ 4.5 ) ).
+003773 [----] A = 2*3^(-1). --> There is something X1.
+X1 = ( 2 * ( 3 ^ -1 ) ).
+003774 [----] A = 2*3^(2+B). --> There is something X1.
+There is something X2.
+X1 = ( 2 * ( 3 ^ ( 2 + X2 ) ) ).
+003775 [----] A = 2*3^(2+3^B). --> There is something X1.
+There is something X2.
+X1 = ( 2 * ( 3 ^ ( 2 + ( 3 ^ X2 ) ) ) ).
+003776 [----] A = 2*3^4^5. --> There is something X1.
+X1 = ( 2 * ( ( 3 ^ 4 ) ^ 5 ) ).

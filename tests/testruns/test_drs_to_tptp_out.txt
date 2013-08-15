@@ -9675,15 +9675,15 @@ ERROR	DRS condition not supported: command	tptp/4	command(drs([_G745,_G748,_G751
 002041 John and Mary, buy a car!
 ERROR	DRS condition not supported: command	tptp/4	command(drs([_G1172,_G1175,_G1178],[has_part(_G1178,named(John))-1/,object(_G1172,car,countable,na,eq,1)-1/7,predicate(_G1175,buy,_G1178,_G1172)-1/5,has_part(_G1178,named(Mary))-1/,object(_G1178,na,countable,na,eq,2)-1/]))
 002042 Some customers, buy a car!
-ERROR	DRS condition not supported: command	tptp/4	command(drs([_G185,_G188,_G191],[object(_G185,customer,countable,na,geq,2)-1/2,object(_G188,car,countable,na,eq,1)-1/6,predicate(_G191,buy,_G185,_G188)-1/4]))
+ERROR	DRS condition not supported: command	tptp/4	command(drs([_G188,_G191,_G194],[object(_G188,customer,countable,na,geq,2)-1/2,object(_G191,car,countable,na,eq,1)-1/6,predicate(_G194,buy,_G188,_G191)-1/4]))
 002043 John, be loved by Mary!
 ERROR	DRS is empty	apply_converter/2	drs([],[])
 002044 John, do not touch the machine!
-ERROR	DRS condition not supported: command	tptp/4	command(drs([],[-drs([_G642,_G645],[predicate(_G642,touch,named(John),_G645)-1/5,object(_G645,machine,countable,na,eq,1)-1/7])]))
+ERROR	DRS condition not supported: command	tptp/4	command(drs([],[-drs([_G645,_G648],[predicate(_G645,touch,named(John),_G648)-1/5,object(_G648,machine,countable,na,eq,1)-1/7])]))
 002045 John, hit himself!
 ERROR	DRS is empty	apply_converter/2	drs([],[])
 002046 John, hit yourself!
-ERROR	DRS condition not supported: command	tptp/4	command(drs([_G1022],[predicate(_G1022,hit,named(John),named(John))-1/3]))
+ERROR	DRS condition not supported: command	tptp/4	command(drs([_G1025],[predicate(_G1025,hit,named(John),named(John))-1/3]))
 002047 John, sell your own car!
 ERROR	DRS condition not supported: command	tptp/4	command(drs([_G39,_G42],[relation(_G39,of,named(John))-1/4,object(_G39,car,countable,na,eq,1)-1/6,predicate(_G42,sell,named(John),_G39)-1/3]))
 002048 John, buy a dog that likes you!
@@ -12426,6 +12426,18 @@ fof(f1, axiom, (
 ? [A,B,C] : ((predicate3(A,give,B,C,'John')) &
 ((object(C,apple,countable,na,geq,3)) &
 (man(B)))))).
+002598 A man brings a card its pencil and his own computer.
+fof(f1, axiom, (
+? [A,B,C,D,E,F] : ((object(A,na,countable,na,eq,2)) &
+((has_part(A,B)) &
+((computer(B)) &
+((relation(B,of,C)) &
+((predicate3(D,bring,C,A,E)) &
+((has_part(A,F)) &
+((pencil(F)) &
+((relation(F,of,E)) &
+((card(E)) &
+(man(C))))))))))))).
 002599 There is a man who owns each of 3 dogs. The man who owns each of 3 dogs waits.
 fof(f1, axiom, (
 ? [A,B,C] : ((predicate1(A,wait,B)) &
@@ -14814,6 +14826,9 @@ fof(f2, axiom, (
 003096 There is 1kg of n:laundry.
 fof(f1, axiom, (
 ? [A] : (laundry(A)))).
+003097 3.141592653611111 approximates Pi.
+fof(f1, axiom, (
+? [A] : (predicate2(A,approximate,3.141592653611111,'Pi')))).
 003098 A man visits a town Zürich.
 ERROR	DRS is empty	apply_converter/2	drs([],[])
 003099 There is a man who does not sleep soundly in a bed in a morning. John sees the man who does not sleep soundly in a bed in a morning.
@@ -17095,17 +17110,37 @@ fof(f2, axiom, (
 (property1(A,big,comp))))).
 003592 -0.5 = -.5.
 ERROR	DRS is empty	apply_converter/2	drs([],[])
+003594 There is nothing X such that X waits.
+fof(f1, axiom, (
+~(? [A] : ($true)))).
+
+fof(f2, axiom, (
+? [A,B] : ((predicate1(A,wait,B)) &
+($true)))).
 003595 John gives something to somebody.
 fof(f1, axiom, (
 ? [A,B,C] : ((predicate3(A,give,'John',B,C)) &
 (($true) &
 ($true))))).
+003596 Pi = 3.14. Pi is not 3.14.
+fof(f1, axiom, (
+'Pi'=3.14)).
+
+fof(f2, axiom, (
+~('Pi'=3.14))).
 003598 Pi = 3.14.
 
 If there is a circle C and C's radius is R and C's area is S then S = Pi * (R * R).
 
 There is a circle C whose radius is 5. What is C's surface?
 ERROR	DRS condition not supported: question	tptp/4	question(drs([_G1874,_G1877,_G1880],[query(_G1874,what)-4/1,relation(_G1877,of,_G1903)-4/4,object(_G1877,surface,countable,na,eq,1)-4/6,predicate(_G1880,be,_G1874,_G1877)-4/2]))
+003601 There is no man such that the man waits.
+fof(f1, axiom, (
+~(? [A] : (man(A))))).
+
+fof(f2, axiom, (
+? [A,B] : ((predicate1(A,wait,B)) &
+(man(B))))).
 003602 There are some men such that the men wait.
 fof(f1, axiom, (
 ? [A,B] : ((predicate1(A,wait,B)) &
@@ -17277,6 +17312,25 @@ fof(f1, axiom, (
 => (? [C] : (predicate1(C,wait,B)))))).
 003641 John is everything of who?
 ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G1032,who)
+003642 Every card the code of which is correct is valid.
+fof(f1, axiom, (
+! [A,B,C] : (((card(A)) &
+((relation(C,of,A)) &
+((code(C)) &
+((property1(B,correct,pos)) &
+(C=B)))))
+=> (? [D] : ((property1(D,valid,pos)) &
+(A=D)))))).
+003643 There is a code of a card. Every card the code of which is correct is valid.
+fof(f1, axiom, (
+? [A,B] : ((! [C,D] : (((card(C)) &
+((property1(D,correct,pos)) &
+(A=D)))
+=> (? [E] : ((property1(E,valid,pos)) &
+(C=E))))) &
+((relation(A,of,B)) &
+((card(B)) &
+(code(A))))))).
 003644 There is a code of a card. If the code of a card is correct then the card is valid.
 fof(f1, axiom, (
 ? [A,B] : ((! [C] : (((property1(C,correct,pos)) &
@@ -17849,3 +17903,21 @@ fof(f1, conjecture, (
 (predicate2(C,see,A,'John')))))).
 003768 John eats when and where drinks?
 ERROR	DRS query/2 not supported	cond_to_tptp/2	query(_G2587,when)
+003770 John has nothing but apples.
+fof(f1, axiom, (
+! [A,B] : (((predicate2(A,have,'John',B)) &
+($true))
+=> (? [C] : ((apple(C)) &
+(B=C)))))).
+003771 A = 2*3^4.
+ERROR	Converter failed	apply_converter/2	drs([_G2801],[object(_G2801,something,dom,na,na,na)-1/1,formula(_G2801,=,expr(*,int(2),expr(^,int(3),int(4))))-1/2])
+003772 A = 2*3^4.5.
+ERROR	Converter failed	apply_converter/2	drs([_G3064],[object(_G3064,something,dom,na,na,na)-1/1,formula(_G3064,=,expr(*,int(2),expr(^,int(3),real(4.5))))-1/2])
+003773 A = 2*3^(-1).
+ERROR	Converter failed	apply_converter/2	drs([_G37],[object(_G37,something,dom,na,na,na)-1/1,formula(_G37,=,expr(*,int(2),expr(^,int(3),int(-1))))-1/2])
+003774 A = 2*3^(2+B).
+ERROR	Converter failed	apply_converter/2	drs([_G350,_G353],[object(_G350,something,dom,na,na,na)-1/1,object(_G353,something,dom,na,na,na)-1/10,formula(_G350,=,expr(*,int(2),expr(^,int(3),expr(+,int(2),_G353))))-1/2])
+003775 A = 2*3^(2+3^B).
+ERROR	Converter failed	apply_converter/2	drs([_G707,_G710],[object(_G707,something,dom,na,na,na)-1/1,object(_G710,something,dom,na,na,na)-1/12,formula(_G707,=,expr(*,int(2),expr(^,int(3),expr(+,int(2),expr(^,int(3),_G710)))))-1/2])
+003776 A = 2*3^4^5.
+ERROR	Converter failed	apply_converter/2	drs([_G1014],[object(_G1014,something,dom,na,na,na)-1/1,formula(_G1014,=,expr(*,int(2),expr(^,expr(^,int(3),int(4)),int(5))))-1/2])

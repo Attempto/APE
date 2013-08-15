@@ -2996,6 +2996,7 @@ The man X1 sees the man X1.
 002595 [FAIL] There is a dog. The dog barks. A man brings the dog the dog. --> NOT IMPLEMENTED
 002596 [FAIL] A man gives John at most 3 apples. --> NOT IMPLEMENTED
 002597 [FAIL] A man gives at least 3 apples to John. --> NOT IMPLEMENTED
+002598 [FAIL] A man brings a card its pencil and his own computer. --> NOT IMPLEMENTED
 002599 [FAIL] There is a man who owns each of 3 dogs. The man who owns each of 3 dogs waits. --> NOT IMPLEMENTED
 002600 [FAIL] There are 3 dogs. There is a man who owns each of the dogs. The man who owns each of the dogs waits. --> NOT IMPLEMENTED
 002601 [ZERO] There is not each of 3 men.
@@ -3549,6 +3550,7 @@ The man X1 sleeps.
 003094 [FAIL] A man waits or sleeps. John sees the man who sleeps. --> NOT IMPLEMENTED
 003095 [FAIL] A man waits. John sees the man who sleeps or who waits. --> NOT IMPLEMENTED
 003096 [FAIL] There is 1kg of n:laundry. --> NOT IMPLEMENTED
+003097 [FAIL] 3.141592653611111 approximates Pi. --> NOT IMPLEMENTED
 003098 [ZERO] A man visits a town Zürich.
 003099 [FAIL] There is a man who does not sleep soundly in a bed in a morning. John sees the man who does not sleep soundly in a bed in a morning. --> NOT IMPLEMENTED
 003100 [FAIL] At most 3 men X wait. X are tired. --> NOT IMPLEMENTED
@@ -4223,12 +4225,15 @@ The man X1 waits.
 003589 [FAIL] 1 is not 0.5. 1 is bigger. --> NOT IMPLEMENTED
 003590 [FAIL] 1 is not 0.5.1 is bigger. --> NOT IMPLEMENTED
 003592 [ZERO] -0.5 = -.5.
+003594 [FAIL] There is nothing X such that X waits. --> NOT IMPLEMENTED
 003595 [FAIL] John gives something to somebody. --> NOT IMPLEMENTED
+003596 [FAIL] Pi = 3.14. Pi is not 3.14. --> NOT IMPLEMENTED
 003598 [FAIL] Pi = 3.14.
 
 If there is a circle C and C's radius is R and C's area is S then S = Pi * (R * R).
 
 There is a circle C whose radius is 5. What is C's surface? --> NOT IMPLEMENTED
+003601 [FAIL] There is no man such that the man waits. --> NOT IMPLEMENTED
 003602 [----] There are some men such that the men wait. --> There are at least 2 men.
 The men wait.
 003603 [ZERO] There are no men such that the men wait.
@@ -4266,6 +4271,8 @@ The men wait.
 003637 [ZERO] for every friend of who Mary asks a woman.
 003638 [FAIL] For everything of X X waits. --> ERROR
 003641 [FAIL] John is everything of who? --> NOT IMPLEMENTED
+003642 [FAIL] Every card the code of which is correct is valid. --> ERROR
+003643 [FAIL] There is a code of a card. Every card the code of which is correct is valid. --> NOT IMPLEMENTED
 003644 [FAIL] There is a code of a card. If the code of a card is correct then the card is valid. --> NOT IMPLEMENTED
 003645 [FAIL] There is a code of a card. The code of a card is correct. The card is valid. --> NOT IMPLEMENTED
 003646 [FAIL] There is a code of a card. Every card whose code is correct is valid. --> NOT IMPLEMENTED
@@ -4397,3 +4404,10 @@ ERROR
 003765 [FAIL] How is John that waits seen by a man? --> NOT IMPLEMENTED
 003766 [FAIL] Is John seen by a man that waits? --> NOT IMPLEMENTED
 003768 [FAIL] John eats when and where drinks? --> NOT IMPLEMENTED
+003770 [----] John has nothing but apples. --> Everything that is had by John is an apple.
+003771 [FAIL] A = 2*3^4. --> NOT IMPLEMENTED
+003772 [FAIL] A = 2*3^4.5. --> NOT IMPLEMENTED
+003773 [FAIL] A = 2*3^(-1). --> NOT IMPLEMENTED
+003774 [FAIL] A = 2*3^(2+B). --> NOT IMPLEMENTED
+003775 [FAIL] A = 2*3^(2+3^B). --> NOT IMPLEMENTED
+003776 [FAIL] A = 2*3^4^5. --> NOT IMPLEMENTED
