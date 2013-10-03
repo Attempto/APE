@@ -6,13 +6,13 @@ Version 6.7-131003
 
 This release implements two new ACE features and brings minor improvements.
 
-- New in ACE 6.7. Support for the exponentiation operator ^ in arithmetical expressions,
+- New in ACE 6.7: Support for the exponentiation operator ^ in arithmetical expressions,
   e.g. "2^3^4", which is parsed as (2^3)^4.
-- New in ACE 6.7. Support for how many/how much queries, which ask for numbers of
+- New in ACE 6.7: Support for how many/how much queries, which ask for numbers of
   countable nouns or for amounts of mass or measurement nouns,
   e.g. "How many beaches have how much sand?"
 - APE can now translate ACE texts into the RuleML format.
-- The coverage of the ACE-to-OWL translator was improved.
+- The coverage of the ACE-to-OWL translator has been improved.
 - The dependencies of the Java Interface for APE on external libraries are now managed using Maven.
 
 
