@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Runs all the APE tests in one go.
 #
 # Note that these tests overwrite files that are under version
