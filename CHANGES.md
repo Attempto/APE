@@ -4,7 +4,7 @@ APE Change Log
 Version 6.7-131003
 ------------------
 
-This release implementes two new ACE features and brings minor improvements.
+This release implements two new ACE features and brings minor improvements.
 
 - New in ACE 6.7. Support for the exponentiation operator ^ in arithmetical expressions,
   e.g. "2^3^4", which is parsed as (2^3)^4.
