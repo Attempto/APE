@@ -206,7 +206,7 @@ show_help.
 % Prints the version information.
 %
 show_version :-
-	format("Attempto Parsing Engine for ACE 6.6, version ~w~n", ['6.6-110816']).
+	format("Attempto Parsing Engine for ACE 6.7, version ~w~n", ['6.7-131003']).
 
 
 %% arglist_namevaluelist(+ArgList:list, -NameValueList:list) is det.

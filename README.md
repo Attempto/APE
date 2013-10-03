@@ -32,8 +32,8 @@ APE has to be executed from the command-line. In the command-line terminal, go t
 directory of APE (where `ape.exe` is located). Then type `ape.exe` in the case of Windows or
 `./ape.exe` otherwise. As a result, you should see the following output:
 
-    Attempto Parsing Engine for ACE 6.6, version 6.6-110816
-    Copyright 2008-2011 Attempto Group, University of Zurich
+    Attempto Parsing Engine for ACE 6.7, version 6.7-131003
+    Copyright 2008-2013, Attempto Group, University of Zurich
     This program comes with ABSOLUTELY NO WARRANTY.
     This is free software, and you are welcome to redistribute it under certain conditions.
     Please visit http://attempto.ifi.uzh.ch for details.

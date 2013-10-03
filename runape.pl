@@ -51,7 +51,7 @@
 %
 ape :-
 	format('
-Attempto Parsing Engine for ACE 6.6~nCopyright 2008-2013, Attempto Group, University of Zurich
+Attempto Parsing Engine for ACE 6.7~nCopyright 2008-2013, Attempto Group, University of Zurich
 This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it under certain conditions.
 Please visit http://attempto.ifi.uzh.ch for details.
