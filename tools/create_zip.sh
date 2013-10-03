@@ -15,10 +15,6 @@ cd java
 mvn package site -DskipTests
 cd ..
 
-mv lexicon/clex_lexicon.pl lexicon/clex_lexicon.pl.tmp
-mv lexicon/clex_lexicon_small.pl lexicon/clex_lexicon.pl
-
-
 echo "Generating public regression test set..."
 cd tests
 swipl -f make_acetext_drs.pl -g main -t halt -q > ../acetext_drs.pl
@@ -53,10 +49,8 @@ zip -r \
         parser/ \
         utils/ \
     -x \
-        \*.tmp \*.gitignore \*.plp
+        \*.gitignore \*.plp
 
-mv lexicon/clex_lexicon.pl lexicon/clex_lexicon_small.pl
-mv lexicon/clex_lexicon.pl.tmp lexicon/clex_lexicon.pl
 rm acetext_drs.pl
 
 echo Finished.
