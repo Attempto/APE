@@ -1,10 +1,23 @@
+#
+# Packages the main contents of the repository as a zip-file.
+# Includes the jar-file and Javadoc for the Java interface for APE.
+#
+# Note: For a new release you probably need to update the version number
+# in 'ape-6.7'.
+#
 echo Compiling APE...
 cd ../parser
 bash compile.sh
 cd ..
 
+echo Building the Java Interface for APE...
+cd java
+mvn package site -DskipTests
+cd ..
+
 mv lexicon/clex_lexicon.pl lexicon/clex_lexicon.pl.tmp
 mv lexicon/clex_lexicon_small.pl lexicon/clex_lexicon.pl
+
 
 echo "Generating public regression test set..."
 cd tests
@@ -33,6 +46,8 @@ zip -r \
         java/pom.xml \
         java/README.md \
         java/src/ \
+        java/target/*.jar \
+        java/target/site \
         lexicon/ \
         logger/ \
         parser/ \
