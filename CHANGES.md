@@ -14,6 +14,8 @@ This release implements two new ACE features and brings minor improvements.
 - APE can now translate ACE texts into the RuleML format.
 - The coverage of the ACE-to-OWL translator has been improved.
 - The dependencies of the Java Interface for APE on external libraries are now managed using Maven.
+- The large Clex lexicon (~100,000 entries) was migrated to a separate repository [Attempto/Clex](https://github.com/Attempto/Clex).
+  As before, the APE source distribution contains a reduced (~2000 entries) version of this lexicon.
 
 
 Version 6.6-110816
