@@ -21,4 +21,8 @@ public class Testcase {
 	public static final String ACETEXT4_OWLFSS =
 			"'Ontology'(test,['ObjectPropertyAssertion'('':'larger-than_A2','':'Åland_islands_PN','':'Black_Forest_PN')])";
 
+    public static final String WORD = "multi word";
+    public static final String ENTRY= "adv('multi word', 'sym(multi word)')";
+    public static final String SYMBOL = "sym(multi word)";
+
 }

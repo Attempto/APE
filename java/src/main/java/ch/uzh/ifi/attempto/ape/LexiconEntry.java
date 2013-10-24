@@ -16,13 +16,16 @@ package ch.uzh.ifi.attempto.ape;
 
 /**
  * This class represents a single lexicon entry.
+ * The static methods can be used to construct a lexical entry on the basis of
+ * the word form, logical symbol, and possibly gender information and prepositional particles.
+ * All these input components will be represented as Prolog atoms.
  * 
  * @author Tobias Kuhn
  * @author Kaarel Kaljurand
  */
 public class LexiconEntry {
 
-	private String lexiconTerm;
+	private final String lexiconTerm;
 
 	/**
 	 * Creates a new lexicon entry on the basis of a string that is a serialization of a Prolog term.
@@ -370,7 +373,8 @@ public class LexiconEntry {
 	private static String escape(String str) {
 		return PrologUtils.escape(str);
 	}
-	
+
+    @Override
 	public boolean equals(Object obj) {
 		if (obj instanceof LexiconEntry) {
 			LexiconEntry other = (LexiconEntry) obj;
@@ -379,5 +383,9 @@ public class LexiconEntry {
 			return false;
 		}
 	}
-	
+
+    @Override
+    public int hashCode() {
+        return lexiconTerm.hashCode();
+    }
 }
