@@ -114,9 +114,14 @@ public class APEWebserviceTest {
 
     private void runMultiOutputTestForURL(String url) {
         ACEParser ap = new APEWebservice(url);
-        ACEParserResult result = ap.getMultiOutput(Testcase.ACETEXT, OutputType.DRS, OutputType.TPTP);
+        ACEParserResult result = ap.getMultiOutput(
+                Testcase.ACETEXT,
+                OutputType.DRS,
+                OutputType.TPTP,
+                OutputType.RULEML);
         assertEquals(Testcase.ACETEXT_DRS, result.get(OutputType.DRS));
         assertEquals(Testcase.ACETEXT_TPTP, result.get(OutputType.TPTP));
+        assertTrue(result.get(OutputType.RULEML).contains("<RuleML>"));
     }
 
 
