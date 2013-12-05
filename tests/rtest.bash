@@ -14,8 +14,8 @@
 # In case you don't have `curl' or `wget',
 # download the testset manually before running the script (without `d', in this case).
 
-#prolog=pl
 prolog=swipl
+#prolog=/usr/local/lib/swipl-6.4.1/bin/x86_64-linux/swipl
 #prolog=/opt/local/bin/swipl
 #prolog=`which swipl`
 

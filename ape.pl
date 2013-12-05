@@ -127,12 +127,26 @@ ape :-
 
 %% get_arglist(+RawArgList, -ArgList)
 %
+% Returns the list of arguments.
+% In SWI v6.6.0+ this can be achieved simply by:
+%
+%     get_arglist(ArgList) :-
+%       current_prolog_flag(argv, ArgList).
+%
+% For backwards compatibility we assume that the argument
+% list can contain '--', or the path to ape.exe before the
+% first argument (which must start with '-').
 %
 get_arglist(RawArgList, ArgList) :-
     append(_, ['--'|ArgList], RawArgList),
     !.
 
-get_arglist([_|ArgList], ArgList).
+% TODO: on which OS is this needed?
+get_arglist([NonFlag|ArgList], ArgList) :-
+	\+ atom_concat('-', _, NonFlag),
+	!.
+
+get_arglist(ArgList, ArgList).
 
 
 %% process_input(+InputList:list) is det.
