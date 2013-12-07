@@ -19,6 +19,8 @@ prolog=swipl
 #prolog=/opt/local/bin/swipl
 #prolog=`which swipl`
 
+clex='clex_lexicon.pl'
+
 echo "Using: `$prolog --version`"
 
 # Generate a timestamp.
@@ -34,6 +36,12 @@ echo "Downloading the latest ACE text set ... "
 curl -o acetexts.pl http://attempto.ifi.uzh.ch/cgi-bin/acetextset/get_acetexts.cgi
 echo "done."
 fi
+fi
+
+
+if [ ! -f $clex ]; then
+	echo "Downloading the large Clex lexicon (from github.com/Attempto/Clex)"
+	curl -o $clex https://raw.github.com/Attempto/Clex/master/$clex
 fi
 
 # Creates a directory for the test results.

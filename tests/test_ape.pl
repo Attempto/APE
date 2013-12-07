@@ -62,8 +62,7 @@ that this program outputs.
 
 % Import the lexicons.
 :- style_check(-discontiguous).
-:- use_module(ape(lexicon/clex)).
-:- use_module(ape(lexicon/ulex)).
+:- consult(clex:clex_lexicon).
 :- style_check(+discontiguous).
 
 % Consult the regression test set.
