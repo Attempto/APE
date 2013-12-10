@@ -25,6 +25,12 @@
 		xmlterm_to_xmlatom/2
 	]).
 
+:- use_module(ape('lexicon/ulex'), [
+		read_ulex/1
+	]).
+
+
+
 
 :- set_prolog_flag(float_format, '%.11g').
 
@@ -468,7 +474,7 @@ t(285, 'A man likes a woman that likes the man.').
 t(286, 'A man owns at least 2 cars that a woman likes.'). % BUG
 
 main :-
-	add_to_lexicon,
+	set_up_lexicon,
 	time(test_owlswrl).
 
 test_owlswrl :-
@@ -507,7 +513,10 @@ store_as_file(ID, Atom) :-
 	told.
 
 
-% A hackish way to override some entries in the lexicon
-add_to_lexicon :-
-	asserta(clex:noun_sg(apple, 'iri|http://www.example.org/words#apple', neutr)),
-	asserta(clex:pn_sg('Bill', iri('http://www.example.org/words#Bill'), neutr)).
+set_up_lexicon :-
+	% Read the large lexicon into ulex
+	open('clex_lexicon.pl', read, Stream),
+	call_cleanup(read_ulex(Stream), close(Stream)),
+	% Override some entries
+	asserta(ulex:noun_sg(apple, 'iri|http://www.example.org/words#apple', neutr)),
+	asserta(ulex:pn_sg('Bill', iri('http://www.example.org/words#Bill'), neutr)).
