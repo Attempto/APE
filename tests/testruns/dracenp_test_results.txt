@@ -1295,7 +1295,7 @@ The clerk X1 enters a card.
 ERROR
 001060 [FAIL] A man waits or takes John's rook. If John moves his own queen then there is a dog. --> NOT IMPLEMENTED
 001061 [FAIL] John takes a queen Mary. --> NOT IMPLEMENTED
-001062 [time_limit_exceeded] If an element is a member of a tail of a list then the element is a member of the list. --> 
+001062 [FAIL] If an element is a member of a tail of a list then the element is a member of the list. --> ERROR
 001063 [FAIL] Every dog barks or a cat sleeps. --> NOT IMPLEMENTED
 001064 [FAIL] if there is a dog A then the dog A barks, or a cat D sleeps . --> ERROR
 001065 [ZERO] It is not the case that there is a man and that there is a dog or that there is a cat.
@@ -2128,7 +2128,7 @@ ERROR
 All wine is liked by Mary.
 001802 [FAIL] If a person buys an object from a merchant and keeps it then the person owns the object. If a merchant sells an object to a person then the person buys the object from the merchant. John sells the book "XML Bible" to Mary. Mary keeps the book. --> NOT IMPLEMENTED
 001803 [----] If there is a man then the man sees a dog that sees a cat that sees a rat and the dog sees a horse. --> Every man sees a dog that sees a horse and that sees a cat that sees a rat.
-001804 [time_limit_exceeded] If there is a man then the man sees a dog that sees a cat that sees a rat and the dog sees a horse that sees a cow. --> 
+001804 [FAIL] If there is a man then the man sees a dog that sees a cat that sees a rat and the dog sees a horse that sees a cow. --> ERROR
 001805 [FAIL] There is a park in which a dog barks. --> NOT IMPLEMENTED
 001806 [FAIL] Mary doesn't like some men who aren't rich. --> NOT IMPLEMENTED
 001807 [----] Everybody doesn't like a dog that doesn't bark. --> Nobody likes a dog that does not bark.
@@ -4411,3 +4411,4 @@ ERROR
 003774 [FAIL] A = 2*3^(2+B). --> NOT IMPLEMENTED
 003775 [FAIL] A = 2*3^(2+3^B). --> NOT IMPLEMENTED
 003776 [FAIL] A = 2*3^4^5. --> NOT IMPLEMENTED
+003777 [FAIL] How many beaches have how much sand? --> NOT IMPLEMENTED

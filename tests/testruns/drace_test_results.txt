@@ -3013,7 +3013,7 @@ John sees the man X1.
 
 There is a man X1.
 The man X1 owns a cat.
-001871 [time_limit_exceeded] Every goat likes some grass and likes some water and doesn't like something that is not some grass and that is not some water. --> 
+001871 [FAIL] Every goat likes some grass and likes some water and doesn't like something that is not some grass and that is not some water. --> If there is a goat X1 then the goat X1 likes some grass and the goat X1 likes some water and it is false that the goat X1 likes something X2 and that it is false that X2 is some grass and that it is false that X2 is some water.
 001872 [----] Every pet is a dog or is a cat ,and is not something that is a dog and that is a cat. --> If there is a pet X1 then it is false that the pet X1 is something X2 and that X2 is a dog and that X2 is a cat, and the pet X1 is a dog or the pet X1 is a cat.
 001873 [----] If there is a pet X then X is a dog or X is a cat ,and it is false that X is a dog and that X is a cat. --> If there is a pet X1 then it is false that the pet X1 is a dog and that the pet X1 is a cat, and the pet X1 is a dog or the pet X1 is a cat.
 001874 [----] Every pet is a dog or is a cat ,and is a cow. --> If there is a pet X1 then the pet X1 is a cow, and the pet X1 is a dog or the pet X1 is a cat.
@@ -6075,8 +6075,8 @@ If there is a code X2 and if there is a copy X3 of the card X1 then the copy X3 
 003746 [SAME] How many men wait?
 003747 [SAME] How much food waits?
 003748 [FAIL] How many good men eat how much bad food? --> # ...
-003749 [FAIL] There is some fluid. How many liters of the fluid are there? --> There are how_many liters of some fluid?
-003750 [FAIL] There are how many liters of some fluid? --> There are how_many liters of some fluid?
+003749 [FAIL] There is some fluid. How many liters of the fluid are there? --> There are how many liters of some fluid?
+003750 [SAME] There are how many liters of some fluid?
 003751 [----] Sun is the Sun. --> Sun is Sun.
 003752 [ZERO] There is a man that John is not.
 003753 [FAIL] Does John believe that Mary sleeps? --> # ...
@@ -6112,3 +6112,4 @@ There is something X2.
 X1 = ( 2 * ( 3 ^ ( 2 + ( 3 ^ X2 ) ) ) ).
 003776 [----] A = 2*3^4^5. --> There is something X1.
 X1 = ( 2 * ( ( 3 ^ 4 ) ^ 5 ) ).
+003777 [SAME] How many beaches have how much sand?
