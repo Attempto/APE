@@ -37,7 +37,7 @@
     <dependency>
       <groupId>jpl</groupId>
       <artifactId>jpl</artifactId>
-      <version>6.4.1</version>
+      <version>6.6.4</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

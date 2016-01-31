@@ -24,6 +24,8 @@ The Java Interface for APE can be compiled into a single jar-file `attempto-ape.
 
 First install SWI-Prolog's JPL into your local Maven repository.
 See [install-jpl.sh](install-jpl.sh) for an example on how do it.
+You might also need to update the JPL version number in `pom.xml` to match your version
+of SWI-Prolog.
 
 Building the jar-file.
 
