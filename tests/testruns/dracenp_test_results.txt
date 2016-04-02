@@ -1,3 +1,5 @@
+true.
+
 000001 [----] there is a man. --> There is a man.
 000002 [FAIL] a flat mate runs. --> NOT IMPLEMENTED
 000003 [FAIL] a dog is good. --> NOT IMPLEMENTED
@@ -4412,3 +4414,10 @@ ERROR
 003775 [FAIL] A = 2*3^(2+3^B). --> NOT IMPLEMENTED
 003776 [FAIL] A = 2*3^4^5. --> NOT IMPLEMENTED
 003777 [FAIL] How many beaches have how much sand? --> NOT IMPLEMENTED
+003778 [FAIL] Errol is not Hedwig. Hedwig is not Errol.
+HarryPotter is not NevilleLongbottom. NevilleLongbottom is not HarryPotter.
+NevilleLongbottom is not RonWeasley. RonWeasley is not NevilleLongbottom.
+NevilleLongbottom is not TomRiddle. TomRiddle is not NevilleLongbottom. --> NOT IMPLEMENTED
+true.
+
+

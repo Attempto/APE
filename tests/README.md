@@ -3,7 +3,7 @@ Testing APE
 
 Author: Kaarel Kaljurand
 
-Version: 2012-02-08
+Version: 2016-04-02
 
 Introduction
 ------------
@@ -63,6 +63,7 @@ Runtime of the complete test run on different machines:
 
   - Mac OS X G4: ~25 seconds (~3000 testcases)
   - Intel i3, 2011-06-20: ~11 seconds (3613 test cases, excluding bug reports)
+  - Intel i7, 2016-04-02: ~9 seconds (3733 test cases, excluding bug reports, including loading the large lexicon from a flat file)
 
 
 ### Testing Drace Core and Drace NP
@@ -81,6 +82,9 @@ that point to pseudo-problems.
 
 ### Running all the tests
 
-> time (bash test_everything.sh) > out.txt 2> err.txt
+> time bash test_everything.sh > out.txt 2> err.txt
 
-This takes about 55 seconds on an i3 Linux laptop with SWI-Prolog v6.
+This takes about
+
+  - 55 seconds on an i3 Linux laptop with SWI-Prolog v6.
+  - 45 seconds on an i7 Linux laptop with SWI-Prolog v7.

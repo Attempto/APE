@@ -19,6 +19,9 @@ prolog=swipl
 #prolog=/opt/local/bin/swipl
 #prolog=`which swipl`
 
+#downloader='curl -o'
+downloader='wget -O'
+
 clex='clex_lexicon.pl'
 
 echo "Using: `$prolog --version`"
@@ -32,8 +35,7 @@ then
 if [ $1 = "d" ]
 then
 echo "Downloading the latest ACE text set ... "
-#wget -O acetexts.pl http://attempto.ifi.uzh.ch/cgi-bin/acetextset/get_acetexts.cgi
-curl -o acetexts.pl http://attempto.ifi.uzh.ch/cgi-bin/acetextset/get_acetexts.cgi
+$downloader acetexts.pl http://attempto.ifi.uzh.ch/cgi-bin/acetextset/get_acetexts.cgi
 echo "done."
 fi
 fi
@@ -41,12 +43,12 @@ fi
 
 if [ ! -f $clex ]; then
 	echo "Downloading the large Clex lexicon (from github.com/Attempto/Clex)"
-	curl -o $clex https://raw.github.com/Attempto/Clex/master/$clex
+	$downloader $clex https://raw.github.com/Attempto/Clex/master/$clex
 fi
 
 # Creates a directory for the test results.
 # If the directory already exists then an error message is printed (which you can ignore).
-mkdir testruns/
+mkdir -p testruns/
 
 # Convert fit-files into plp-files.
 $prolog -g "working_directory(_, '../parser'), [fit_to_plp], halt."
@@ -63,7 +65,7 @@ echo ""
 echo "Diff with the previous version:"
 echo ""
 
-mkdir tmp/
+mkdir -p tmp/
 ls testruns/rtest*.txt | tail -2 | head -1 | xargs grep "^0" > tmp/before.txt
 ls testruns/rtest*.txt | tail -1 | xargs grep "^0" > tmp/now.txt
 diff tmp/before.txt tmp/now.txt

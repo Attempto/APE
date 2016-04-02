@@ -1,3 +1,5 @@
+true.
+
 000001 [----] there is a man. --> There is a man.
 000002 [----] a flat mate runs. --> There is a flat mate X1.
 The flat mate X1 runs.
@@ -6113,3 +6115,24 @@ X1 = ( 2 * ( 3 ^ ( 2 + ( 3 ^ X2 ) ) ) ).
 003776 [----] A = 2*3^4^5. --> There is something X1.
 X1 = ( 2 * ( ( 3 ^ 4 ) ^ 5 ) ).
 003777 [SAME] How many beaches have how much sand?
+003778 [----] Errol is not Hedwig. Hedwig is not Errol.
+HarryPotter is not NevilleLongbottom. NevilleLongbottom is not HarryPotter.
+NevilleLongbottom is not RonWeasley. RonWeasley is not NevilleLongbottom.
+NevilleLongbottom is not TomRiddle. TomRiddle is not NevilleLongbottom. --> It is false that Errol is Hedwig.
+
+It is false that Hedwig is Errol.
+
+It is false that HarryPotter is NevilleLongbottom.
+
+It is false that NevilleLongbottom is HarryPotter.
+
+It is false that NevilleLongbottom is RonWeasley.
+
+It is false that RonWeasley is NevilleLongbottom.
+
+It is false that NevilleLongbottom is TomRiddle.
+
+It is false that TomRiddle is NevilleLongbottom.
+true.
+
+

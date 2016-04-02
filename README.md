@@ -97,7 +97,7 @@ All these possibilities are described in the following sections.
 The following command parses the text "John waits." and outputs the DRS in XML representation and
 the syntax tree:
 
-    ./ape.exe -text 'John waits.' -cdrsxml -csyntax
+    ./ape.exe -text "John waits." -cdrsxml -csyntax
 
 In the case of Windows, you have to omit the first two characters `./`. The next example parses the
 text that is inside of the file `ace.txt` and outputs the OWL FSS representation:
@@ -106,7 +106,7 @@ text that is inside of the file `ace.txt` and outputs the OWL FSS representation
 
 If you omit both arguments, `text` and `file`, the ACE text is read from the standard input:
 
-    echo 'Every mammal is an animal.' | ./ape.exe -solo drspp
+    echo "Every mammal is an animal." | ./ape.exe -solo drspp
 
 Note that this does not work under Windows.
 
@@ -144,10 +144,10 @@ error message is logged into STDERR. In any case, the connection to the client i
 
 Examples of input commands:
 
-- `get([text='Every man is a human.', cparaphrase1=on]).`
-- `get([text='Every man is a human.', solo=paraphrase1]).`
-- `get([text='Every man is a a human.', cparaphrase1=on]).`
-- `get([text='Every man is a human.', cinput=on, cdrs=on, cparaphrase=on, ctokens=on, csyntax=on]).`
+    get([text='Every man is a human.', cparaphrase1=on]).
+    get([text='Every man is a human.', solo=paraphrase1]).
+    get([text='Every man is a a human.', cparaphrase1=on]).
+    get([text='Every man is a human.', cinput=on, cdrs=on, cparaphrase=on, ctokens=on, csyntax=on]).
 
 Session example, assuming that the APE socket server listens at port 3453:
 
@@ -211,12 +211,12 @@ ACE text from URL
 
 Lexicon from string
 
-    ./ape.exe -text 'Every mman is a hhuman.' -ulextext 'noun_sg(mman, mman, masc). noun_sg(hhuman, hhuman, neutr).' -cparaphrase1
+    ./ape.exe -text "Every mman is a hhuman." -ulextext "noun_sg(mman, mman, masc). noun_sg(hhuman, hhuman, neutr)." -cparaphrase1
 
 Reading from STDIN and writing to STDOUT can be used in order to chain several executions of APE
 together. The following example paraphrases the paraphrase of "Every man is a human.".
 
-    ./ape.exe -text 'Every man is a human.' -solo paraphrase1 | ./ape.exe -solo paraphrase2
+    ./ape.exe -text "Every man is a human." -solo paraphrase1 | ./ape.exe -solo paraphrase2
 
 The following commands have the same meaning.
 
