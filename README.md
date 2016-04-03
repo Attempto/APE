@@ -213,6 +213,11 @@ Lexicon from string
 
     ./ape.exe -text "Every mman is a hhuman." -ulextext "noun_sg(mman, mman, masc). noun_sg(hhuman, hhuman, neutr)." -cparaphrase1
 
+Lexicon from a file
+
+    echo "noun_sg(mman, mman, masc). noun_sg(hhuman, hhuman, neutr)." > ulex.pl
+    ./ape.exe -text "Every mman is a hhuman." -ulexfile ulex.pl -cparaphrase1
+
 Reading from STDIN and writing to STDOUT can be used in order to chain several executions of APE
 together. The following example paraphrases the paraphrase of "Every man is a human.".
 
