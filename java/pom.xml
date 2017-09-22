@@ -4,7 +4,7 @@
   <groupId>ch.uzh.ifi.attempto.ape</groupId>
   <artifactId>attempto-ape</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <name>Java Interface for APE</name>
   <description>Java Interface for APE</description>
   <url>http://attempto.ifi.uzh.ch/</url>
@@ -37,7 +37,7 @@
     <dependency>
       <groupId>jpl</groupId>
       <artifactId>jpl</artifactId>
-      <version>6.6.4</version>
+      <version>7.2.3</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
