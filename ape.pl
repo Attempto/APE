@@ -52,13 +52,13 @@ communicated to Java?
 
 :- consult('pack.pl').
 
-:- use_module(get_ape_results, [
+:- use_module('prolog/ape', [
 		get_ape_results/2,
 		get_ape_results_timelimit/3,
 		get_ape_results_timelimit/4
 	]).
 
-:- use_module('logger/error_logger').
+:- use_module('prolog/logger/error_logger').
 
 % Default encoding used for opening files in text mode.
 :- set_prolog_flag(encoding, utf8).

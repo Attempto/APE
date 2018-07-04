@@ -13,7 +13,7 @@
 % Parsing Engine (APE). If not, see http://www.gnu.org/licenses/.
 
 
-:- module(get_ape_results, [
+:- module(ape, [
 		get_ape_results_timelimit/3,
 		get_ape_results_timelimit/4,
 		get_ape_results/2,
@@ -62,6 +62,8 @@ get_ape_results([text='Peeter likes Mary.', solo=owlfss], ContentType, Content).
 % So it seems that values above 18 do not make sense.
 
 :- assert(user:file_search_path(ape, '.')).
+:- prolog_load_context(directory, Dir),
+	asserta(user:file_search_path(ape, Dir)).
 
 
 :- use_module(ape('utils/morphgen'), [
