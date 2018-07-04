@@ -50,6 +50,8 @@ communicated to Java?
 
 */
 
+:- consult('pack.pl').
+
 :- use_module(get_ape_results, [
 		get_ape_results/2,
 		get_ape_results_timelimit/3,
@@ -220,7 +222,8 @@ show_help.
 % Prints the version information.
 %
 show_version :-
-	format("Attempto Parsing Engine for ACE 6.7, version ~w~n", ['6.7-131003']).
+	version(Version),
+	format("Attempto Parsing Engine for ACE 6.7, version ~w~n", [Version]).
 
 
 %% arglist_namevaluelist(+ArgList:list, -NameValueList:list) is det.
