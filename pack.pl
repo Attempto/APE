@@ -1,5 +1,5 @@
 name(ape).
-version('6.7-131003').
+version('6.7.131003').
 
 % see http://www.swi-prolog.org/howto/PackInfo.html
 
