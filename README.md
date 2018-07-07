@@ -24,6 +24,9 @@ Unix system. Both files are located in the root directory of the APE distributio
 given that there were no compilation errors), a new file `ape.exe` is created in the current
 directory.
 
+(In some unlikely cases you might have to change the size of the memory areas
+used by SWI-Prolog. This is documented at <http://www.swi-prolog.org/pldoc/man?section=memlimit>.)
+
 
 Execution
 ---------
