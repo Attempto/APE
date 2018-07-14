@@ -1,4 +1,4 @@
-#!/opt/local/bin/swipl -f none -g main -t halt -s
+#!/usr/bin/swipl -f none -g main -t halt -s
 
 /**
 *
@@ -15,9 +15,15 @@
 */
 
 % We point to the directory where APE modules and the lexicons are located.
-:- assert(user:file_search_path(ape, '../')).
+:- assert(user:file_search_path(ape, '../prolog')).
 
-:- compile(acetexts).
+% We point to the directory where the regression test set is located.
+:- assert(user:file_search_path(rt, '.')).
+
+% Consult the regression test set.
+:- style_check(-singleton).
+:- consult(rt(acetexts)).
+:- style_check(+singleton).
 
 :- use_module(ape('parser/ace_to_drs'), [
 		acetext_to_drs/5

@@ -13,23 +13,23 @@
 % Parsing Engine (APE). If not, see http://www.gnu.org/licenses/.
 
 
-:- use_module(utils/drs_to_drslist).
+:- use_module(prolog/utils/drs_to_drslist).
 
-:- use_module(parser/ace_to_drs).
-:- use_module(parser/ape_utils).
-:- use_module(parser/tokenizer).
-:- use_module(utils/morphgen, [
+:- use_module(prolog/parser/ace_to_drs).
+:- use_module(prolog/parser/ape_utils).
+:- use_module(prolog/parser/tokenizer).
+:- use_module(prolog/utils/morphgen, [
 	acesentencelist_pp/2
 	]).
-:- use_module(utils/is_wellformed, [
+:- use_module(prolog/utils/is_wellformed, [
 	is_wellformed/1
 	]).
-:- use_module(utils/drs_to_ascii).
-:- use_module(utils/trees_to_ascii).
-:- use_module(utils/drs_to_ace, [
+:- use_module(prolog/utils/drs_to_ascii).
+:- use_module(prolog/utils/trees_to_ascii).
+:- use_module(prolog/utils/drs_to_ace, [
 	drs_to_ace/2
 	]).
-:- use_module(logger/error_logger, [
+:- use_module(prolog/logger/error_logger, [
 	clear_messages/0,
 	get_messages/1,
 	is_error_message/4
@@ -40,8 +40,8 @@
 % Import the lexicons
 :- style_check(-singleton).
 :- style_check(-discontiguous).
-:- use_module(lexicon/clex).
-:- use_module(lexicon/ulex).
+:- use_module(prolog/lexicon/clex).
+:- use_module(prolog/lexicon/ulex).
 :- style_check(+discontiguous).
 :- style_check(+singleton).
 
@@ -102,9 +102,9 @@ call_parser(_, [help]) :-
 call_parser(_, [gr]) :-
 	style_check(-discontiguous),
 	style_check(-singleton),
-	compile('parser/grammar.plp'),
-	compile('parser/grammar_functionwords.plp'),
-	compile('parser/grammar_contentwords.plp'),
+	compile('prolog/parser/grammar.plp'),
+	compile('prolog/parser/grammar_functionwords.plp'),
+	compile('prolog/parser/grammar_contentwords.plp'),
 	style_check(+discontiguous),
 	style_check(+singleton),
 	!,
@@ -180,7 +180,7 @@ print_messages([H | T]) :-
 %
 %
 make_ape :-
-	working_directory(Old, parser),
+	working_directory(Old, 'prolog/parser'),
 	compile(fit_to_plp),
 	working_directory(_, Old),
 	make.

@@ -1,6 +1,13 @@
 APE Change Log
 ==============
 
+Version 6.7-180714
+------------------
+
+- Package APE as a [SWI-Prolog extension package](http://www.swi-prolog.org/howto/Pack.txt)
+  (Thanks to @fnogatz, see more at https://github.com/Attempto/APE/pull/24)
+- Small fixes to improve compatibility with dependencies
+
 Version 6.7-131003
 ------------------
 

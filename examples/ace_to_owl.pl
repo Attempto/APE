@@ -8,7 +8,7 @@ A simple Prolog commandline interface ('cli') is provided.
 */
 
 % We point to the directory where APE modules and the lexicons are located.
-:- assert(user:file_search_path(ape, '..')).
+:- assert(user:file_search_path(ape, '../prolog')).
 
 :- use_module(ape('parser/ace_to_drs'), [
 		acetext_to_drs/5

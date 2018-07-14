@@ -15,8 +15,6 @@
 # download the testset manually before running the script (without `d', in this case).
 
 prolog=swipl
-#prolog=/usr/local/lib/swipl-6.4.1/bin/x86_64-linux/swipl
-#prolog=/opt/local/bin/swipl
 #prolog=`which swipl`
 
 #downloader='curl -o'
@@ -51,7 +49,7 @@ fi
 mkdir -p testruns/
 
 # Convert fit-files into plp-files.
-$prolog -g "working_directory(_, '../parser'), [fit_to_plp], halt."
+$prolog -g "working_directory(_, '../prolog/parser'), [fit_to_plp], halt."
 
 # Run the regression test.
 #time echo "[test_ape]. main. halt." | $prolog -q > testruns/rtest_$timestamp.txt

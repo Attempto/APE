@@ -11,6 +11,9 @@ Introduction
 This document explains how to test APE including the various DRS translators
 that APE contains.
 
+It is recommended to run `bash rtest.bash` first because it downloads the large
+lexicon used by all the test scripts in this directory.
+
 
 ### APE Regression test
 

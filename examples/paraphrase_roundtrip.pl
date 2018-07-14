@@ -12,7 +12,7 @@ This is an example that shows how to
 */
 
 % We point to the directory where APE modules and the lexicons are located.
-:- assert(user:file_search_path(ape, '..')).
+:- assert(user:file_search_path(ape, '../prolog')).
 
 % We import the needed modules.
 :- use_module(ape(parser/ace_to_drs), [acetext_to_drs/8]).

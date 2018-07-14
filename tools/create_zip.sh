@@ -6,9 +6,9 @@
 # in 'ape-6.7'.
 #
 echo Compiling APE...
-cd ../parser
+cd ../prolog/parser
 bash compile.sh
-cd ..
+cd ../..
 
 echo Building the Java Interface for APE...
 cd java
@@ -26,13 +26,14 @@ rm ape-*.zip
 timestamp=`date '+%y%m%d'`
 
 zip -r \
-    ape-6.7-$timestamp.zip \
+    ape-6.7.$timestamp.zip \
         ape.pl \
+        pack.pl \
         CHANGES.md \
         get_ape_results.pl \
         LICENSE.txt \
         make_exe.bat \
-        make_exe.sh \
+        Makefile \
         README.md \
         runape.pl \
         run.sh \
@@ -44,10 +45,11 @@ zip -r \
         java/src/ \
         java/target/*.jar \
         java/target/site \
-        lexicon/ \
-        logger/ \
-        parser/ \
-        utils/ \
+        prolog/ape.pl \
+        prolog/lexicon/ \
+        prolog/logger/ \
+        prolog/parser/ \
+        prolog/utils/ \
     -x \
         \*.gitignore \*.plp
 

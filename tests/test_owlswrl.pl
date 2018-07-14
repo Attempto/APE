@@ -2,7 +2,7 @@
 % $ swipl -f none -g main -t halt -s test_owlswrl.pl
 % Writes the test results into STDIN and statistics into STDERR.
 
-:- assert(user:file_search_path(ape, '../')).
+:- assert(user:file_search_path(ape, '../prolog')).
 
 :- use_module(ape('parser/ace_to_drs'), [
 		acetext_to_drs/5
@@ -28,9 +28,6 @@
 :- use_module(ape('lexicon/ulex'), [
 		read_ulex/1
 	]).
-
-
-
 
 :- set_prolog_flag(float_format, '%.11g').
 

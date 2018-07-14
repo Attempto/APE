@@ -40,7 +40,7 @@ swipl -f make_acetext_drs.pl -g main -t halt -q > acetext_drs.pl
 */
 
 % We point to the directory where APE modules and the lexicons are located.
-:- assert(user:file_search_path(ape, '..')).
+:- assert(user:file_search_path(ape, '../prolog')).
 
 % We point to the directory where the regression test set is located.
 :- assert(user:file_search_path(rt, '.')).

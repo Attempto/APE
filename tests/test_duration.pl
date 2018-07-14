@@ -11,15 +11,24 @@
 * - benchmark all the main components separately
 */
 
-:- use_module('../parser/ace_to_drs', [
-	acetext_to_drs/5
+% We point to the directory where APE modules and the lexicons are located.
+:- assert(user:file_search_path(ape, '../prolog')).
+
+% We point to the directory where the regression test set is located.
+:- assert(user:file_search_path(rt, '.')).
+
+:- use_module(ape('parser/ace_to_drs'), [
+		acetext_to_drs/5
 	]).
 
-:- compile(acetexts).
-
-:- use_module('../parser/ape_utils', [
-	cpu_time/2
+:- use_module(ape('parser/ape_utils'), [
+		cpu_time/2
 	]).
+
+% Consult the regression test set.
+:- style_check(-singleton).
+:- consult(rt(acetexts)).
+:- style_check(+singleton).
 
 % Import the lexicons
 :- style_check(-discontiguous).

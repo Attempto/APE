@@ -18,16 +18,12 @@
 @author Tobias Kuhn
 @author Kaarel Kaljurand
 
-Building the executable file (stack sizes are in kilobytes):
+Building the executable file:
 
 ==
-swipl -g "working_directory(_, 'parser'), [fit_to_plp], halt."
-swipl -O -F none -g "[ape], qsave_program('ape.exe', [goal(ape), toplevel(halt), local(25000), global(50000)])." -t halt
+swipl -g "working_directory(_, 'prolog/parser'), [fit_to_plp], halt."
+swipl -O -F none -g "[ape], qsave_program('ape.exe', [goal(ape), toplevel(halt)])." -t halt
 ==
-
-Note that you can use smaller stack sizes if needed. It is known that global stack of 25600 was not
-enough to parse 1687 sentences of the Ordnance Survey Hydrology ontology verbalization.
-
 
 TODO:
 

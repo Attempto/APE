@@ -1,4 +1,4 @@
-#!/opt/local/bin/swipl -f none -g test_drace(core) -t halt -s
+#!/usr/bin/swipl -f none -g test_drace(core) -t halt -s
 
 /**
 * @title Test Drace Core or Drace NP
@@ -31,10 +31,15 @@
 */
 
 % We point to the directory where APE modules and the lexicons are located.
-:- assert(user:file_search_path(ape, '../')).
+:- assert(user:file_search_path(ape, '../prolog')).
 
+% We point to the directory where the regression test set is located.
+:- assert(user:file_search_path(rt, '.')).
 
-:- compile(acetexts).
+% Consult the regression test set.
+:- style_check(-singleton).
+:- consult(rt(acetexts)).
+:- style_check(+singleton).
 
 :- use_module(ape('parser/ace_to_drs'), [
 		acetext_to_drs/5

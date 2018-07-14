@@ -24,7 +24,7 @@ swipl -s output_tests.pl -t halt -g main
 */
 
 % We point to the directory where APE modules and the lexicons are located.
-:- assert(user:file_search_path(ape, '..')).
+:- assert(user:file_search_path(ape, '../prolog')).
 
 :- use_module(ape('parser/tokenizer'), [
 		tokenize/2
@@ -38,6 +38,8 @@ swipl -s output_tests.pl -t halt -g main
 		atom_capitalize/2,
 		pronoun_split/3
 	]).
+
+:- assert(user:file_search_path(ape, '..')).
 
 :- consult(ape('tests/acetexts')).
 

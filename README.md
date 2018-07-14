@@ -19,8 +19,8 @@ Compilation
 -----------
 
 Before you can run APE, you have to compile the APE source code. Just execute the file
-`make_exe.bat` in the case of Windows or `make_exe.sh` in the case of Mac OS X, Linux, or any other
-Unix system. Both files are located in the root directory of the APE distribution. As a result (and
+`make_exe.bat` in the case of Windows or `make install` in the case of Mac OS X, Linux, or any other
+Unix system. Both the bat-file and the Makefile are located in the root directory of the APE distribution. As a result (and
 given that there were no compilation errors), a new file `ape.exe` is created in the current
 directory.
 
@@ -245,7 +245,8 @@ context of `ape.exe`. For example, the following command displays the source cod
 Code
 ----
 
-The distribution includes the following packages containing the main code in Prolog:
+The distribution includes the following packages containing the main code in Prolog
+(in the prolog-directory):
 
 - `logger/`  contains the error logger module
 - `lexicon/` contains various lexicon files, notably a content words lexicon with ~2,000 entries
