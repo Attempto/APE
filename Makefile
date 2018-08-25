@@ -1,8 +1,9 @@
-# Unofficial Makefile for some tasks
 # Tested only on Ubuntu Linux.
+# For Windows builds use make_exe.bat
 
 SHELL=/bin/bash
 
+swipl = swipl
 version = 6.7
 
 text1 = "John likes Mary."
@@ -17,6 +18,7 @@ help:
 	@echo Targets:
 	@echo
 	@echo "  build: builds ape.exe"
+	@echo "install: (same as build)"
 	@echo "    doc: generates documentation"
 	@echo "  clean: deletes automatically generatable files"
 	@echo "   test: runs some tests"
@@ -24,7 +26,7 @@ help:
 
 
 build:
-	swipl -O -F none -g "working_directory(_, 'prolog/parser'), [fit_to_plp], halt." -t halt ; swipl -O -f ape.pl -g "qsave_program('ape.exe', [goal(ape), toplevel(halt)])." -t halt
+	$(swipl) -O -F none -g "working_directory(_, 'prolog/parser'), [fit_to_plp], halt." -t halt ; $(swipl) -O -f ape.pl -g "qsave_program('ape.exe', [goal(ape), toplevel(halt)])." -t halt
 
 install: build
 
