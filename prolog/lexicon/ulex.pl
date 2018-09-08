@@ -75,7 +75,9 @@ read_ulex(LexiconStream) :-
 		),
 		_CatchType,
 		(
-			with_output_to(atom(Message), format("The user lexicon file is not a valid Prolog file.", [])),
+			line_count(LexiconStream, MalformedLine),
+			atom_concat("The use lexicon file is not a valid Prolog file. Check line ", MalformedLine, RepairMessage),
+			with_output_to(atom(Message), format(RepairMessage, [])),
 			add_error_message_once(lexicon, '', 'Malformed file.', Message)
 		)
 	),
