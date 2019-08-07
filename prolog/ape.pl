@@ -268,7 +268,8 @@ get_solo_content(SoloType, TempResult, ContentType, Content) :-
 	;
 		Content = OutputContent,
 		ContentType = OutputContentType
-	).
+	),
+	!.
 
 get_solo_content(SoloType, _, 'text/plain', 'ERROR: Unexpected error.') :-
 	output_type(SoloType),
