@@ -35,8 +35,6 @@
 :- op(500, xfx, =>).
 :- op(500, xfx, v).
 
-:- style_check(-atom).
-
 
 %% drs_to_html(+Drs:term, -DrsHtml:atom) is det.
 %
