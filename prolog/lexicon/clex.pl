@@ -17,6 +17,7 @@
 		clex_switch/1,     % ?Switch
 		set_clex_switch/1  % +Switch
 	]).
+:- use_module(library(error)).
 
 /** <module> Common Lexicon Interface
 
@@ -90,6 +91,6 @@ clex_switch(on).
 % This predicate switches clex on (Switch='on') or off (Switch='off').
 
 set_clex_switch(Switch) :-
-    member(Switch, [on, off]),
+    must_be(oneof([on,off]), Switch),
     retractall(clex_switch(_)),
     assert(clex_switch(Switch)).
