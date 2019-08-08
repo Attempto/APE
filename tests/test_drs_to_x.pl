@@ -108,4 +108,6 @@ check_and_output_error(time_limit_exceeded) :-
 	format("ERROR\t~w~n", ['Time limit exceeded']).
 
 check_and_output_error(error(Message, context(Pred, Arg))) :-
-	format("ERROR\t~w\t~w\t~w~n", [Message, Pred, Arg]).
+	\+ \+ ( numbervars(Arg, 0, _, [singletons(true)]),
+		format("ERROR\t~w\t~w\t~w~n", [Message, Pred, Arg])
+	      ).
