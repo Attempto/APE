@@ -19,7 +19,7 @@
 :- use_module(ape('logger/error_logger'), [
 		clear_messages/0,
 		get_messages/1
-	]). 
+	]).
 
 :- use_module(ape('utils/xmlterm_to_xmlatom'), [
 		xmlterm_to_xmlatom/2
@@ -28,8 +28,6 @@
 :- use_module(ape('lexicon/ulex'), [
 		read_ulex/1
 	]).
-
-:- set_prolog_flag(float_format, '%.11g').
 
 t('1-1', 'Every man is a human.').
 t('1-2', 'Every man is somebody.').
