@@ -510,8 +510,11 @@ store_as_file(ID, Atom) :-
 
 set_up_lexicon :-
 	% Read the large lexicon into ulex
-	open('clex_lexicon.pl', read, Stream),
-	call_cleanup(read_ulex(Stream), close(Stream)),
+	absolute_file_name(ape('lexicon/clex_lexicon.pl'), CLex, [access(read)]),
+	setup_call_cleanup(
+	    open(CLex, read, Stream),
+	    read_ulex(Stream),
+	    close(Stream)),
 	% Override some entries
 	asserta(ulex:noun_sg(apple, 'iri|http://www.example.org/words#apple', neutr)),
 	asserta(ulex:pn_sg('Bill', iri('http://www.example.org/words#Bill'), neutr)).
