@@ -79,11 +79,8 @@ read_ulex(LexiconStream) :-
 			with_output_to(atom(Message), format("The user lexicon file is not a valid Prolog file. Check line ~d", [MalformedLineNum])),
 			add_error_message_once(lexicon, '', 'Malformed file.', Message)
 		)
-	), !,
-	close(LexiconStream).
-
-read_ulex(LexiconStream) :-
-	close(LexiconStream).
+	), !.
+read_ulex(_).
 
 
 %% read_lexicon_entries(+Stream)
@@ -93,10 +90,10 @@ read_ulex(LexiconStream) :-
 read_lexicon_entries(Stream) :-
     read(Stream, LexEntry),
     ( LexEntry == end_of_file ->
-    	true
+	true
     ;
-    	add_lexicon_entry(LexEntry),
-    	read_lexicon_entries(Stream)
+	add_lexicon_entry(LexEntry),
+	read_lexicon_entries(Stream)
     ).
 
 

@@ -448,10 +448,10 @@ load_ulex(Input) :-
 	get_value(Input, ulextext, Ulex),
 	!,
 	discard_ulex,
-    atom_to_memory_file(Ulex, UlexHandle),
-    open_memory_file(UlexHandle, read, UlexStream),
-    read_ulex(UlexStream),
-    free_memory_file(UlexHandle).
+    setup_call_cleanup(
+	open_string(Ulex, UlexStream),
+	read_ulex(UlexStream),
+	close(UlexStream)).
 
 load_ulex(_).
 
