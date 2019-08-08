@@ -510,11 +510,37 @@ store_as_file(ID, Atom) :-
 
 set_up_lexicon :-
 	% Read the large lexicon into ulex
-	absolute_file_name(ape('lexicon/clex_lexicon.pl'), CLex, [access(read)]),
+	ensure_clex,
 	setup_call_cleanup(
-	    open(CLex, read, Stream),
+	    open('clex_lexicon.pl', read, Stream),
 	    read_ulex(Stream),
 	    close(Stream)),
 	% Override some entries
 	asserta(ulex:noun_sg(apple, 'iri|http://www.example.org/words#apple', neutr)),
 	asserta(ulex:pn_sg('Bill', iri('http://www.example.org/words#Bill'), neutr)).
+
+
+%!	ensure_clex
+%
+%	Download thje CLex database.  The remote one is in UTF-8.  We
+%	convert it to the default encoding.
+
+clex_download_url('https://raw.github.com/Attempto/Clex/master/clex_lexicon.pl').
+
+ensure_clex :-
+	exists_file('clex_lexicon.pl'), !.
+ensure_clex :-
+	format(user_error,
+	       "Downloading the large Clex lexicon \c
+	       (from github.com/Attempto/Clex~n", []),
+	use_module(library(http/http_open)),
+	clex_download_url(URL),
+	setup_call_cleanup(
+	    (	http_open(URL, In, []),
+		set_stream(In, encoding(utf8))
+	    ),
+	    setup_call_cleanup(
+		open('clex_lexicon.pl', write, Out),
+		copy_stream_data(In, Out),
+		close(Out)),
+	    close(In)).
