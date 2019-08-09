@@ -532,7 +532,7 @@ ensure_clex :-
 ensure_clex :-
 	format(user_error,
 	       "Downloading the large Clex lexicon \c
-	       (from github.com/Attempto/Clex~n", []),
+	       (from github.com/Attempto/Clex)~n", []),
 	use_module(library(http/http_open)),
 	clex_download_url(URL),
 	setup_call_cleanup(
