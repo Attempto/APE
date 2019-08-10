@@ -14,7 +14,7 @@ that APE contains.
 All the test scripts in this directory depend on a larger lexicon than included
 with APE. In order to download the required lexicon, first run
 
-    swipl -f none -g set_up_lexicon -t halt -s test_owlswrl.pl
+    swipl -f none -g ensure_clex -t halt -s downloader.pl
 
 
 ### APE Regression test
@@ -26,11 +26,7 @@ To regression test APE, just run:
 or if you want to download the latest regression testset first
 then run:
 
-    bash rtest.bash d
-
-Note that for the above command to work you need an internet connection,
-and `curl` installed. (If you edit the script `rtest.bash`, then you can
-replace the need for `curl` with the need for `wget`.)
+    swipl -f none -g download_acetexts -t halt -s downloader.pl
 
 A file with a timestamp containing the regression test results
 along with APE's output is stored into the `testruns`-directory.
