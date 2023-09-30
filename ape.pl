@@ -390,10 +390,15 @@ you have to wait a few (two?) minutes. Observe it with 'netstat -na'.
 :- use_module(library('http/http_dispatch')).
 :- use_module(library('http/http_parameters')).
 :- use_module(library('http/http_client')).
+:- use_module(library('http/http_cors')).
 
 
 % Configure the port.
 http_port(8000).
+
+% Allow any origin.
+% TODO: make configurable on the command-line
+:- set_setting(http:cors, [*]).
 
 % Configure the www root.
 :- http_handler('/', ape, []).
@@ -469,6 +474,7 @@ ape(Request) :-
 		Exception,
 		format_error_for_http(Exception, ContentType, Content)
 	),
+	cors_enable(Request, [methods([get])]),
 	format('Content-type: ~w\r\n\r\n~w', [ContentType, Content]).
 
 
