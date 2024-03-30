@@ -17,8 +17,9 @@ all: help
 help:
 	@echo Targets:
 	@echo
-	@echo "  build: builds ape.exe"
-	@echo "install: (same as build)"
+	@echo "    plp: compiles fit-files into plp-files"
+	@echo "install: builds ape.exe"
+	@echo "  build: (deprecated: use install)"
 	@echo "    doc: generates documentation"
 	@echo "  clean: deletes automatically generatable files"
 	@echo "   test: runs some tests"
@@ -28,7 +29,11 @@ help:
 build:
 	$(swipl) -O -F none -g "working_directory(_, 'prolog/parser'), [fit_to_plp], halt." -t halt ; $(swipl) -O -f ape.pl -g "qsave_program('ape.exe', [goal(ape), toplevel(halt)])." -t halt
 
-install: build
+plp:
+	$(swipl) -O -F none -g "working_directory(_, 'prolog/parser'), [fit_to_plp], halt." -t halt
+
+install: plp
+	$(swipl) -O -f ape.pl -g "qsave_program('ape.exe', [goal(ape), toplevel(halt)])." -t halt
 
 check:
 
