@@ -391,6 +391,7 @@ you have to wait a few (two?) minutes. Observe it with 'netstat -na'.
 :- use_module(library('http/http_parameters')).
 :- use_module(library('http/http_client')).
 :- use_module(library('http/http_cors')).
+:- use_module(library('http/http_files')).
 
 
 % Configure the port.
@@ -403,6 +404,12 @@ http_port(8000).
 % Configure the www root.
 :- http_handler('/', ape, []).
 %:- http_handler('/ape/', ape, []).
+
+:-
+	getenv('APE_HTTPSERVER_FILES_PATH', Path),
+	getenv('APE_HTTPSERVER_FILES_DIR', Dir),
+	http_handler(Path, http_reply_from_files(Dir, []), [prefix]);
+	true.
 
 % Configure the APE webservice parameters.
 % @bug unify this with the main argument description
