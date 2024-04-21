@@ -366,13 +366,14 @@ The HTTP interface relies on SWI-Prolog HTTP support.
 
 @see http://www.swi-prolog.org/packages/http.html
 
-Note that the number of workers is set to 1.
+Note that the number of workers is set to 1 (default is 5).
 Multiple workers would share the same assert/retract space and we do not want that
 because APE is not completely thread-safe.
 A better solution would be to make APE thread-safe and let the user decide on
 the command-line on the number of workers (because the best-performing
 number depends on the number of processor cores).
-Note that the SWI default is 2 workers (which seems to make sense even with single-core processors).
+Setting the number of workers to 1 seems to make the server unresponsive at times,
+thus lowering the timeout from the default 60 sec to 5 sec.
 
 At Prolog prompt, stop the server by:
 
@@ -461,7 +462,7 @@ http_server :-
 http_server(Port) :-
 	get_time_formatted(Time),
 	format(user_error, "~w: Starting an HTTP interface for APE at port ~w ...~n", [Time, Port]),
-	http_server(http_dispatch, [port(Port), workers(1)]),
+	http_server(http_dispatch, [port(Port), workers(1), timeout(5)]),
 	thread_get_message(_),
 	halt.
 
